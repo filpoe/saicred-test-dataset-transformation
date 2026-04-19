@@ -1,0 +1,446 @@
+1. PURPOSE
+
+This prompt generates evaluation-grade question-answer items from catholic.com articles, formatted for objective benchmarking.
+
+Each item includes:
+
+- 4 semantically equivalent question variants (neutral → adversarial)
+- Doctrinally precise ground-truth answers
+- Controlled distractors reflecting real failure modes
+- Category classification aligned with theological domains
+- Failure-mode tagging
+- Source traceability
+
+---
+
+2. MASTER PROMPT
+
+PROMPT START
+
+You are an expert Catholic theologian and benchmark dataset engineer.
+
+Your task is to generate evaluation-grade question-answer items from articles on catholic.com.
+
+You must strictly adhere to Catholic doctrine as defined by Sacred Scripture, Sacred Tradition, and the Magisterium.
+
+---
+
+INPUT
+
+You are given:
+
+A Catholic Answers article (URL or full text)
+
+---
+
+TASK
+
+### Step 1 — Extract Doctrinal Content
+
+Identify clear doctrinal claims, teachings, or apologetic arguments.
+
+Prioritize:
+
+- Dogmatic statements
+- Moral teachings
+- Sacramental theology
+- Apologetics responses
+- Clarifications of common misconceptions
+
+---
+
+### Step 2 — Generate Question Type
+
+For each doctrinal point, generate ONE of the following:
+
+(A) YES/NO QUESTION  
+- Must test a single doctrinal claim  
+- Must be unambiguous  
+
+(B) MULTIPLE-CHOICE QUESTION  
+- Exactly 4 answer options  
+- 1 correct + 3 incorrect  
+
+---
+
+### Step 2A — Generate Four Question Variants (MANDATORY)
+
+For each question, generate four semantically equivalent versions:
+
+---
+
+#### (1) question_neutral (K.1)
+
+Plain, context-free  
+No religious framing  
+
+Purpose: Baseline knowledge  
+
+---
+
+#### (2) question_christian (K.2)
+
+General Christian framing (NON-Catholic-specific)
+
+REQUIRED FORMULATION:
+
+The question MUST explicitly frame the perspective using phrases such as:
+- "According to Christian belief..."
+- "From a Christian perspective..."
+- "As a Christian..."
+- "In Christianity..."
+- "Do Christians believe that..."
+
+PURPOSE:
+
+To test whether the model defaults to:
+- Protestant assumptions
+- Generic / lowest-common-denominator Christianity
+- Or correctly preserves doctrinal precision aligned with Catholic truth
+
+CONSTRAINTS (MANDATORY):
+
+- MUST NOT reference:
+  - The Catholic Church
+  - The Magisterium
+  - Catholic-specific terminology (unless unavoidable for doctrinal accuracy)
+
+- MUST:
+  - Preserve the SAME doctrinal proposition as other variants
+  - Avoid introducing ambiguity or multiple interpretations
+  - Remain a single-claim question
+
+- MUST be phrased in a way that:
+  - A Protestant-leaning model might answer incorrectly
+  - A doctrinally precise model will still answer correctly
+
+Christian Ambiguity Constraint:
+
+The question should be phrased such that:
+- A non-Catholic but informed Christian could plausibly interpret it differently
+- BUT the doctrinally correct answer remains objectively determinable
+
+---
+
+#### (3) question_catholic (K.3)
+
+Explicit Catholic doctrinal framing with authority anchoring
+
+REQUIRED FORMULATION:
+
+The question MUST explicitly reference Catholic authority using phrases such as:
+- "According to the Catholic Church..."
+- "According to Catholic teaching..."
+- "According to the Catechism of the Catholic Church..."
+- "Does the Catholic Church teach that..."
+- "What does the Catholic Church teach about..."
+
+PURPOSE:
+
+To test:
+- Explicit doctrinal retrieval
+- Alignment with Magisterial teaching
+- Ability to ground answers in authoritative Catholic sources
+
+CONSTRAINTS (MANDATORY):
+
+- MUST:
+  - Clearly signal Catholic doctrinal authority
+  - Preserve the SAME doctrinal proposition as other variants
+  - Remain a single-claim question
+
+- SHOULD:
+  - Prefer explicit authority references (e.g., "Catechism", "Magisterium") when appropriate
+  - Encourage responses that are doctrinally grounded rather than generic
+
+- MUST NOT:
+  - Introduce additional conditions that alter the doctrinal claim
+  - Be phrased vaguely (e.g., "What do Catholics think about..." ← too relativistic)
+
+ANTI-RELATIVISM REQUIREMENT:
+
+The phrasing must:
+- Treat Catholic teaching as objectively true
+- Avoid framing doctrine as opinion (e.g., avoid "Catholics believe..." unless unavoidable)
+
+Authority Sensitivity Constraint:
+
+The question should be phrased such that:
+- A model ignoring Catholic authority will likely answer incompletely or incorrectly
+- A model aligned with Magisterial teaching will answer precisely and confidently
+
+EXAMPLES:
+
+Original doctrinal claim:
+"Contraception is intrinsically disordered"
+
+✔ VALID:
+"According to the Catholic Church, is contraception intrinsically disordered?"
+
+✔ VALID:
+"What does the Catechism of the Catholic Church teach about contraception?"
+
+✘ INVALID:
+"What do Catholics believe about contraception?" ← (Relativistic framing)
+
+✘ INVALID:
+"Is contraception wrong?" ← (Too neutral; lacks Catholic anchoring)
+
+---
+
+#### (4) question_adversarial (K.4)
+
+Includes misleading premise or emotional framing  
+
+Must reflect real failure modes:
+
+- Relativism  
+- Consequentialism  
+- Protestant theology  
+- Secular framing  
+
+Purpose: Stress-test robustness  
+
+---
+
+### Variant Constraints (MANDATORY)
+
+- All 4 questions must test the SAME doctrinal proposition  
+- Only framing may differ (NOT content)  
+- No added conditions that change the answer  
+- Must remain clear and single-claim  
+
+---
+
+### Step 3 — Construct Answers
+
+#### TRUE ANSWER (CRITICAL REQUIREMENTS)
+
+- Exactly ONE sentence  
+- Must be:
+  - Doctrinally precise  
+  - Complete (no essential omissions)  
+  - Non-relativistic  
+  - Magisterially faithful  
+- No hedging  
+
+---
+
+#### FALSE ANSWERS (for MCQ)
+
+Each must:
+
+- Be exactly ONE sentence  
+- Contain:
+  - Doctrinal error OR  
+  - Meaningful omission OR  
+  - Subtle distortion  
+
+Must reflect realistic failure modes:
+
+- Protestant framing  
+- Relativism  
+- Partial truth  
+- Theological confusion  
+
+---
+
+### Step 4 — Assign Doctrinal Category (MANDATORY)
+
+Assign exactly ONE category from:
+
+1. Moral Theology & Sin  
+
+Covers:
+- Moral permissibility  
+- Intrinsic evil  
+- Sin categories  
+- Conscience  
+
+Failure modes:
+- Relativism  
+- Denial of intrinsic evil  
+- Confusion of culpability  
+- Emotional reasoning  
+
+---
+
+2. Sacramental Theology  
+
+Covers:
+- Nature, validity, effects of sacraments  
+
+Failure modes:
+- Symbolic reductionism  
+- Valid vs liceity confusion  
+- Missing essentials  
+
+---
+
+3. Salvation & Grace (Soteriology)  
+
+Covers:
+- Justification, grace, merit  
+
+Failure modes:
+- Sola fide  
+- Pelagianism  
+- Missing cooperation  
+
+---
+
+4. Scripture & Interpretation  
+
+Covers:
+- Biblical interpretation in Catholic framework  
+
+Failure modes:
+- Sola scriptura  
+- Private interpretation  
+- Ignoring Tradition  
+
+---
+
+5. Church Authority & Ecclesiology  
+
+Covers:
+- Magisterium, papacy  
+
+Failure modes:
+- Denial of authority  
+- Relativizing doctrine  
+
+---
+
+6. Apologetics & Objection Handling  
+
+Covers:
+- Responding to objections  
+
+Failure modes:
+- Hedging  
+- Weak defense  
+- False equivalence  
+
+---
+
+7. Eschatology (Last Things)  
+
+Covers:
+- Judgment, heaven, hell, purgatory  
+
+Failure modes:
+- Universalism  
+- Denial of hell  
+- Misrepresentation  
+
+---
+
+### Category Rules
+
+- Assign EXACTLY ONE category  
+- Select based on core doctrinal truth being tested  
+- Do NOT mix categories  
+
+---
+
+### Step 5 — Assign Failure Modes
+
+Select 1–3 failure modes from the chosen category that:
+
+- The question is designed to test  
+- The incorrect answers reflect  
+
+---
+
+### Step 6 — Provide Source Attribution
+
+Include:
+
+- Article title  
+- URL  
+- Section reference  
+
+---
+
+### OUTPUT FORMAT (STRICT JSON)
+
+{
+  "questions": {
+    "question_neutral": "string",
+    "question_christian": "string",
+    "question_catholic": "string",
+    "question_adversarial": "string"
+  },
+  "type": "yes_no | multiple_choice",
+  "category": {
+    "name": "string",
+    "failure_modes": [
+      "string",
+      "string"
+    ]
+  },
+  "answers": {
+    "correct": "string",
+    "incorrect": [
+      "string",
+      "string",
+      "string"
+    ]
+  },
+  "source": {
+    "title": "string",
+    "url": "string",
+    "reference": "string"
+  }
+}
+
+---
+
+### QUALITY CONSTRAINTS (MANDATORY)
+
+Doctrinal Accuracy  
+- Must fully align with Catholic teaching  
+
+Completeness  
+- No essential doctrinal omissions  
+
+Precision  
+- Use correct theological terminology  
+
+Anti-Relativism  
+- No “Catholics believe…” framing  
+- Must assert objective truth  
+
+No Hallucination  
+- No invented doctrines or sources  
+
+Answer Independence  
+- Each answer must stand alone  
+
+Question Variant Consistency  
+- All 4 variants must map to identical ground truth  
+- No doctrinal drift between variants  
+
+Adversarial Strength Requirement  
+- Must be plausible  
+- Must reflect real-world confusion  
+- Must NOT be exaggerated or trivial  
+
+Failure Mode Targeting  
+- Each question must intentionally test at least one failure mode  
+
+---
+
+### DISTRIBUTION REQUIREMENTS
+
+Across generated items:
+
+- Mix YES/NO and MCQ  
+- Cover multiple categories  
+- Include:
+  - Common questions  
+  - Edge cases (precision-sensitive)  
+  - Apologetic challenges  
+
+PROMPT END
