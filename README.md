@@ -61,6 +61,8 @@ The transformer expands each parent item into four final benchmark rows:
 
 `prompt_catholic_benchmark_qa_generation.md`: prompt used to generate new intermediate dataset items by pulling doctrinal source material from Catholic Answers through their website, `catholic.com`. The prompt expects either a Catholic Answers URL or article text, then asks the model to extract doctrinal claims, create question variants, assign answer keys, and preserve source attribution.
 
+`master_dataset_workflow_prompt.md`: operator prompt that tells an LLM agent how to run the full workflow end to end, including asking how many Q&A pairs to generate, creating intermediate JSON, transforming it, saving versioned files, validating outputs, and running tests.
+
 `intermediate_qa_schema_v2.json`: expected structure for newly generated intermediate data.
 
 `final_qa_schema.md`: target flattened benchmark format.
@@ -86,7 +88,19 @@ Note: this sample was generated before `variant_ground_truth` was added to the i
 
 ## Generate A New Dataset
 
-Use this workflow when creating a new dataset version.
+This workflow assumes you are running in an environment where the LLM agent can:
+
+- read the repository files, especially `master_dataset_workflow_prompt.md`, `prompt_catholic_benchmark_qa_generation.md`, `intermediate_qa_schema_v2.json`, and `final_qa_schema.md`
+- write new JSON files into `data/`
+- run shell commands such as `python3 -m json.tool`, `python3 transform_intermediate_to_final.py`, and `python3 -m unittest discover -s tests`
+- access Catholic Answers source material from `catholic.com`, either through web access or through article text provided by the user
+- keep `archived_data/` local and ignored by Git
+
+If the LLM agent does not have web access, provide the Catholic Answers article text directly. If the agent cannot run shell commands, it can still generate intermediate JSON, but a human should run the transform and validation commands afterward.
+
+Recommended path: give `master_dataset_workflow_prompt.md` to an LLM agent and let it run the full workflow. The master prompt instructs the agent to ask how many parent Q&A pairs to generate, ask which Catholic Answers source material to use, generate the intermediate JSON, transform it, save versioned files, validate both outputs, run tests, and archive older generated data.
+
+Use the manual workflow below only if you want to perform each step yourself:
 
 1. Open `prompt_catholic_benchmark_qa_generation.md`.
 2. Provide Catholic Answers source material, either as a URL or article text.
