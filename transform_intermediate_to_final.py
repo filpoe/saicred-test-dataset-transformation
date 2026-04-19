@@ -34,10 +34,10 @@ def convert_intermediate_to_final(
     Convert a list of intermediate benchmark items into the final flat schema.
 
     Input schema source:
-      intermediate-test-dataset-format-(q-and-a)-v2 :contentReference[oaicite:2]{index=2}
+      intermediate_qa_schema_v2.json
 
     Output schema target:
-      test-dataset-(Q&A)-format :contentReference[oaicite:3]{index=3}
+      final_qa_schema.md
 
     Assumptions:
     - Each intermediate item becomes 4 output items:
