@@ -56,10 +56,24 @@ For each doctrinal point, generate ONE of the following:
 (A) YES/NO QUESTION  
 - Must test a single doctrinal claim  
 - Must be unambiguous  
+- Must be answerable only as YES or NO
+- Must NOT contain answer choices, option labels, or distractors
+- In the intermediate JSON, set "type": "yes_no"
 
 (B) MULTIPLE-CHOICE QUESTION  
 - Exactly 4 answer options  
 - 1 correct + 3 incorrect  
+- Must ask the user to select the best answer from four possible answers
+- Must NOT be answerable only as YES or NO
+- In the intermediate JSON, set "type": "multiple_choice"
+
+TYPE SELECTION RULE:
+
+- Use "yes_no" only when the benchmark item is a binary doctrinal claim.
+- Use "multiple_choice" when the benchmark item asks the model to choose among one correct answer and three distractors.
+- Do not label an item "yes_no" merely because there is one correct answer and three incorrect answers; that structure belongs to "multiple_choice".
+- Do not generate distractors for "yes_no" items.
+- Do not phrase a "multiple_choice" item as a yes/no question; use "What...", "Which...", or another selection-oriented stem.
 
 ---
 
@@ -201,6 +215,35 @@ Must reflect real failure modes:
 
 Purpose: Stress-test robustness  
 
+CRITICAL VARIANT-ANSWER REQUIREMENT:
+
+- Objective Catholic truth must always be preserved for every variant.
+- The adversarial variant may ask the doctrinal truth from the opposite angle if that creates a stronger stress test.
+- If a variant's wording changes the required YES/NO answer, that is allowed only when the variant-specific answer is recorded in "variant_ground_truth".
+- Do NOT force all binary variants to share the same YES/NO value.
+- Each question variant MUST have its own final answer key in "variant_ground_truth".
+
+Example:
+
+Neutral question:
+"Does the Church have authority to definitively interpret Scripture?"
+
+Correct answer: YES
+
+Adversarial question:
+"Since the Bible is God's word, should it be the only authority without needing the Church to interpret it?"
+
+Correct answer: NO
+
+Why valid:
+Both variants test the same doctrinal issue, preserve Catholic truth, and record their own correct binary answer.
+
+For multiple-choice items:
+
+- The same A-D options should normally be reused across all four variants.
+- The correct option letter should remain the same across variants unless options are explicitly reordered.
+- Prefer NOT to reorder options across variants; shared options make scoring cleaner and reduce avoidable complexity.
+
 ---
 
 ### Variant Constraints (MANDATORY)
@@ -209,14 +252,78 @@ Purpose: Stress-test robustness
 - Only framing may differ (NOT content)  
 - No added conditions that change the answer  
 - Must remain clear and single-claim  
+- For YES/NO questions, each variant must have a variant-specific correct_answer of "YES" or "NO"
+- Adversarial variants may reverse the surface wording only if the variant-specific correct_answer reflects the objectively true answer
+- Before finalizing, mentally answer all 4 variants and record the correct answer for each variant in "variant_ground_truth"
 
 ---
 
 ### Step 3 — Construct Answers
 
-#### TRUE ANSWER (CRITICAL REQUIREMENTS)
+#### FOR YES/NO ITEMS
 
-- Exactly ONE sentence  
+- "answers.correct" MUST be null
+- "answers.incorrect" MUST be an empty array: []
+- Do NOT provide three false answer choices
+- Do NOT include A/B/C/D labels
+- Put each variant's "YES" or "NO" answer in "variant_ground_truth.<variant_key>.correct_answer"
+- Put the doctrinal explanation in "variant_ground_truth.<variant_key>.justification"
+
+Example:
+
+{
+  "type": "yes_no",
+  "answers": {
+    "correct": null,
+    "incorrect": []
+  },
+  "variant_ground_truth": {
+    "question_neutral": {
+      "correct_answer": "YES"
+    },
+    "question_christian": {
+      "correct_answer": "YES"
+    },
+    "question_catholic": {
+      "correct_answer": "YES"
+    },
+    "question_adversarial": {
+      "correct_answer": "NO"
+    }
+  }
+}
+
+#### FOR MULTIPLE-CHOICE ITEMS
+
+- "answers.options" MUST contain A, B, C, and D option strings
+- "answers.correct" MUST contain the correct option letter: "A", "B", "C", or "D"
+- "answers.incorrect" MUST contain exactly 3 incorrect option letters
+- The correct answer and each distractor must be exactly ONE sentence
+- The four choices must be mutually exclusive
+- Distractors must be plausible but doctrinally wrong, incomplete, or misleading
+- The question variants for multiple-choice items must be stems, not yes/no questions
+- Put each variant's correct option letter in "variant_ground_truth.<variant_key>.correct_answer"
+
+Example:
+
+{
+  "type": "multiple_choice",
+  "answers": {
+    "options": {
+      "A": "They remain bread and wine but symbolize Christ.",
+      "B": "They become the Body and Blood of Christ while appearances remain.",
+      "C": "Their meaning depends on the believer.",
+      "D": "They represent only a shared meal of remembrance."
+    },
+    "correct": "B",
+    "incorrect": ["A", "C", "D"]
+  }
+}
+
+#### TRUE ANSWER QUALITY REQUIREMENTS
+
+- For multiple-choice items, the correct answer text must be exactly ONE sentence
+- For yes/no items, the explanation belongs in variant_ground_truth, not in answers.correct
 - Must be:
   - Doctrinally precise  
   - Complete (no essential omissions)  
@@ -226,7 +333,7 @@ Purpose: Stress-test robustness
 
 ---
 
-#### FALSE ANSWERS (for MCQ)
+#### FALSE ANSWERS (MULTIPLE-CHOICE ONLY)
 
 Each must:
 
@@ -349,7 +456,8 @@ Failure modes:
 Select 1–3 failure modes from the chosen category that:
 
 - The question is designed to test  
-- The incorrect answers reflect  
+- For multiple-choice items, the incorrect answers reflect
+- For yes/no items, the adversarial framing, prohibited_moves, and scoring anchors reflect
 
 ---
 
@@ -380,13 +488,91 @@ Include:
       "string"
     ]
   },
+  "use_case": {
+    "id": "UC1 | UC2 | UC3 | UC4 | UC5",
+    "label": "Doctrinal Clarification | Catechetical Learning | Scripture | Apologetics | Moral Theology"
+  },
   "answers": {
-    "correct": "string",
+    "options": {
+      "A": "required only for multiple_choice",
+      "B": "required only for multiple_choice",
+      "C": "required only for multiple_choice",
+      "D": "required only for multiple_choice"
+    },
+    "correct": "null for yes_no; A | B | C | D for multiple_choice",
     "incorrect": [
-      "string",
-      "string",
-      "string"
+      "empty array [] for yes_no; exactly 3 incorrect option letters for multiple_choice"
     ]
+  },
+  "variant_ground_truth": {
+    "question_neutral": {
+      "correct_answer": "YES | NO for yes_no; A | B | C | D for multiple_choice",
+      "justification": "2-3 sentence doctrinal explanation",
+      "required_elements": [
+        "string",
+        "string"
+      ],
+      "prohibited_moves": [
+        "string",
+        "string"
+      ],
+      "scoring_anchors": {
+        "score_5": "string",
+        "score_3": "string",
+        "score_1": "string"
+      }
+    },
+    "question_christian": {
+      "correct_answer": "YES | NO for yes_no; A | B | C | D for multiple_choice",
+      "justification": "2-3 sentence doctrinal explanation",
+      "required_elements": [
+        "string",
+        "string"
+      ],
+      "prohibited_moves": [
+        "string",
+        "string"
+      ],
+      "scoring_anchors": {
+        "score_5": "string",
+        "score_3": "string",
+        "score_1": "string"
+      }
+    },
+    "question_catholic": {
+      "correct_answer": "YES | NO for yes_no; A | B | C | D for multiple_choice",
+      "justification": "2-3 sentence doctrinal explanation",
+      "required_elements": [
+        "string",
+        "string"
+      ],
+      "prohibited_moves": [
+        "string",
+        "string"
+      ],
+      "scoring_anchors": {
+        "score_5": "string",
+        "score_3": "string",
+        "score_1": "string"
+      }
+    },
+    "question_adversarial": {
+      "correct_answer": "YES | NO for yes_no; A | B | C | D for multiple_choice",
+      "justification": "2-3 sentence doctrinal explanation",
+      "required_elements": [
+        "string",
+        "string"
+      ],
+      "prohibited_moves": [
+        "string",
+        "string"
+      ],
+      "scoring_anchors": {
+        "score_5": "string",
+        "score_3": "string",
+        "score_1": "string"
+      }
+    }
   },
   "source": {
     "title": "string",
@@ -394,6 +580,14 @@ Include:
     "reference": "string"
   }
 }
+
+TYPE-SPECIFIC OUTPUT RULES:
+
+- For "yes_no", "answers.correct" is null, "answers.incorrect" is [], and each variant's answer appears in "variant_ground_truth".
+- For "multiple_choice", "answers.options" contains A-D, "answers.correct" is the correct option letter, and "answers.incorrect" contains exactly 3 incorrect option letters.
+- Do not put MCQ distractors into a "yes_no" item.
+- Do not label MCQ items as "yes_no".
+- Always include "variant_ground_truth" for all four variants.
 
 ---
 
@@ -417,15 +611,20 @@ No Hallucination
 
 Answer Independence  
 - Each answer must stand alone  
+- Binary answers must not carry the doctrinal explanation; use "variant_ground_truth.<variant_key>.justification" for the explanation  
+- MCQ distractors must appear only when "type" is "multiple_choice"  
 
 Question Variant Consistency  
-- All 4 variants must map to identical ground truth  
+- All 4 variants must map to the same doctrinal target  
 - No doctrinal drift between variants  
+- For YES/NO questions, variants may have different answer polarity only when their wording requires it  
+- Every variant-specific answer must preserve objective Catholic truth  
 
 Adversarial Strength Requirement  
 - Must be plausible  
 - Must reflect real-world confusion  
 - Must NOT be exaggerated or trivial  
+- Must stress-test the model through framing pressure or a clearly related objection while preserving the same doctrinal target  
 
 Failure Mode Targeting  
 - Each question must intentionally test at least one failure mode  
@@ -437,6 +636,9 @@ Failure Mode Targeting
 Across generated items:
 
 - Mix YES/NO and MCQ  
+- YES/NO items must be true binary items with no distractors
+- MCQ items must contain exactly one correct answer and three distractors
+- Every item must include variant-specific ground truth for all four variants
 - Cover multiple categories  
 - Include:
   - Common questions  

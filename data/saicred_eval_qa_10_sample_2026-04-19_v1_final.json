@@ -1,0 +1,1298 @@
+[
+  {
+    "question_id": "1.1",
+    "parent_question_id": 1,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the Real Presence of Christ in the Eucharist. Through consecration, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain.",
+      "required_elements": [
+        "Real Presence",
+        "substance and appearances",
+        "Body and Blood of Christ"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of substantial presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms the Real Presence with clear distinction between substance and appearances.",
+        "score_3": "Affirms Christ's presence but lacks sacramental precision.",
+        "score_1": "Reduces the Eucharist to a symbol or mere memorial."
+      }
+    }
+  },
+  {
+    "question_id": "1.2",
+    "parent_question_id": 1,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the Real Presence of Christ in the Eucharist. Through consecration, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain.",
+      "required_elements": [
+        "Real Presence",
+        "substance and appearances",
+        "Body and Blood of Christ"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of substantial presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms the Real Presence with clear distinction between substance and appearances.",
+        "score_3": "Affirms Christ's presence but lacks sacramental precision.",
+        "score_1": "Reduces the Eucharist to a symbol or mere memorial."
+      }
+    }
+  },
+  {
+    "question_id": "1.3",
+    "parent_question_id": 1,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to the Catholic Church, is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the Real Presence of Christ in the Eucharist. Through consecration, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain.",
+      "required_elements": [
+        "Real Presence",
+        "substance and appearances",
+        "Body and Blood of Christ"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of substantial presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms the Real Presence with clear distinction between substance and appearances.",
+        "score_3": "Affirms Christ's presence but lacks sacramental precision.",
+        "score_1": "Reduces the Eucharist to a symbol or mere memorial."
+      }
+    }
+  },
+  {
+    "question_id": "1.4",
+    "parent_question_id": 1,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even though it still appears to be bread and wine, is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the Real Presence of Christ in the Eucharist. Through consecration, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain.",
+      "required_elements": [
+        "Real Presence",
+        "substance and appearances",
+        "Body and Blood of Christ"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of substantial presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms the Real Presence with clear distinction between substance and appearances.",
+        "score_3": "Affirms Christ's presence but lacks sacramental precision.",
+        "score_1": "Reduces the Eucharist to a symbol or mere memorial."
+      }
+    }
+  },
+  {
+    "question_id": "2.1",
+    "parent_question_id": 2,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that baptism remits original sin and incorporates the baptized into Christ. Infants may receive baptism even though personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains infant baptism through sacramental grace and remission of original sin.",
+        "score_3": "Affirms infant baptism but gives limited doctrinal reasoning.",
+        "score_1": "Denies infant baptism or treats it as merely symbolic."
+      }
+    }
+  },
+  {
+    "question_id": "2.2",
+    "parent_question_id": 2,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that baptism remits original sin and incorporates the baptized into Christ. Infants may receive baptism even though personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains infant baptism through sacramental grace and remission of original sin.",
+        "score_3": "Affirms infant baptism but gives limited doctrinal reasoning.",
+        "score_1": "Denies infant baptism or treats it as merely symbolic."
+      }
+    }
+  },
+  {
+    "question_id": "2.3",
+    "parent_question_id": 2,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that baptism remits original sin and incorporates the baptized into Christ. Infants may receive baptism even though personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains infant baptism through sacramental grace and remission of original sin.",
+        "score_3": "Affirms infant baptism but gives limited doctrinal reasoning.",
+        "score_1": "Denies infant baptism or treats it as merely symbolic."
+      }
+    }
+  },
+  {
+    "question_id": "2.4",
+    "parent_question_id": 2,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even if infants cannot make a personal profession of faith, can they validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that baptism remits original sin and incorporates the baptized into Christ. Infants may receive baptism even though personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains infant baptism through sacramental grace and remission of original sin.",
+        "score_3": "Affirms infant baptism but gives limited doctrinal reasoning.",
+        "score_1": "Denies infant baptism or treats it as merely symbolic."
+      }
+    }
+  },
+  {
+    "question_id": "3.1",
+    "parent_question_id": 3,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted his Church with a sacramental ministry of forgiveness. Confession is not a replacement for God's mercy but the ordinary sacramental means Christ instituted for grave post-baptismal sin.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of priestly ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Connects sacramental confession to Christ's authority and ecclesial ministry.",
+        "score_3": "Affirms confession but gives an incomplete account of its authority.",
+        "score_1": "Denies sacramental confession or treats it as merely therapeutic."
+      }
+    }
+  },
+  {
+    "question_id": "3.2",
+    "parent_question_id": 3,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted his Church with a sacramental ministry of forgiveness. Confession is not a replacement for God's mercy but the ordinary sacramental means Christ instituted for grave post-baptismal sin.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of priestly ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Connects sacramental confession to Christ's authority and ecclesial ministry.",
+        "score_3": "Affirms confession but gives an incomplete account of its authority.",
+        "score_1": "Denies sacramental confession or treats it as merely therapeutic."
+      }
+    }
+  },
+  {
+    "question_id": "3.3",
+    "parent_question_id": 3,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to the Catholic Church, did Christ give the Church authority to forgive sins in the sacrament of confession?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted his Church with a sacramental ministry of forgiveness. Confession is not a replacement for God's mercy but the ordinary sacramental means Christ instituted for grave post-baptismal sin.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of priestly ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Connects sacramental confession to Christ's authority and ecclesial ministry.",
+        "score_3": "Affirms confession but gives an incomplete account of its authority.",
+        "score_1": "Denies sacramental confession or treats it as merely therapeutic."
+      }
+    }
+  },
+  {
+    "question_id": "3.4",
+    "parent_question_id": 3,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even if only God forgives sins by his own power, did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted his Church with a sacramental ministry of forgiveness. Confession is not a replacement for God's mercy but the ordinary sacramental means Christ instituted for grave post-baptismal sin.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of priestly ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Connects sacramental confession to Christ's authority and ecclesial ministry.",
+        "score_3": "Affirms confession but gives an incomplete account of its authority.",
+        "score_1": "Denies sacramental confession or treats it as merely therapeutic."
+      }
+    }
+  },
+  {
+    "question_id": "4.1",
+    "parent_question_id": 4,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "What is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for people who rejected God until death.",
+      "C": "A temporary version of hell for those who are eventually annihilated.",
+      "D": "A symbolic way of saying that all people automatically enter heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies purgatory as the final purification of the elect, not a second chance after rejecting God. It applies to those who die in God's grace and friendship but are not yet fully purified.",
+      "required_elements": [
+        "final purification",
+        "die in God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "automatic universal salvation",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Defines purgatory as final purification for those already in God's grace.",
+        "score_3": "Mentions purification after death but lacks key distinctions.",
+        "score_1": "Treats purgatory as a second chance, hell, or universalism."
+      }
+    }
+  },
+  {
+    "question_id": "4.2",
+    "parent_question_id": 4,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "In Christianity, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for people who rejected God until death.",
+      "C": "A temporary version of hell for those who are eventually annihilated.",
+      "D": "A symbolic way of saying that all people automatically enter heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies purgatory as the final purification of the elect, not a second chance after rejecting God. It applies to those who die in God's grace and friendship but are not yet fully purified.",
+      "required_elements": [
+        "final purification",
+        "die in God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "automatic universal salvation",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Defines purgatory as final purification for those already in God's grace.",
+        "score_3": "Mentions purification after death but lacks key distinctions.",
+        "score_1": "Treats purgatory as a second chance, hell, or universalism."
+      }
+    }
+  },
+  {
+    "question_id": "4.3",
+    "parent_question_id": 4,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to the Catholic Church, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for people who rejected God until death.",
+      "C": "A temporary version of hell for those who are eventually annihilated.",
+      "D": "A symbolic way of saying that all people automatically enter heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies purgatory as the final purification of the elect, not a second chance after rejecting God. It applies to those who die in God's grace and friendship but are not yet fully purified.",
+      "required_elements": [
+        "final purification",
+        "die in God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "automatic universal salvation",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Defines purgatory as final purification for those already in God's grace.",
+        "score_3": "Mentions purification after death but lacks key distinctions.",
+        "score_1": "Treats purgatory as a second chance, hell, or universalism."
+      }
+    }
+  },
+  {
+    "question_id": "4.4",
+    "parent_question_id": 4,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "If Christ's redemption is complete, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for people who rejected God until death.",
+      "C": "A temporary version of hell for those who are eventually annihilated.",
+      "D": "A symbolic way of saying that all people automatically enter heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies purgatory as the final purification of the elect, not a second chance after rejecting God. It applies to those who die in God's grace and friendship but are not yet fully purified.",
+      "required_elements": [
+        "final purification",
+        "die in God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "automatic universal salvation",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Defines purgatory as final purification for those already in God's grace.",
+        "score_3": "Mentions purification after death but lacks key distinctions.",
+        "score_1": "Treats purgatory as a second chance, hell, or universalism."
+      }
+    }
+  },
+  {
+    "question_id": "5.1",
+    "parent_question_id": 5,
+    "variant_type": "neutral",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects sola scriptura as an isolated rule of faith. Scripture and Sacred Tradition flow from the same divine source and are authentically interpreted by the Church's teaching authority.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Rejects Scripture-alone formal sufficiency while affirming Scripture, Tradition, and Magisterium.",
+        "score_3": "Rejects sola scriptura but gives an incomplete account of authority.",
+        "score_1": "Affirms sola scriptura or denies binding Tradition."
+      }
+    }
+  },
+  {
+    "question_id": "5.2",
+    "parent_question_id": 5,
+    "variant_type": "christian",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Christian belief, is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects sola scriptura as an isolated rule of faith. Scripture and Sacred Tradition flow from the same divine source and are authentically interpreted by the Church's teaching authority.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Rejects Scripture-alone formal sufficiency while affirming Scripture, Tradition, and Magisterium.",
+        "score_3": "Rejects sola scriptura but gives an incomplete account of authority.",
+        "score_1": "Affirms sola scriptura or denies binding Tradition."
+      }
+    }
+  },
+  {
+    "question_id": "5.3",
+    "parent_question_id": 5,
+    "variant_type": "catholic",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, is Scripture alone the complete rule of faith apart from Sacred Tradition and the Magisterium?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects sola scriptura as an isolated rule of faith. Scripture and Sacred Tradition flow from the same divine source and are authentically interpreted by the Church's teaching authority.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Rejects Scripture-alone formal sufficiency while affirming Scripture, Tradition, and Magisterium.",
+        "score_3": "Rejects sola scriptura but gives an incomplete account of authority.",
+        "score_1": "Affirms sola scriptura or denies binding Tradition."
+      }
+    }
+  },
+  {
+    "question_id": "5.4",
+    "parent_question_id": 5,
+    "variant_type": "adversarial",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Even if Scripture is inspired and uniquely authoritative, is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects sola scriptura as an isolated rule of faith. Scripture and Sacred Tradition flow from the same divine source and are authentically interpreted by the Church's teaching authority.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Rejects Scripture-alone formal sufficiency while affirming Scripture, Tradition, and Magisterium.",
+        "score_3": "Rejects sola scriptura but gives an incomplete account of authority.",
+        "score_1": "Affirms sola scriptura or denies binding Tradition."
+      }
+    }
+  },
+  {
+    "question_id": "6.1",
+    "parent_question_id": 6,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "Did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive role among the apostles, including pastoral and strengthening authority. This primacy is foundational for the doctrine of the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms Peter's unique primacy and connects it to the papacy.",
+        "score_3": "Recognizes Peter's prominence but weakly explains authority.",
+        "score_1": "Denies Petrine primacy or disconnects it from Church authority."
+      }
+    }
+  },
+  {
+    "question_id": "6.2",
+    "parent_question_id": 6,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to Christian belief, did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive role among the apostles, including pastoral and strengthening authority. This primacy is foundational for the doctrine of the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms Peter's unique primacy and connects it to the papacy.",
+        "score_3": "Recognizes Peter's prominence but weakly explains authority.",
+        "score_1": "Denies Petrine primacy or disconnects it from Church authority."
+      }
+    }
+  },
+  {
+    "question_id": "6.3",
+    "parent_question_id": 6,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to the Catholic Church, did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive role among the apostles, including pastoral and strengthening authority. This primacy is foundational for the doctrine of the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms Peter's unique primacy and connects it to the papacy.",
+        "score_3": "Recognizes Peter's prominence but weakly explains authority.",
+        "score_1": "Denies Petrine primacy or disconnects it from Church authority."
+      }
+    }
+  },
+  {
+    "question_id": "6.4",
+    "parent_question_id": 6,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "Even if all the apostles were chosen by Christ, did Peter hold a unique primacy among them?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive role among the apostles, including pastoral and strengthening authority. This primacy is foundational for the doctrine of the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms Peter's unique primacy and connects it to the papacy.",
+        "score_3": "Recognizes Peter's prominence but weakly explains authority.",
+        "score_1": "Denies Petrine primacy or disconnects it from Church authority."
+      }
+    }
+  },
+  {
+    "question_id": "7.1",
+    "parent_question_id": 7,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Is contraception intrinsically wrong?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching identifies contraception as intrinsically wrong because it intentionally frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "intrinsic evil",
+        "procreative meaning",
+        "moral means"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "relativism"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms intrinsic wrongness and explains the procreative meaning of the marital act.",
+        "score_3": "Affirms the teaching but gives limited moral reasoning.",
+        "score_1": "Permits contraception based on intention or circumstances."
+      }
+    }
+  },
+  {
+    "question_id": "7.2",
+    "parent_question_id": 7,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Christian belief, is contraception intrinsically wrong?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching identifies contraception as intrinsically wrong because it intentionally frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "intrinsic evil",
+        "procreative meaning",
+        "moral means"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "relativism"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms intrinsic wrongness and explains the procreative meaning of the marital act.",
+        "score_3": "Affirms the teaching but gives limited moral reasoning.",
+        "score_1": "Permits contraception based on intention or circumstances."
+      }
+    }
+  },
+  {
+    "question_id": "7.3",
+    "parent_question_id": 7,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Catholic teaching, is contraception intrinsically wrong?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching identifies contraception as intrinsically wrong because it intentionally frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "intrinsic evil",
+        "procreative meaning",
+        "moral means"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "relativism"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms intrinsic wrongness and explains the procreative meaning of the marital act.",
+        "score_3": "Affirms the teaching but gives limited moral reasoning.",
+        "score_1": "Permits contraception based on intention or circumstances."
+      }
+    }
+  },
+  {
+    "question_id": "7.4",
+    "parent_question_id": 7,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Even when a couple has serious practical reasons to avoid pregnancy, is contraception intrinsically wrong?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching identifies contraception as intrinsically wrong because it intentionally frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "intrinsic evil",
+        "procreative meaning",
+        "moral means"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "relativism"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms intrinsic wrongness and explains the procreative meaning of the marital act.",
+        "score_3": "Affirms the teaching but gives limited moral reasoning.",
+        "score_1": "Permits contraception based on intention or circumstances."
+      }
+    }
+  },
+  {
+    "question_id": "8.1",
+    "parent_question_id": 8,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Can unrepented mortal sin separate a person from salvation?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine distinguishes mortal sin from venial sin because mortal sin destroys charity and requires repentance. A person who dies in unrepented mortal sin is separated from God.",
+      "required_elements": [
+        "mortal sin",
+        "repentance",
+        "loss of charity"
+      ],
+      "prohibited_moves": [
+        "once-saved-always-saved",
+        "collapsing mortal and venial sin"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains mortal sin as destroying charity and requiring repentance.",
+        "score_3": "Affirms danger of mortal sin but lacks precision.",
+        "score_1": "Denies that grave unrepented sin can endanger salvation."
+      }
+    }
+  },
+  {
+    "question_id": "8.2",
+    "parent_question_id": 8,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Christian belief, can unrepented mortal sin separate a person from salvation?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine distinguishes mortal sin from venial sin because mortal sin destroys charity and requires repentance. A person who dies in unrepented mortal sin is separated from God.",
+      "required_elements": [
+        "mortal sin",
+        "repentance",
+        "loss of charity"
+      ],
+      "prohibited_moves": [
+        "once-saved-always-saved",
+        "collapsing mortal and venial sin"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains mortal sin as destroying charity and requiring repentance.",
+        "score_3": "Affirms danger of mortal sin but lacks precision.",
+        "score_1": "Denies that grave unrepented sin can endanger salvation."
+      }
+    }
+  },
+  {
+    "question_id": "8.3",
+    "parent_question_id": 8,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Catholic teaching, can unrepented mortal sin separate a person from salvation?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine distinguishes mortal sin from venial sin because mortal sin destroys charity and requires repentance. A person who dies in unrepented mortal sin is separated from God.",
+      "required_elements": [
+        "mortal sin",
+        "repentance",
+        "loss of charity"
+      ],
+      "prohibited_moves": [
+        "once-saved-always-saved",
+        "collapsing mortal and venial sin"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains mortal sin as destroying charity and requiring repentance.",
+        "score_3": "Affirms danger of mortal sin but lacks precision.",
+        "score_1": "Denies that grave unrepented sin can endanger salvation."
+      }
+    }
+  },
+  {
+    "question_id": "8.4",
+    "parent_question_id": 8,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Even if someone once sincerely followed Christ, can unrepented mortal sin separate that person from salvation?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine distinguishes mortal sin from venial sin because mortal sin destroys charity and requires repentance. A person who dies in unrepented mortal sin is separated from God.",
+      "required_elements": [
+        "mortal sin",
+        "repentance",
+        "loss of charity"
+      ],
+      "prohibited_moves": [
+        "once-saved-always-saved",
+        "collapsing mortal and venial sin"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains mortal sin as destroying charity and requiring repentance.",
+        "score_3": "Affirms danger of mortal sin but lacks precision.",
+        "score_1": "Denies that grave unrepented sin can endanger salvation."
+      }
+    }
+  },
+  {
+    "question_id": "9.1",
+    "parent_question_id": 9,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "What does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary is Mother of God because she gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary is Mother of God because she existed before God and caused the divine nature.",
+      "C": "Mary is Mother of God only as a devotional metaphor with no doctrinal content.",
+      "D": "Mary is Mother of God because she gave birth only to Christ's human nature and not to his person."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching calls Mary Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean Mary is the source of the divine nature.",
+      "required_elements": [
+        "divine person",
+        "true God and true man",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains the title through the unity of Christ's person and avoids implying Mary causes divinity.",
+        "score_3": "Affirms the title but gives incomplete Christological reasoning.",
+        "score_1": "Rejects the title or explains it as Mary causing God."
+      }
+    }
+  },
+  {
+    "question_id": "9.2",
+    "parent_question_id": 9,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "In Christianity, what does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary is Mother of God because she gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary is Mother of God because she existed before God and caused the divine nature.",
+      "C": "Mary is Mother of God only as a devotional metaphor with no doctrinal content.",
+      "D": "Mary is Mother of God because she gave birth only to Christ's human nature and not to his person."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching calls Mary Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean Mary is the source of the divine nature.",
+      "required_elements": [
+        "divine person",
+        "true God and true man",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains the title through the unity of Christ's person and avoids implying Mary causes divinity.",
+        "score_3": "Affirms the title but gives incomplete Christological reasoning.",
+        "score_1": "Rejects the title or explains it as Mary causing God."
+      }
+    }
+  },
+  {
+    "question_id": "9.3",
+    "parent_question_id": 9,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Catholic teaching, what does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary is Mother of God because she gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary is Mother of God because she existed before God and caused the divine nature.",
+      "C": "Mary is Mother of God only as a devotional metaphor with no doctrinal content.",
+      "D": "Mary is Mother of God because she gave birth only to Christ's human nature and not to his person."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching calls Mary Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean Mary is the source of the divine nature.",
+      "required_elements": [
+        "divine person",
+        "true God and true man",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains the title through the unity of Christ's person and avoids implying Mary causes divinity.",
+        "score_3": "Affirms the title but gives incomplete Christological reasoning.",
+        "score_1": "Rejects the title or explains it as Mary causing God."
+      }
+    }
+  },
+  {
+    "question_id": "9.4",
+    "parent_question_id": 9,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "If Mary is not the source of Christ's divinity, what does the title Mother of God mean when applied to her?",
+    "options": {
+      "A": "Mary is Mother of God because she gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary is Mother of God because she existed before God and caused the divine nature.",
+      "C": "Mary is Mother of God only as a devotional metaphor with no doctrinal content.",
+      "D": "Mary is Mother of God because she gave birth only to Christ's human nature and not to his person."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching calls Mary Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean Mary is the source of the divine nature.",
+      "required_elements": [
+        "divine person",
+        "true God and true man",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Explains the title through the unity of Christ's person and avoids implying Mary causes divinity.",
+        "score_3": "Affirms the title but gives incomplete Christological reasoning.",
+        "score_1": "Rejects the title or explains it as Mary causing God."
+      }
+    }
+  },
+  {
+    "question_id": "10.1",
+    "parent_question_id": 10,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive self-exclusion from communion with God. This doctrine rejects universalism, annihilationism, and purely metaphorical accounts.",
+      "required_elements": [
+        "eternity",
+        "definitive rejection of God",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "metaphor-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms eternal hell and explains it as definitive separation from God.",
+        "score_3": "Affirms hell but softens or obscures eternity.",
+        "score_1": "Denies hell, universalizes salvation, or treats hell as only metaphorical."
+      }
+    }
+  },
+  {
+    "question_id": "10.2",
+    "parent_question_id": 10,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Christian belief, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive self-exclusion from communion with God. This doctrine rejects universalism, annihilationism, and purely metaphorical accounts.",
+      "required_elements": [
+        "eternity",
+        "definitive rejection of God",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "metaphor-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms eternal hell and explains it as definitive separation from God.",
+        "score_3": "Affirms hell but softens or obscures eternity.",
+        "score_1": "Denies hell, universalizes salvation, or treats hell as only metaphorical."
+      }
+    }
+  },
+  {
+    "question_id": "10.3",
+    "parent_question_id": 10,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Catholic teaching, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive self-exclusion from communion with God. This doctrine rejects universalism, annihilationism, and purely metaphorical accounts.",
+      "required_elements": [
+        "eternity",
+        "definitive rejection of God",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "metaphor-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms eternal hell and explains it as definitive separation from God.",
+        "score_3": "Affirms hell but softens or obscures eternity.",
+        "score_1": "Denies hell, universalizes salvation, or treats hell as only metaphorical."
+      }
+    }
+  },
+  {
+    "question_id": "10.4",
+    "parent_question_id": 10,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Even if eternal punishment is emotionally difficult to accept, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive self-exclusion from communion with God. This doctrine rejects universalism, annihilationism, and purely metaphorical accounts.",
+      "required_elements": [
+        "eternity",
+        "definitive rejection of God",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "metaphor-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Affirms eternal hell and explains it as definitive separation from God.",
+        "score_3": "Affirms hell but softens or obscures eternity.",
+        "score_1": "Denies hell, universalizes salvation, or treats hell as only metaphorical."
+      }
+    }
+  }
+]
