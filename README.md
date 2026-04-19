@@ -39,6 +39,10 @@ prompt_catholic_benchmark_qa_generation.md
         v
 data/*_intermediate.json
         |
+        |  repeat batch append until target size is reached
+        v
+data/*_intermediate.json
+        |
         v
 transform_intermediate_to_final.py
         |
@@ -61,13 +65,15 @@ The transformer expands each parent item into four final benchmark rows:
 
 `prompt_catholic_benchmark_qa_generation.md`: prompt used to generate new intermediate dataset items by pulling doctrinal source material from Catholic Answers through their website, `catholic.com`. The prompt expects either a Catholic Answers URL or article text, then asks the model to extract doctrinal claims, create question variants, assign answer keys, and preserve source attribution.
 
-`master_dataset_workflow_prompt.md`: operator prompt that tells an LLM agent how to run the full workflow end to end, including asking how many Q&A pairs to generate, creating intermediate JSON, transforming it, saving versioned files, validating outputs, and running tests.
+`master_dataset_workflow_prompt.md`: operator prompt that tells an LLM agent how to run the batch workflow end to end, including asking for the target dataset size, batch size, existing intermediate file, Catholic Answers sources, duplicate checks, append steps, final transformation, validation, and tests.
 
 `intermediate_qa_schema_v2.json`: expected structure for newly generated intermediate data.
 
 `final_qa_schema.md`: target flattened benchmark format.
 
 `transform_intermediate_to_final.py`: Python script that converts intermediate JSON into final JSON.
+
+`append_intermediate_batch.py`: Python script that validates a newly generated intermediate batch, rejects exact or near duplicates, and writes the next accumulated intermediate JSON file.
 
 `data/`: current generated dataset files that should be committed.
 
@@ -80,11 +86,11 @@ The transformer expands each parent item into four final benchmark rows:
 The current checked-in sample dataset is:
 
 ```text
-data/saicred_eval_qa_10_sample_2026-04-19_v1_intermediate.json
-data/saicred_eval_qa_10_sample_2026-04-19_v1_final.json
+data/saicred_eval_qa_20_sample_2026-04-19_v1_intermediate.json
+data/saicred_eval_qa_20_sample_2026-04-19_v1_final.json
 ```
 
-Note: this sample was generated before `variant_ground_truth` was added to the intermediate schema. The transformer supports this older shape for backward compatibility, but newly generated datasets should follow `intermediate_qa_schema_v2.json`.
+This sample follows `intermediate_qa_schema_v2.json`, including per-variant `variant_ground_truth` so adversarial variants can preserve objective truth even when their correct binary label differs from the neutral wording.
 
 ## Generate A New Dataset
 
@@ -92,25 +98,29 @@ This workflow assumes you are running in an environment where the LLM agent can:
 
 - read the repository files, especially `master_dataset_workflow_prompt.md`, `prompt_catholic_benchmark_qa_generation.md`, `intermediate_qa_schema_v2.json`, and `final_qa_schema.md`
 - write new JSON files into `data/`
-- run shell commands such as `python3 -m json.tool`, `python3 transform_intermediate_to_final.py`, and `python3 -m unittest discover -s tests`
+- run shell commands such as `python3 -m json.tool`, `python3 append_intermediate_batch.py`, `python3 transform_intermediate_to_final.py`, and `python3 -m unittest discover -s tests`
 - access Catholic Answers source material from `catholic.com`, either through web access or through article text provided by the user
 - keep `archived_data/` local and ignored by Git
 
 If the LLM agent does not have web access, provide the Catholic Answers article text directly. If the agent cannot run shell commands, it can still generate intermediate JSON, but a human should run the transform and validation commands afterward.
 
-Recommended path: give `master_dataset_workflow_prompt.md` to an LLM agent and let it run the full workflow. The master prompt instructs the agent to ask how many parent Q&A pairs to generate, ask which Catholic Answers source material to use, generate the intermediate JSON, transform it, save versioned files, validate both outputs, run tests, and archive older generated data.
+Recommended path: give `master_dataset_workflow_prompt.md` to an LLM agent and let it run the full workflow. The master prompt instructs the agent to ask for the target dataset size, batch size, existing intermediate file, and Catholic Answers source material. It then generates a new batch, checks for duplicates, appends it to the accumulated intermediate file, and delays transformation until the target size is reached.
+
+For a 100-parent-item dataset, prefer batches of 10-25 items. A good default is five batches of 20. This is usually better than generating all 100 at once because the model can compare against the existing intermediate file, avoid duplicates, and keep doctrinal quality higher.
 
 Use the manual workflow below only if you want to perform each step yourself:
 
 1. Open `prompt_catholic_benchmark_qa_generation.md`.
 2. Provide Catholic Answers source material, either as a URL or article text.
-3. Ask the model to generate the desired number of intermediate-format items.
-4. Save the generated JSON in `data/` using the naming convention below.
-5. Validate the intermediate JSON.
-6. Transform it into final format.
-7. Validate the final JSON.
-8. Run the test suite.
-9. Move older generated data into `archived_data/`.
+3. Ask the model to generate only the next batch of intermediate-format items.
+4. Save the generated batch JSON in `data/` using the naming convention below.
+5. Validate the batch JSON.
+6. Append the batch to the current accumulated intermediate file.
+7. Repeat until the target parent-item count is reached.
+8. Transform the completed intermediate file into final format.
+9. Validate the final JSON.
+10. Run the test suite.
+11. Move older generated data into `archived_data/`.
 
 ## File Naming
 
@@ -123,22 +133,25 @@ saicred_eval_qa_<sample_size>_sample_<yyyy-mm-dd>_v<version>_<stage>.json
 Example:
 
 ```text
-data/saicred_eval_qa_10_sample_2026-04-19_v2_intermediate.json
-data/saicred_eval_qa_10_sample_2026-04-19_v2_final.json
+data/saicred_eval_qa_20_sample_2026-04-19_v2_intermediate.json
+data/saicred_eval_qa_20_sample_2026-04-19_v2_final.json
 ```
 
 Use:
 
+- `_batch.json` for newly generated batch files that have not yet been appended
 - `_intermediate.json` for generated source data
 - `_final.json` for transformed benchmark data
 - `v1`, `v2`, etc. when regenerating on the same date or materially changing the dataset
 
-## Validate Intermediate JSON
+For batch generation, `<sample_size>` should describe the item count in that file. For example, a 20-item batch can be saved as `*_20_sample_*_batch.json`, then appended to an existing 40-item intermediate file to produce a new `*_60_sample_*_intermediate.json`.
 
-First check that the generated file is valid JSON:
+## Validate Intermediate Batch JSON
+
+First check that the generated batch file is valid JSON:
 
 ```bash
-python3 -m json.tool data/saicred_eval_qa_10_sample_2026-04-19_v2_intermediate.json
+python3 -m json.tool data/saicred_eval_qa_20_sample_2026-04-19_v2_batch.json
 ```
 
 For newly generated data, also make sure it follows `intermediate_qa_schema_v2.json`.
@@ -153,20 +166,44 @@ Important intermediate-format rules:
 
 For example, a neutral question may correctly answer `YES`, while an adversarial version of the same doctrinal target may correctly answer `NO`.
 
+## Append A Batch
+
+Append a validated batch to the current accumulated intermediate file:
+
+```bash
+python3 append_intermediate_batch.py \
+  data/saicred_eval_qa_40_sample_2026-04-19_v1_intermediate.json \
+  data/saicred_eval_qa_20_sample_2026-04-19_v2_batch.json \
+  data/saicred_eval_qa_60_sample_2026-04-19_v1_intermediate.json \
+  --expected-total 60
+```
+
+The append script checks:
+
+- both files are valid intermediate JSON arrays
+- every item follows the v2 schema rules
+- the new batch does not contain exact duplicate question variants
+- the new batch does not contain likely near-duplicates of existing items
+- the output contains the expected total count, when `--expected-total` is provided
+
+If the script reports a duplicate, revise or replace the batch item. Do not append duplicate data just to reach the target count.
+
 ## Transform Intermediate To Final
+
+Run the transformer only after the accumulated intermediate file reaches the desired total size, unless you intentionally need a temporary final file for review.
 
 Run:
 
 ```bash
 python3 transform_intermediate_to_final.py \
-  data/saicred_eval_qa_10_sample_2026-04-19_v2_intermediate.json \
-  data/saicred_eval_qa_10_sample_2026-04-19_v2_final.json
+  data/saicred_eval_qa_20_sample_2026-04-19_v2_intermediate.json \
+  data/saicred_eval_qa_20_sample_2026-04-19_v2_final.json
 ```
 
 Then validate the final JSON:
 
 ```bash
-python3 -m json.tool data/saicred_eval_qa_10_sample_2026-04-19_v2_final.json
+python3 -m json.tool data/saicred_eval_qa_20_sample_2026-04-19_v2_final.json
 ```
 
 The transformer maps:
@@ -217,7 +254,12 @@ Second, they validate transformer behavior:
 - MCQ option keys and answer letters are preserved
 - one intermediate parent item becomes four final rows
 
-Third, they validate the checked-in sample dataset against a curated doctrinal oracle:
+Third, they validate batch append behavior:
+
+- valid new intermediate batches can be appended
+- duplicate intermediate items are rejected before accumulation
+
+Fourth, they validate the checked-in sample dataset against a curated doctrinal oracle:
 
 - expected answer keys
 - expected topic domains
@@ -243,10 +285,11 @@ mv data/old_dataset_final.json archived_data/
 
 Use this checklist:
 
-1. Validate the new intermediate JSON.
-2. Transform it into final JSON.
-3. Validate the final JSON.
-4. Run `python3 -m unittest discover -s tests`.
-5. Move older generated files into `archived_data/`.
-6. Check `git status` and confirm `archived_data/` is ignored.
-7. Commit the current dataset, schemas, prompt, transformer, tests, and README changes.
+1. Validate any new batch JSON.
+2. Append the batch and validate the accumulated intermediate JSON.
+3. If the dataset is complete, transform it into final JSON.
+4. If a final file was produced, validate the final JSON.
+5. Run `python3 -m unittest discover -s tests`.
+6. Move older generated files into `archived_data/`.
+7. Check `git status` and confirm `archived_data/` is ignored.
+8. Commit the current dataset, schemas, prompts, scripts, tests, and README changes.

@@ -10,6 +10,7 @@ from typing import Any, Dict, List
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from append_intermediate_batch import AppendValidationError, append_batch  # noqa: E402
 from transform_intermediate_to_final import convert_intermediate_to_final  # noqa: E402
 
 
@@ -27,61 +28,121 @@ EXPECTED_DOCTRINAL_REVIEW = {
         "format": "binary",
         "answer": "YES",
         "topic_domain": "Sacramental Theology",
-        "required_terms": ["real presence", "body and blood", "substance"],
+        "required_terms": ["real presence", "body and blood", "appearances"],
     },
     2: {
-        "format": "binary",
-        "answer": "YES",
+        "format": "mcq",
+        "answer": "B",
         "topic_domain": "Sacramental Theology",
-        "required_terms": ["infant baptism", "original sin", "sacramental grace"],
+        "required_terms": ["body and blood", "appearances", "transubstantiation"],
     },
     3: {
         "format": "binary",
         "answer": "YES",
         "topic_domain": "Sacramental Theology",
-        "required_terms": ["christ", "authority", "forgiveness of sins"],
+        "required_terms": ["infant baptism", "original sin", "sacramental grace"],
     },
     4: {
+        "format": "mcq",
+        "answer": "B",
+        "topic_domain": "Sacramental Theology",
+        "required_terms": ["remits sin", "grace", "christ"],
+    },
+    5: {
+        "format": "binary",
+        "answer": "YES",
+        "topic_domain": "Sacramental Theology",
+        "required_terms": ["christ", "sacramental confession", "forgiveness of sins"],
+    },
+    6: {
+        "format": "binary",
+        "answer": "NO",
+        "topic_domain": "Moral Theology & Sin",
+        "required_terms": ["future sins", "repentance", "sacramental reconciliation"],
+    },
+    7: {
         "format": "mcq",
         "answer": "A",
         "topic_domain": "Eschatology (Last Things)",
         "required_terms": ["final purification", "god's grace", "heaven"],
     },
-    5: {
+    8: {
+        "format": "binary",
+        "answer": "NO",
+        "topic_domain": "Eschatology (Last Things)",
+        "required_terms": ["purgatory", "god's grace", "not a second chance"],
+    },
+    9: {
         "format": "binary",
         "answer": "NO",
         "topic_domain": "Scripture & Interpretation",
         "required_terms": ["scripture", "sacred tradition", "magisterium"],
     },
-    6: {
+    10: {
+        "format": "binary",
+        "answer": "YES",
+        "topic_domain": "Scripture & Interpretation",
+        "required_terms": ["apostolic tradition", "deposit of faith", "scripture"],
+    },
+    11: {
         "format": "binary",
         "answer": "YES",
         "topic_domain": "Church Authority & Ecclesiology",
         "required_terms": ["peter", "primacy", "papacy"],
     },
-    7: {
+    12: {
+        "format": "mcq",
+        "answer": "A",
+        "topic_domain": "Church Authority & Ecclesiology",
+        "required_terms": ["keys", "binding", "authority"],
+    },
+    13: {
         "format": "binary",
         "answer": "YES",
         "topic_domain": "Moral Theology & Sin",
-        "required_terms": ["contraception", "intrinsically", "procreative"],
+        "required_terms": ["contraception", "grave matter", "procreative"],
     },
-    8: {
+    14: {
+        "format": "mcq",
+        "answer": "A",
+        "topic_domain": "Moral Theology & Sin",
+        "required_terms": ["grave matter", "full knowledge", "deliberate consent"],
+    },
+    15: {
         "format": "binary",
         "answer": "YES",
-        "topic_domain": "Moral Theology & Sin",
-        "required_terms": ["mortal sin", "repentance", "charity"],
+        "topic_domain": "Apologetics & Objection Handling",
+        "required_terms": ["mother of god", "divine person", "not source of divinity"],
     },
-    9: {
+    16: {
         "format": "mcq",
         "answer": "A",
         "topic_domain": "Apologetics & Objection Handling",
-        "required_terms": ["mother of god", "divine person", "human nature"],
+        "required_terms": ["mary", "divine person", "human nature"],
     },
-    10: {
+    17: {
         "format": "binary",
         "answer": "YES",
         "topic_domain": "Eschatology (Last Things)",
         "required_terms": ["hell", "eternal", "separation from god"],
+    },
+    18: {
+        "format": "binary",
+        "answer": "NO",
+        "topic_domain": "Eschatology (Last Things)",
+        "required_terms": ["hell", "real state", "after death"],
+    },
+    19: {
+        "format": "binary",
+        "answer": "NO",
+        "topic_domain": "Salvation & Grace (Soteriology)",
+        "required_terms": ["grace", "faith", "works"],
+    },
+    20: {
+        "format": "binary",
+        "answer": "YES",
+        "topic_domain": "Scripture & Interpretation",
+        "required_terms": ["magisterium", "canon of scripture", "authentic interpretation"],
     },
 }
 
@@ -374,17 +435,43 @@ class DatasetValidationTests(unittest.TestCase):
         for item in final_items:
             validate_final_item(item)
 
+    def test_append_intermediate_batch_accepts_new_valid_items(self) -> None:
+        existing_items = build_v2_intermediate_fixture()[:1]
+        batch_items = build_v2_intermediate_fixture()[1:]
+
+        appended_items = append_batch(existing_items, batch_items)
+
+        self.assertEqual(len(appended_items), 2)
+        for item in appended_items:
+            validate_intermediate_item(item)
+
+    def test_append_intermediate_batch_rejects_duplicate_items(self) -> None:
+        existing_items = build_v2_intermediate_fixture()[:1]
+        batch_items = build_v2_intermediate_fixture()[:1]
+
+        with self.assertRaises(AppendValidationError):
+            append_batch(existing_items, batch_items)
+
     def test_checked_in_final_dataset_matches_final_schema_rules(self) -> None:
-        path = PROJECT_ROOT / "data" / "saicred_eval_qa_10_sample_2026-04-19_v1_final.json"
+        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_final.json"
         with path.open(encoding="utf-8") as input_file:
             final_items = json.load(input_file)
 
-        self.assertEqual(len(final_items), 40)
+        self.assertEqual(len(final_items), 80)
         for item in final_items:
             validate_final_item(item)
 
+    def test_checked_in_intermediate_dataset_matches_v2_schema_rules(self) -> None:
+        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_intermediate.json"
+        with path.open(encoding="utf-8") as input_file:
+            intermediate_items = json.load(input_file)
+
+        self.assertEqual(len(intermediate_items), 20)
+        for item in intermediate_items:
+            validate_intermediate_item(item)
+
     def test_checked_in_final_dataset_matches_curated_doctrinal_oracle(self) -> None:
-        path = PROJECT_ROOT / "data" / "saicred_eval_qa_10_sample_2026-04-19_v1_final.json"
+        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_final.json"
         with path.open(encoding="utf-8") as input_file:
             final_items = json.load(input_file)
 

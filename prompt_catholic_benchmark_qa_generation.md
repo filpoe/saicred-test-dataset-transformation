@@ -31,6 +31,38 @@ You are given:
 
 A Catholic Answers article (URL or full text)
 
+When generating a new batch for an existing dataset, you are also given:
+
+- the existing intermediate JSON file, or a summary of its parent items
+- the target final dataset size
+- the requested batch size
+
+If existing intermediate data is provided, treat it as authoritative context for duplicate avoidance.
+
+---
+
+BATCH GENERATION MODE
+
+Use this mode whenever the user is building the dataset over multiple iterations.
+
+Before generating the new batch:
+
+- Review every existing parent item in the intermediate JSON.
+- Build a mental inventory of existing doctrinal targets, question stems, answer options, required elements, source titles, URLs, and source references.
+- Generate only new parent items that do not duplicate or closely paraphrase existing items.
+- Continue broadening source and topic coverage when the Catholic Answers material supports it.
+- Do not regenerate an item merely by changing the wording while testing the same doctrinal target.
+
+Duplicate avoidance rules:
+
+- Do not repeat the same doctrinal proposition.
+- Do not repeat the same neutral question in paraphrased form.
+- Do not reuse the same MCQ option set for a substantially identical question.
+- Do not reuse the same source section to make the same benchmark claim.
+- It is acceptable to use the same article for different doctrinal claims only if the section reference, question, and ground truth are meaningfully distinct.
+
+Output only the new batch as a JSON array of parent items. Do not include existing items in the batch output.
+
 ---
 
 TASK
@@ -640,6 +672,8 @@ Across generated items:
 - MCQ items must contain exactly one correct answer and three distractors
 - Every item must include variant-specific ground truth for all four variants
 - Cover multiple categories  
+- In batch mode, generate only new parent items that are distinct from the existing intermediate dataset
+- In batch mode, do not output the accumulated dataset; output only the new batch
 - Include:
   - Common questions  
   - Edge cases (precision-sensitive)  
