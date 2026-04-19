@@ -1,43 +1,106 @@
-# SAICRED Test Dataset Transformation
+# SAICRED Catholic QA Dataset Pipeline
 
-This repository supports creating Catholic doctrine benchmark datasets in two stages:
+This repository is a small pipeline for building evaluation datasets that test whether an AI system answers Catholic doctrine questions accurately, consistently, and with the right level of theological precision.
 
-1. Generate a human-reviewable intermediate Q&A dataset from Catholic Answers source material.
-2. Transform that intermediate dataset into the final flat evaluation format used by benchmark runs.
+The dataset is generated in two forms:
 
-The project is designed to keep generation, review, and transformation separate. The intermediate format preserves source traceability, question variants, use cases, answer keys, and scoring guidance. The final format expands each parent question into four benchmark rows: neutral, Christian, Catholic, and adversarial.
+1. **Intermediate dataset**: review-friendly source data with one parent question, four variants, answer metadata, source attribution, and scoring guidance.
+2. **Final dataset**: flattened benchmark data where each question variant becomes its own evaluation row.
 
-## Repository Layout
+The separation matters. The intermediate file is where humans and models can reason about doctrine, variants, answer keys, and sources. The final file is optimized for running evaluations.
+
+## What We Are Trying To Achieve
+
+The goal is to produce a benchmark dataset that can catch common Catholic-doctrine failure modes, including:
+
+- treating Catholic doctrine as merely one opinion among many
+- defaulting to generic Protestant assumptions where Catholic teaching differs
+- reducing sacramental or moral doctrines to symbols, feelings, or intentions
+- mishandling adversarial framing
+- giving plausible but incomplete answers
+
+Each parent item has four variants:
+
+- `neutral`: plain baseline wording
+- `christian`: general Christian framing that may expose generic or Protestant defaults
+- `catholic`: explicit Catholic-authority framing
+- `adversarial`: misleading, emotional, or objection-style framing
+
+The final benchmark should test not only whether the model knows the answer, but whether it remains stable when the same doctrine is asked from different angles.
+
+## How The Pipeline Works
 
 ```text
-.
-├── data/
-│   ├── saicred_eval_qa_10_sample_2026-04-19_v1_intermediate.json
-│   └── saicred_eval_qa_10_sample_2026-04-19_v1_final.json
-├── archived_data/
-├── final_qa_schema.md
-├── intermediate_qa_schema_v2.json
-├── prompt_catholic_benchmark_qa_generation.md
-└── transform_intermediate_to_final.py
+Catholic Answers source material
+        |
+        v
+prompt_catholic_benchmark_qa_generation.md
+        |
+        v
+data/*_intermediate.json
+        |
+        v
+transform_intermediate_to_final.py
+        |
+        v
+data/*_final.json
 ```
 
-`data/` contains the latest generated dataset files that should be committed.
+The generation prompt creates intermediate JSON from Catholic Answers articles or article excerpts. Each intermediate parent item starts from one doctrinal target, then formulates that target in four question styles so we can test whether a model stays doctrinally consistent across different framings.
 
-`archived_data/` contains older generated datasets. This folder is intentionally ignored by Git.
+The transformer expands each parent item into four final benchmark rows:
 
-`prompt_catholic_benchmark_qa_generation.md` is the prompt used to generate new intermediate-format items from Catholic Answers material.
+```text
+1.1 neutral      Plain wording with no explicit religious framing.
+1.2 christian    General Christian wording that can expose generic or Protestant defaults.
+1.3 catholic     Explicit Catholic-authority wording that asks for Magisterial precision.
+1.4 adversarial  Objection-style wording that tests whether the model resists misleading framing.
+```
 
-`intermediate_qa_schema_v2.json` documents the expected intermediate JSON structure.
+## Key Files
 
-`final_qa_schema.md` documents the final flattened benchmark format.
+`prompt_catholic_benchmark_qa_generation.md`: prompt used to generate new intermediate dataset items by pulling doctrinal source material from Catholic Answers through their website, `catholic.com`. The prompt expects either a Catholic Answers URL or article text, then asks the model to extract doctrinal claims, create question variants, assign answer keys, and preserve source attribution.
 
-`transform_intermediate_to_final.py` converts intermediate JSON into final JSON.
+`intermediate_qa_schema_v2.json`: expected structure for newly generated intermediate data.
 
-Note: the current checked-in sample dataset was generated before `variant_ground_truth` was added to the intermediate schema. The transformer remains backward-compatible with that older shape, but newly generated datasets should follow `intermediate_qa_schema_v2.json`.
+`final_qa_schema.md`: target flattened benchmark format.
 
-## Naming Convention
+`transform_intermediate_to_final.py`: Python script that converts intermediate JSON into final JSON.
 
-Generated dataset files should use:
+`data/`: current generated dataset files that should be committed.
+
+`archived_data/`: older generated dataset files. This folder is ignored by Git and should not be committed.
+
+`tests/test_dataset_validation.py`: validation tests for schema, transformation behavior, and the checked-in sample dataset.
+
+## Current Dataset
+
+The current checked-in sample dataset is:
+
+```text
+data/saicred_eval_qa_10_sample_2026-04-19_v1_intermediate.json
+data/saicred_eval_qa_10_sample_2026-04-19_v1_final.json
+```
+
+Note: this sample was generated before `variant_ground_truth` was added to the intermediate schema. The transformer supports this older shape for backward compatibility, but newly generated datasets should follow `intermediate_qa_schema_v2.json`.
+
+## Generate A New Dataset
+
+Use this workflow when creating a new dataset version.
+
+1. Open `prompt_catholic_benchmark_qa_generation.md`.
+2. Provide Catholic Answers source material, either as a URL or article text.
+3. Ask the model to generate the desired number of intermediate-format items.
+4. Save the generated JSON in `data/` using the naming convention below.
+5. Validate the intermediate JSON.
+6. Transform it into final format.
+7. Validate the final JSON.
+8. Run the test suite.
+9. Move older generated data into `archived_data/`.
+
+## File Naming
+
+Generated dataset files should use this pattern:
 
 ```text
 saicred_eval_qa_<sample_size>_sample_<yyyy-mm-dd>_v<version>_<stage>.json
@@ -46,51 +109,37 @@ saicred_eval_qa_<sample_size>_sample_<yyyy-mm-dd>_v<version>_<stage>.json
 Example:
 
 ```text
-saicred_eval_qa_10_sample_2026-04-19_v1_intermediate.json
-saicred_eval_qa_10_sample_2026-04-19_v1_final.json
-```
-
-Use `_intermediate.json` for generated source data and `_final.json` for transformed benchmark data. Increment `v1`, `v2`, etc. when regenerating a dataset on the same date or changing its contents materially.
-
-## Generate A New Intermediate Dataset
-
-1. Open `prompt_catholic_benchmark_qa_generation.md`.
-2. Provide the Catholic Answers article URL or article text as the input.
-3. Ask the model to generate the desired number of intermediate-format items.
-4. Save the output JSON in `data/` using the naming convention above.
-
-For example:
-
-```text
 data/saicred_eval_qa_10_sample_2026-04-19_v2_intermediate.json
+data/saicred_eval_qa_10_sample_2026-04-19_v2_final.json
 ```
 
-Before transforming, validate that the generated file is valid JSON:
+Use:
+
+- `_intermediate.json` for generated source data
+- `_final.json` for transformed benchmark data
+- `v1`, `v2`, etc. when regenerating on the same date or materially changing the dataset
+
+## Validate Intermediate JSON
+
+First check that the generated file is valid JSON:
 
 ```bash
 python3 -m json.tool data/saicred_eval_qa_10_sample_2026-04-19_v2_intermediate.json
 ```
 
-## Intermediate Format Expectations
+For newly generated data, also make sure it follows `intermediate_qa_schema_v2.json`.
 
-Each intermediate item represents one parent benchmark question and includes four variants:
+Important intermediate-format rules:
 
-```text
-question_neutral
-question_christian
-question_catholic
-question_adversarial
-```
+- `type` is either `yes_no` or `multiple_choice`
+- `yes_no` items use `answers.correct: null` and `answers.incorrect: []`
+- `multiple_choice` items use `answers.options` with `A`, `B`, `C`, and `D`
+- every variant has its own entry in `variant_ground_truth`
+- variant-specific binary answers may differ when the wording requires it
 
-The supported question types are:
+For example, a neutral question may correctly answer `YES`, while an adversarial version of the same doctrinal target may correctly answer `NO`.
 
-`yes_no`: A binary doctrinal claim. `answers.correct` should be `null`, `answers.incorrect` should be `[]`, and each variant's `YES` or `NO` answer should appear in `variant_ground_truth`.
-
-`multiple_choice`: A four-option question. `answers.options` should contain `A`, `B`, `C`, and `D`; `answers.correct` should be the correct option letter; and `answers.incorrect` should contain the three incorrect option letters.
-
-Use `variant_ground_truth` whenever variant wording changes the correct answer. For example, a neutral Church-authority question may have answer `YES`, while an adversarial sola-scriptura framing of the same doctrinal target may have answer `NO`.
-
-## Transform To Final Format
+## Transform Intermediate To Final
 
 Run:
 
@@ -106,39 +155,66 @@ Then validate the final JSON:
 python3 -m json.tool data/saicred_eval_qa_10_sample_2026-04-19_v2_final.json
 ```
 
-The transformer expands each parent item into four final rows with IDs like:
+The transformer maps:
 
-```text
-1.1 neutral
-1.2 christian
-1.3 catholic
-1.4 adversarial
-```
+- intermediate `yes_no` to final `binary`
+- intermediate `multiple_choice` to final `mcq`
+- one parent item to four final rows
+- `variant_ground_truth` into each row's final `ground_truth`
 
-For `yes_no` items, final `format` becomes `binary` and `ground_truth.correct_answer` is `YES` or `NO`.
+## Final Format
 
-For `multiple_choice` items, final `format` becomes `mcq`, `options` contains `A-D`, and `ground_truth.correct_answer` is the correct option letter.
+The final dataset is a list of evaluation rows. Each row contains:
 
-## Run Tests
+- `question_id`, such as `3.4`
+- `parent_question_id`, such as `3`
+- `variant_type`, such as `adversarial`
+- `format`, either `binary` or `mcq`
+- `prompt`
+- `options`, only for MCQ rows
+- `ground_truth.correct_answer`
+- `ground_truth.justification`
+- scoring guidance and prohibited failure modes
 
-Run the validation test suite before committing new dataset changes:
+For binary rows, `ground_truth.correct_answer` is `YES` or `NO`.
+
+For MCQ rows, `ground_truth.correct_answer` is `A`, `B`, `C`, or `D`.
+
+## Tests
+
+Run the tests before committing regenerated data:
 
 ```bash
 python3 -m unittest discover -s tests
 ```
 
-The tests validate:
+The tests check three things.
 
-- new v2 intermediate-format rules for binary and multiple-choice items
-- variant-specific binary answers such as `YES, YES, YES, NO`
-- labeled MCQ options and answer keys
-- transformed final-format rows
-- the checked-in final dataset under `data/`
-- a curated doctrinal oracle for the checked-in sample dataset, including expected answer keys, topic domains, and core doctrinal concepts
+First, they validate structural rules:
 
-## Archive Older Data
+- v2 intermediate items distinguish `yes_no` from `multiple_choice`
+- binary items do not contain MCQ distractors
+- MCQ items contain labeled `A-D` options
+- final rows contain the expected benchmark fields
 
-Keep only the latest generated dataset pair in `data/`.
+Second, they validate transformer behavior:
+
+- variant-specific binary answers are preserved
+- MCQ option keys and answer letters are preserved
+- one intermediate parent item becomes four final rows
+
+Third, they validate the checked-in sample dataset against a curated doctrinal oracle:
+
+- expected answer keys
+- expected topic domains
+- expected binary or MCQ format
+- core doctrinal concepts that should appear in the prompt, options, or ground truth
+
+This doctrinal test is intentionally curated. It does not prove Catholic doctrine automatically; it prevents accidental regressions in the known sample dataset.
+
+## Archiving Old Data
+
+Keep the current dataset pair in `data/`.
 
 Move older generated files into `archived_data/`:
 
@@ -147,15 +223,16 @@ mv data/old_dataset_intermediate.json archived_data/
 mv data/old_dataset_final.json archived_data/
 ```
 
-`archived_data/` is ignored by Git through `.gitignore`, so archived datasets remain local and are not committed.
+`archived_data/` is ignored by Git via `.gitignore`, so archived datasets remain local.
 
-## Recommended Workflow
+## Before Committing
 
-1. Generate a new intermediate dataset with `prompt_catholic_benchmark_qa_generation.md`.
-2. Save it in `data/` with a new versioned name.
-3. Validate the intermediate JSON.
-4. Transform it with `transform_intermediate_to_final.py`.
-5. Validate the final JSON.
-6. Run the test suite.
-7. Move older generated data into `archived_data/`.
-8. Review `git status` and commit only the current dataset, schemas, prompt, transformer, tests, and README changes.
+Use this checklist:
+
+1. Validate the new intermediate JSON.
+2. Transform it into final JSON.
+3. Validate the final JSON.
+4. Run `python3 -m unittest discover -s tests`.
+5. Move older generated files into `archived_data/`.
+6. Check `git status` and confirm `archived_data/` is ignored.
+7. Commit the current dataset, schemas, prompt, transformer, tests, and README changes.
