@@ -23,6 +23,14 @@ JSON object representing the final format of the questions and answers for our A
     },
 
     "source_type": "tract | encyclopedia | qa",
+    "source": {
+      "title": "string",
+      "url": "string",
+      "reference": "string",
+      "catechism_references": [
+        "CCC paragraph or range, e.g. 1374-1377"
+      ]
+    },
 
     "ground_truth": {
       "correct_answer": "YES | NO | A | B | C | D",

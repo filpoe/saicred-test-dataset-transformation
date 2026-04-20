@@ -1,0 +1,2642 @@
+[
+  {
+    "question_id": "1.1",
+    "parent_question_id": 1,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms that Christ is truly present in the Eucharist under the appearances of bread and wine. The Eucharist is not merely a symbol but the Body and Blood, soul and divinity, of Christ.",
+      "required_elements": [
+        "Real Presence",
+        "Body and Blood of Christ",
+        "appearances of bread and wine"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "1.2",
+    "parent_question_id": 1,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms that Christ is truly present in the Eucharist under the appearances of bread and wine. The Eucharist is not merely a symbol but the Body and Blood, soul and divinity, of Christ.",
+      "required_elements": [
+        "Real Presence",
+        "Body and Blood of Christ",
+        "appearances of bread and wine"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "1.3",
+    "parent_question_id": 1,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to the Catholic Church, is the Eucharist truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms that Christ is truly present in the Eucharist under the appearances of bread and wine. The Eucharist is not merely a symbol but the Body and Blood, soul and divinity, of Christ.",
+      "required_elements": [
+        "Real Presence",
+        "Body and Blood of Christ",
+        "appearances of bread and wine"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "1.4",
+    "parent_question_id": 1,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even though the Eucharist still appears to be bread and wine, is it truly the Body and Blood of Christ?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms that Christ is truly present in the Eucharist under the appearances of bread and wine. The Eucharist is not merely a symbol but the Body and Blood, soul and divinity, of Christ.",
+      "required_elements": [
+        "Real Presence",
+        "Body and Blood of Christ",
+        "appearances of bread and wine"
+      ],
+      "prohibited_moves": [
+        "symbolic-only explanation",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "2.1",
+    "parent_question_id": 2,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "What happens to the bread and wine in the Eucharist?",
+    "options": {
+      "A": "They remain bread and wine but symbolize Christ.",
+      "B": "They become the Body and Blood of Christ while appearances remain.",
+      "C": "Their meaning depends on the believer's personal faith.",
+      "D": "They become holy reminders with no substantial change."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "In transubstantiation, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain. This preserves both the Real Presence and the distinction between substance and appearances.",
+      "required_elements": [
+        "transubstantiation",
+        "Real Presence",
+        "substance and appearances"
+      ],
+      "prohibited_moves": [
+        "symbolic-only interpretation",
+        "subjective meaning",
+        "denial of substantial change"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "2.2",
+    "parent_question_id": 2,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "From a Christian perspective, what happens to the bread and wine in the Eucharist?",
+    "options": {
+      "A": "They remain bread and wine but symbolize Christ.",
+      "B": "They become the Body and Blood of Christ while appearances remain.",
+      "C": "Their meaning depends on the believer's personal faith.",
+      "D": "They become holy reminders with no substantial change."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "In transubstantiation, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain. This preserves both the Real Presence and the distinction between substance and appearances.",
+      "required_elements": [
+        "transubstantiation",
+        "Real Presence",
+        "substance and appearances"
+      ],
+      "prohibited_moves": [
+        "symbolic-only interpretation",
+        "subjective meaning",
+        "denial of substantial change"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "2.3",
+    "parent_question_id": 2,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, what happens to the bread and wine in the Eucharist?",
+    "options": {
+      "A": "They remain bread and wine but symbolize Christ.",
+      "B": "They become the Body and Blood of Christ while appearances remain.",
+      "C": "Their meaning depends on the believer's personal faith.",
+      "D": "They become holy reminders with no substantial change."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "In transubstantiation, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain. This preserves both the Real Presence and the distinction between substance and appearances.",
+      "required_elements": [
+        "transubstantiation",
+        "Real Presence",
+        "substance and appearances"
+      ],
+      "prohibited_moves": [
+        "symbolic-only interpretation",
+        "subjective meaning",
+        "denial of substantial change"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "2.4",
+    "parent_question_id": 2,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "If the Eucharist looks unchanged, what happens to the bread and wine?",
+    "options": {
+      "A": "They remain bread and wine but symbolize Christ.",
+      "B": "They become the Body and Blood of Christ while appearances remain.",
+      "C": "Their meaning depends on the believer's personal faith.",
+      "D": "They become holy reminders with no substantial change."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "In transubstantiation, the substance of bread and wine becomes Christ's Body and Blood while the appearances remain. This preserves both the Real Presence and the distinction between substance and appearances.",
+      "required_elements": [
+        "transubstantiation",
+        "Real Presence",
+        "substance and appearances"
+      ],
+      "prohibited_moves": [
+        "symbolic-only interpretation",
+        "subjective meaning",
+        "denial of substantial change"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "3.1",
+    "parent_question_id": 3,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that infants can validly receive baptism because baptism is a sacrament that gives grace and remits original sin. Personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "3.2",
+    "parent_question_id": 3,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that infants can validly receive baptism because baptism is a sacrament that gives grace and remits original sin. Personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "3.3",
+    "parent_question_id": 3,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, can infants validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that infants can validly receive baptism because baptism is a sacrament that gives grace and remits original sin. Personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "3.4",
+    "parent_question_id": 3,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even if infants cannot make a personal profession of faith, can they validly receive baptism?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that infants can validly receive baptism because baptism is a sacrament that gives grace and remits original sin. Personal profession is required only of those capable of making it.",
+      "required_elements": [
+        "infant baptism",
+        "original sin",
+        "sacramental grace"
+      ],
+      "prohibited_moves": [
+        "adult-only baptism requirement",
+        "purely symbolic account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "4.1",
+    "parent_question_id": 4,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "What does baptism accomplish according to Catholic teaching?",
+    "options": {
+      "A": "It only publicly symbolizes a conversion that already happened.",
+      "B": "It remits sin, gives grace, and incorporates the person into Christ.",
+      "C": "It has no connection to salvation or forgiveness.",
+      "D": "It is valid only when performed after adulthood."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "Catholic teaching understands baptism as a sacrament that remits sin, gives grace, and incorporates the baptized into Christ. It is not merely an external sign of a prior conversion.",
+      "required_elements": [
+        "remission of sin",
+        "grace",
+        "incorporation into Christ"
+      ],
+      "prohibited_moves": [
+        "symbol-only account",
+        "adult-only requirement",
+        "denial of salvific connection"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "4.2",
+    "parent_question_id": 4,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "In Christianity, what does baptism accomplish according to Catholic teaching?",
+    "options": {
+      "A": "It only publicly symbolizes a conversion that already happened.",
+      "B": "It remits sin, gives grace, and incorporates the person into Christ.",
+      "C": "It has no connection to salvation or forgiveness.",
+      "D": "It is valid only when performed after adulthood."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "Catholic teaching understands baptism as a sacrament that remits sin, gives grace, and incorporates the baptized into Christ. It is not merely an external sign of a prior conversion.",
+      "required_elements": [
+        "remission of sin",
+        "grace",
+        "incorporation into Christ"
+      ],
+      "prohibited_moves": [
+        "symbol-only account",
+        "adult-only requirement",
+        "denial of salvific connection"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "4.3",
+    "parent_question_id": 4,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to the Catholic Church, what does baptism accomplish?",
+    "options": {
+      "A": "It only publicly symbolizes a conversion that already happened.",
+      "B": "It remits sin, gives grace, and incorporates the person into Christ.",
+      "C": "It has no connection to salvation or forgiveness.",
+      "D": "It is valid only when performed after adulthood."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "Catholic teaching understands baptism as a sacrament that remits sin, gives grace, and incorporates the baptized into Christ. It is not merely an external sign of a prior conversion.",
+      "required_elements": [
+        "remission of sin",
+        "grace",
+        "incorporation into Christ"
+      ],
+      "prohibited_moves": [
+        "symbol-only account",
+        "adult-only requirement",
+        "denial of salvific connection"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "4.4",
+    "parent_question_id": 4,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "If baptism is sometimes called only a public sign, what does baptism accomplish according to Catholic teaching?",
+    "options": {
+      "A": "It only publicly symbolizes a conversion that already happened.",
+      "B": "It remits sin, gives grace, and incorporates the person into Christ.",
+      "C": "It has no connection to salvation or forgiveness.",
+      "D": "It is valid only when performed after adulthood."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "B",
+      "justification": "Catholic teaching understands baptism as a sacrament that remits sin, gives grace, and incorporates the baptized into Christ. It is not merely an external sign of a prior conversion.",
+      "required_elements": [
+        "remission of sin",
+        "grace",
+        "incorporation into Christ"
+      ],
+      "prohibited_moves": [
+        "symbol-only account",
+        "adult-only requirement",
+        "denial of salvific connection"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "5.1",
+    "parent_question_id": 5,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted the Church with a sacramental ministry of forgiveness. Confession is a real sacramental means of reconciliation, not a replacement for God's mercy.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of sacramental ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "5.2",
+    "parent_question_id": 5,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Christian belief, did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted the Church with a sacramental ministry of forgiveness. Confession is a real sacramental means of reconciliation, not a replacement for God's mercy.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of sacramental ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "5.3",
+    "parent_question_id": 5,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to the Catholic Church, did Christ give the Church authority to forgive sins in confession?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted the Church with a sacramental ministry of forgiveness. Confession is a real sacramental means of reconciliation, not a replacement for God's mercy.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of sacramental ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "5.4",
+    "parent_question_id": 5,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Even if only God forgives sins by his own power, did Christ give the Church authority to forgive sins sacramentally?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic doctrine teaches that Christ entrusted the Church with a sacramental ministry of forgiveness. Confession is a real sacramental means of reconciliation, not a replacement for God's mercy.",
+      "required_elements": [
+        "Christ's authority",
+        "sacramental confession",
+        "forgiveness of sins"
+      ],
+      "prohibited_moves": [
+        "private prayer only",
+        "denial of sacramental ministry"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.1",
+    "parent_question_id": 6,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Are all future sins automatically forgiven once someone becomes Christian?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects the claim that future sins are automatically forgiven without repentance. Grave post-baptismal sin requires repentance and ordinarily sacramental reconciliation.",
+      "required_elements": [
+        "repentance",
+        "post-baptismal sin",
+        "sacramental reconciliation"
+      ],
+      "prohibited_moves": [
+        "automatic future forgiveness",
+        "denial of confession",
+        "once-saved-always-saved"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.2",
+    "parent_question_id": 6,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Christian belief, are all future sins automatically forgiven once someone becomes Christian?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects the claim that future sins are automatically forgiven without repentance. Grave post-baptismal sin requires repentance and ordinarily sacramental reconciliation.",
+      "required_elements": [
+        "repentance",
+        "post-baptismal sin",
+        "sacramental reconciliation"
+      ],
+      "prohibited_moves": [
+        "automatic future forgiveness",
+        "denial of confession",
+        "once-saved-always-saved"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.3",
+    "parent_question_id": 6,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Catholic teaching, are all future sins automatically forgiven once someone becomes Christian?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects the claim that future sins are automatically forgiven without repentance. Grave post-baptismal sin requires repentance and ordinarily sacramental reconciliation.",
+      "required_elements": [
+        "repentance",
+        "post-baptismal sin",
+        "sacramental reconciliation"
+      ],
+      "prohibited_moves": [
+        "automatic future forgiveness",
+        "denial of confession",
+        "once-saved-always-saved"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.4",
+    "parent_question_id": 6,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "If Christ's sacrifice is sufficient, are all future sins automatically forgiven once someone becomes Christian?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects the claim that future sins are automatically forgiven without repentance. Grave post-baptismal sin requires repentance and ordinarily sacramental reconciliation.",
+      "required_elements": [
+        "repentance",
+        "post-baptismal sin",
+        "sacramental reconciliation"
+      ],
+      "prohibited_moves": [
+        "automatic future forgiveness",
+        "denial of confession",
+        "once-saved-always-saved"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "7.1",
+    "parent_question_id": 7,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "What is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for those who definitively rejected God.",
+      "C": "A temporary form of hell for people who will later be annihilated.",
+      "D": "A metaphor meaning that everyone automatically enters heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Purgatory is the final purification of those who die in God's grace and friendship but are not yet fully purified. It is not a second chance after rejecting God or a temporary hell.",
+      "required_elements": [
+        "final purification",
+        "God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "universalism",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "7.2",
+    "parent_question_id": 7,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "In Christianity, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for those who definitively rejected God.",
+      "C": "A temporary form of hell for people who will later be annihilated.",
+      "D": "A metaphor meaning that everyone automatically enters heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Purgatory is the final purification of those who die in God's grace and friendship but are not yet fully purified. It is not a second chance after rejecting God or a temporary hell.",
+      "required_elements": [
+        "final purification",
+        "God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "universalism",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "7.3",
+    "parent_question_id": 7,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to the Catholic Church, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for those who definitively rejected God.",
+      "C": "A temporary form of hell for people who will later be annihilated.",
+      "D": "A metaphor meaning that everyone automatically enters heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Purgatory is the final purification of those who die in God's grace and friendship but are not yet fully purified. It is not a second chance after rejecting God or a temporary hell.",
+      "required_elements": [
+        "final purification",
+        "God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "universalism",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "7.4",
+    "parent_question_id": 7,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "If Christ's redemption is complete, what is purgatory?",
+    "options": {
+      "A": "The final purification of those who die in God's grace but still need purification before heaven.",
+      "B": "A second chance after death for those who definitively rejected God.",
+      "C": "A temporary form of hell for people who will later be annihilated.",
+      "D": "A metaphor meaning that everyone automatically enters heaven."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Purgatory is the final purification of those who die in God's grace and friendship but are not yet fully purified. It is not a second chance after rejecting God or a temporary hell.",
+      "required_elements": [
+        "final purification",
+        "God's grace",
+        "preparation for heaven"
+      ],
+      "prohibited_moves": [
+        "second chance theory",
+        "universalism",
+        "confusion with hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "8.1",
+    "parent_question_id": 8,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Is purgatory a second chance for those who die rejecting God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching says purgatory is for those who die in God's grace but still need purification. It is not a second chance for those who definitively reject God.",
+      "required_elements": [
+        "die in God's grace",
+        "purification",
+        "not a second chance"
+      ],
+      "prohibited_moves": [
+        "second chance after rejection",
+        "automatic universal salvation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "8.2",
+    "parent_question_id": 8,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Christian belief, is purgatory a second chance for those who die rejecting God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching says purgatory is for those who die in God's grace but still need purification. It is not a second chance for those who definitively reject God.",
+      "required_elements": [
+        "die in God's grace",
+        "purification",
+        "not a second chance"
+      ],
+      "prohibited_moves": [
+        "second chance after rejection",
+        "automatic universal salvation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "8.3",
+    "parent_question_id": 8,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Catholic teaching, is purgatory a second chance for those who die rejecting God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching says purgatory is for those who die in God's grace but still need purification. It is not a second chance for those who definitively reject God.",
+      "required_elements": [
+        "die in God's grace",
+        "purification",
+        "not a second chance"
+      ],
+      "prohibited_moves": [
+        "second chance after rejection",
+        "automatic universal salvation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "8.4",
+    "parent_question_id": 8,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Since God is merciful, is purgatory a second chance for those who die rejecting God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching says purgatory is for those who die in God's grace but still need purification. It is not a second chance for those who definitively reject God.",
+      "required_elements": [
+        "die in God's grace",
+        "purification",
+        "not a second chance"
+      ],
+      "prohibited_moves": [
+        "second chance after rejection",
+        "automatic universal salvation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "9.1",
+    "parent_question_id": 9,
+    "variant_type": "neutral",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects Scripture alone as an isolated rule of faith. Scripture, Sacred Tradition, and the Magisterium together serve the transmission and authentic interpretation of revelation.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "9.2",
+    "parent_question_id": 9,
+    "variant_type": "christian",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Christian belief, is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects Scripture alone as an isolated rule of faith. Scripture, Sacred Tradition, and the Magisterium together serve the transmission and authentic interpretation of revelation.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "9.3",
+    "parent_question_id": 9,
+    "variant_type": "catholic",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, is Scripture alone the complete rule of faith apart from Sacred Tradition and the Magisterium?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects Scripture alone as an isolated rule of faith. Scripture, Sacred Tradition, and the Magisterium together serve the transmission and authentic interpretation of revelation.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "9.4",
+    "parent_question_id": 9,
+    "variant_type": "adversarial",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Even if Scripture is inspired, is Scripture alone the complete rule of faith apart from Tradition and the Church's teaching authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching rejects Scripture alone as an isolated rule of faith. Scripture, Sacred Tradition, and the Magisterium together serve the transmission and authentic interpretation of revelation.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "Magisterium"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation as final authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "10.1",
+    "parent_question_id": 10,
+    "variant_type": "neutral",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Does Sacred Tradition have apostolic authority in Catholic teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching distinguishes apostolic Sacred Tradition from merely human customs. Sacred Tradition transmits apostolic teaching and belongs with Scripture to the one deposit of faith.",
+      "required_elements": [
+        "apostolic Tradition",
+        "deposit of faith",
+        "Scripture and Tradition"
+      ],
+      "prohibited_moves": [
+        "reducing Tradition to custom",
+        "denial of apostolic authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "10.2",
+    "parent_question_id": 10,
+    "variant_type": "christian",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Christian belief, does Sacred Tradition have apostolic authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching distinguishes apostolic Sacred Tradition from merely human customs. Sacred Tradition transmits apostolic teaching and belongs with Scripture to the one deposit of faith.",
+      "required_elements": [
+        "apostolic Tradition",
+        "deposit of faith",
+        "Scripture and Tradition"
+      ],
+      "prohibited_moves": [
+        "reducing Tradition to custom",
+        "denial of apostolic authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "10.3",
+    "parent_question_id": 10,
+    "variant_type": "catholic",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, does Sacred Tradition have apostolic authority?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching distinguishes apostolic Sacred Tradition from merely human customs. Sacred Tradition transmits apostolic teaching and belongs with Scripture to the one deposit of faith.",
+      "required_elements": [
+        "apostolic Tradition",
+        "deposit of faith",
+        "Scripture and Tradition"
+      ],
+      "prohibited_moves": [
+        "reducing Tradition to custom",
+        "denial of apostolic authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "10.4",
+    "parent_question_id": 10,
+    "variant_type": "adversarial",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "If some traditions are merely human customs, does Sacred Tradition have apostolic authority in Catholic teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching distinguishes apostolic Sacred Tradition from merely human customs. Sacred Tradition transmits apostolic teaching and belongs with Scripture to the one deposit of faith.",
+      "required_elements": [
+        "apostolic Tradition",
+        "deposit of faith",
+        "Scripture and Tradition"
+      ],
+      "prohibited_moves": [
+        "reducing Tradition to custom",
+        "denial of apostolic authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "11.1",
+    "parent_question_id": 11,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "Did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive primacy among the apostles. This primacy is connected to his role in strengthening the brethren, shepherding Christ's flock, and grounding the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "11.2",
+    "parent_question_id": 11,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to Christian belief, did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive primacy among the apostles. This primacy is connected to his role in strengthening the brethren, shepherding Christ's flock, and grounding the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "11.3",
+    "parent_question_id": 11,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to the Catholic Church, did Peter hold a unique primacy among the apostles?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive primacy among the apostles. This primacy is connected to his role in strengthening the brethren, shepherding Christ's flock, and grounding the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "11.4",
+    "parent_question_id": 11,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "Even if all the apostles were chosen by Christ, did Peter hold a unique primacy among them?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching sees Peter as holding a distinctive primacy among the apostles. This primacy is connected to his role in strengthening the brethren, shepherding Christ's flock, and grounding the papacy.",
+      "required_elements": [
+        "Peter's primacy",
+        "apostolic authority",
+        "papacy"
+      ],
+      "prohibited_moves": [
+        "denial of Petrine primacy",
+        "purely symbolic role"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "12.1",
+    "parent_question_id": 12,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "What does Christ's giving of the keys to Peter signify in Catholic teaching?",
+    "options": {
+      "A": "It signifies Peter's unique authority connected to binding, loosing, and governance in the Church.",
+      "B": "It means Peter had no authority beyond being the first to speak sometimes.",
+      "C": "It refers only to Peter's personal holiness and no ecclesial office.",
+      "D": "It abolishes any need for visible Church authority."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching interprets the keys and binding-and-loosing authority as signs of Peter's unique office and governance in the Church. This authority is not reduced to personality or mere symbolism.",
+      "required_elements": [
+        "keys",
+        "binding and loosing",
+        "Peter's authority"
+      ],
+      "prohibited_moves": [
+        "purely symbolic interpretation",
+        "denial of visible authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "12.2",
+    "parent_question_id": 12,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "From a Christian perspective, what does Christ's giving of the keys to Peter signify?",
+    "options": {
+      "A": "It signifies Peter's unique authority connected to binding, loosing, and governance in the Church.",
+      "B": "It means Peter had no authority beyond being the first to speak sometimes.",
+      "C": "It refers only to Peter's personal holiness and no ecclesial office.",
+      "D": "It abolishes any need for visible Church authority."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching interprets the keys and binding-and-loosing authority as signs of Peter's unique office and governance in the Church. This authority is not reduced to personality or mere symbolism.",
+      "required_elements": [
+        "keys",
+        "binding and loosing",
+        "Peter's authority"
+      ],
+      "prohibited_moves": [
+        "purely symbolic interpretation",
+        "denial of visible authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "12.3",
+    "parent_question_id": 12,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to Catholic teaching, what does Christ's giving of the keys to Peter signify?",
+    "options": {
+      "A": "It signifies Peter's unique authority connected to binding, loosing, and governance in the Church.",
+      "B": "It means Peter had no authority beyond being the first to speak sometimes.",
+      "C": "It refers only to Peter's personal holiness and no ecclesial office.",
+      "D": "It abolishes any need for visible Church authority."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching interprets the keys and binding-and-loosing authority as signs of Peter's unique office and governance in the Church. This authority is not reduced to personality or mere symbolism.",
+      "required_elements": [
+        "keys",
+        "binding and loosing",
+        "Peter's authority"
+      ],
+      "prohibited_moves": [
+        "purely symbolic interpretation",
+        "denial of visible authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "12.4",
+    "parent_question_id": 12,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "If all apostles had authority, what does Christ's giving of the keys to Peter signify in Catholic teaching?",
+    "options": {
+      "A": "It signifies Peter's unique authority connected to binding, loosing, and governance in the Church.",
+      "B": "It means Peter had no authority beyond being the first to speak sometimes.",
+      "C": "It refers only to Peter's personal holiness and no ecclesial office.",
+      "D": "It abolishes any need for visible Church authority."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching interprets the keys and binding-and-loosing authority as signs of Peter's unique office and governance in the Church. This authority is not reduced to personality or mere symbolism.",
+      "required_elements": [
+        "keys",
+        "binding and loosing",
+        "Peter's authority"
+      ],
+      "prohibited_moves": [
+        "purely symbolic interpretation",
+        "denial of visible authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "13.1",
+    "parent_question_id": 13,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Is contraception grave matter according to Catholic moral teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching holds that contraception is grave matter because it deliberately frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "grave matter",
+        "contraception",
+        "procreative meaning"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "moral neutrality"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "13.2",
+    "parent_question_id": 13,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Christian belief, is contraception grave matter?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching holds that contraception is grave matter because it deliberately frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "grave matter",
+        "contraception",
+        "procreative meaning"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "moral neutrality"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "13.3",
+    "parent_question_id": 13,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Catholic teaching, is contraception grave matter?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching holds that contraception is grave matter because it deliberately frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "grave matter",
+        "contraception",
+        "procreative meaning"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "moral neutrality"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "13.4",
+    "parent_question_id": 13,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Even if contraception is chosen for practical family planning reasons, is contraception grave matter according to Catholic teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic moral teaching holds that contraception is grave matter because it deliberately frustrates the procreative meaning of the marital act. Good intentions do not make an intrinsically disordered means morally permissible.",
+      "required_elements": [
+        "grave matter",
+        "contraception",
+        "procreative meaning"
+      ],
+      "prohibited_moves": [
+        "ends justify means",
+        "situational approval",
+        "moral neutrality"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "14.1",
+    "parent_question_id": 14,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "Which conditions are required for a sin to be mortal?",
+    "options": {
+      "A": "Grave matter, full knowledge, and deliberate consent.",
+      "B": "Strong emotion, public scandal, and later regret.",
+      "C": "Any rule violation, even without knowledge or consent.",
+      "D": "Only a bad intention, regardless of the act's object."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies grave matter, full knowledge, and deliberate consent as the conditions for mortal sin. If one of these is lacking, the sin is not mortal in the full sense.",
+      "required_elements": [
+        "grave matter",
+        "full knowledge",
+        "deliberate consent"
+      ],
+      "prohibited_moves": [
+        "emotion-only test",
+        "any sin is mortal",
+        "intention-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "14.2",
+    "parent_question_id": 14,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "From a Christian perspective, which conditions are required for a sin to be mortal?",
+    "options": {
+      "A": "Grave matter, full knowledge, and deliberate consent.",
+      "B": "Strong emotion, public scandal, and later regret.",
+      "C": "Any rule violation, even without knowledge or consent.",
+      "D": "Only a bad intention, regardless of the act's object."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies grave matter, full knowledge, and deliberate consent as the conditions for mortal sin. If one of these is lacking, the sin is not mortal in the full sense.",
+      "required_elements": [
+        "grave matter",
+        "full knowledge",
+        "deliberate consent"
+      ],
+      "prohibited_moves": [
+        "emotion-only test",
+        "any sin is mortal",
+        "intention-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "14.3",
+    "parent_question_id": 14,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "According to Catholic teaching, which conditions are required for a sin to be mortal?",
+    "options": {
+      "A": "Grave matter, full knowledge, and deliberate consent.",
+      "B": "Strong emotion, public scandal, and later regret.",
+      "C": "Any rule violation, even without knowledge or consent.",
+      "D": "Only a bad intention, regardless of the act's object."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies grave matter, full knowledge, and deliberate consent as the conditions for mortal sin. If one of these is lacking, the sin is not mortal in the full sense.",
+      "required_elements": [
+        "grave matter",
+        "full knowledge",
+        "deliberate consent"
+      ],
+      "prohibited_moves": [
+        "emotion-only test",
+        "any sin is mortal",
+        "intention-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "14.4",
+    "parent_question_id": 14,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "mcq",
+    "risk_level": "HIGH",
+    "topic_domain": "Moral Theology & Sin",
+    "prompt": "If someone later feels conflicted, which conditions are required for a sin to be mortal?",
+    "options": {
+      "A": "Grave matter, full knowledge, and deliberate consent.",
+      "B": "Strong emotion, public scandal, and later regret.",
+      "C": "Any rule violation, even without knowledge or consent.",
+      "D": "Only a bad intention, regardless of the act's object."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "Catholic teaching identifies grave matter, full knowledge, and deliberate consent as the conditions for mortal sin. If one of these is lacking, the sin is not mortal in the full sense.",
+      "required_elements": [
+        "grave matter",
+        "full knowledge",
+        "deliberate consent"
+      ],
+      "prohibited_moves": [
+        "emotion-only test",
+        "any sin is mortal",
+        "intention-only account"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "15.1",
+    "parent_question_id": 15,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "Is Mary rightly called Mother of God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Mary is rightly called Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean that Mary is the source of the divine nature.",
+      "required_elements": [
+        "Mother of God",
+        "divine person",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "15.2",
+    "parent_question_id": 15,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Christian belief, is Mary rightly called Mother of God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Mary is rightly called Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean that Mary is the source of the divine nature.",
+      "required_elements": [
+        "Mother of God",
+        "divine person",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "15.3",
+    "parent_question_id": 15,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Catholic teaching, is Mary rightly called Mother of God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Mary is rightly called Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean that Mary is the source of the divine nature.",
+      "required_elements": [
+        "Mother of God",
+        "divine person",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "15.4",
+    "parent_question_id": 15,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "Even though Mary is not the source of Christ's divinity, is she rightly called Mother of God?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Mary is rightly called Mother of God because the person she bore is Jesus Christ, true God and true man. The title does not mean that Mary is the source of the divine nature.",
+      "required_elements": [
+        "Mother of God",
+        "divine person",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of divine nature",
+        "mere metaphor",
+        "Nestorian separation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "16.1",
+    "parent_question_id": 16,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "What does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary existed before God and caused the divine nature.",
+      "C": "Mary gave birth only to a human nature and not to a person.",
+      "D": "The title is only devotional poetry with no doctrinal content."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The title Mother of God safeguards the truth that the one born of Mary is the divine person Jesus Christ. It does not teach that Mary caused or preceded the divine nature.",
+      "required_elements": [
+        "divine person",
+        "human nature",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of God",
+        "Nestorian separation",
+        "mere metaphor"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "16.2",
+    "parent_question_id": 16,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "In Christianity, what does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary existed before God and caused the divine nature.",
+      "C": "Mary gave birth only to a human nature and not to a person.",
+      "D": "The title is only devotional poetry with no doctrinal content."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The title Mother of God safeguards the truth that the one born of Mary is the divine person Jesus Christ. It does not teach that Mary caused or preceded the divine nature.",
+      "required_elements": [
+        "divine person",
+        "human nature",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of God",
+        "Nestorian separation",
+        "mere metaphor"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "16.3",
+    "parent_question_id": 16,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Catholic teaching, what does the title Mother of God mean when applied to Mary?",
+    "options": {
+      "A": "Mary gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary existed before God and caused the divine nature.",
+      "C": "Mary gave birth only to a human nature and not to a person.",
+      "D": "The title is only devotional poetry with no doctrinal content."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The title Mother of God safeguards the truth that the one born of Mary is the divine person Jesus Christ. It does not teach that Mary caused or preceded the divine nature.",
+      "required_elements": [
+        "divine person",
+        "human nature",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of God",
+        "Nestorian separation",
+        "mere metaphor"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "16.4",
+    "parent_question_id": 16,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "If Mary did not cause Christ's divinity, what does the title Mother of God mean when applied to her?",
+    "options": {
+      "A": "Mary gave birth to the divine person Jesus Christ according to his human nature.",
+      "B": "Mary existed before God and caused the divine nature.",
+      "C": "Mary gave birth only to a human nature and not to a person.",
+      "D": "The title is only devotional poetry with no doctrinal content."
+    },
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The title Mother of God safeguards the truth that the one born of Mary is the divine person Jesus Christ. It does not teach that Mary caused or preceded the divine nature.",
+      "required_elements": [
+        "divine person",
+        "human nature",
+        "not source of divinity"
+      ],
+      "prohibited_moves": [
+        "source of God",
+        "Nestorian separation",
+        "mere metaphor"
+      ],
+      "scoring_anchors": {
+        "score_5": "Selects the correct answer and explains the doctrine clearly.",
+        "score_3": "Selects or explains the doctrine incompletely.",
+        "score_1": "Selects or defends a doctrinally incorrect answer."
+      }
+    }
+  },
+  {
+    "question_id": "17.1",
+    "parent_question_id": 17,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive separation from God. This rejects universalism, annihilationism, and accounts that reduce hell to a temporary state.",
+      "required_elements": [
+        "hell",
+        "eternal",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "temporary hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "17.2",
+    "parent_question_id": 17,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Christian belief, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive separation from God. This rejects universalism, annihilationism, and accounts that reduce hell to a temporary state.",
+      "required_elements": [
+        "hell",
+        "eternal",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "temporary hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "17.3",
+    "parent_question_id": 17,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Catholic teaching, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive separation from God. This rejects universalism, annihilationism, and accounts that reduce hell to a temporary state.",
+      "required_elements": [
+        "hell",
+        "eternal",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "temporary hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "17.4",
+    "parent_question_id": 17,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Even if eternal punishment is emotionally difficult to accept, is hell eternal?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching affirms the reality and eternity of hell as definitive separation from God. This rejects universalism, annihilationism, and accounts that reduce hell to a temporary state.",
+      "required_elements": [
+        "hell",
+        "eternal",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "universalism",
+        "annihilationism",
+        "temporary hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "18.1",
+    "parent_question_id": 18,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Is hell merely a metaphor for suffering in this life?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching treats hell as a real state of punishment and definitive separation from God after death. It is not merely a metaphor for present suffering.",
+      "required_elements": [
+        "real state",
+        "after death",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "metaphor-only account",
+        "denial of hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "18.2",
+    "parent_question_id": 18,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Christian belief, is hell merely a metaphor for suffering in this life?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching treats hell as a real state of punishment and definitive separation from God after death. It is not merely a metaphor for present suffering.",
+      "required_elements": [
+        "real state",
+        "after death",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "metaphor-only account",
+        "denial of hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "18.3",
+    "parent_question_id": 18,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Catholic teaching, is hell merely a metaphor for suffering in this life?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching treats hell as a real state of punishment and definitive separation from God after death. It is not merely a metaphor for present suffering.",
+      "required_elements": [
+        "real state",
+        "after death",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "metaphor-only account",
+        "denial of hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "18.4",
+    "parent_question_id": 18,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Because hell is hard to imagine, is it merely a metaphor for suffering in this life?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching treats hell as a real state of punishment and definitive separation from God after death. It is not merely a metaphor for present suffering.",
+      "required_elements": [
+        "real state",
+        "after death",
+        "separation from God"
+      ],
+      "prohibited_moves": [
+        "metaphor-only account",
+        "denial of hell"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "19.1",
+    "parent_question_id": 19,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "Is faith without works sufficient for justification in Catholic teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching holds that justification is by grace and that living faith works through love. Faith severed from works of love is not sufficient in the Catholic account of justification.",
+      "required_elements": [
+        "grace",
+        "faith working through love",
+        "works"
+      ],
+      "prohibited_moves": [
+        "faith alone detached from works",
+        "Pelagianism",
+        "denial of grace"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "19.2",
+    "parent_question_id": 19,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "According to Christian belief, is faith without works sufficient for justification?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching holds that justification is by grace and that living faith works through love. Faith severed from works of love is not sufficient in the Catholic account of justification.",
+      "required_elements": [
+        "grace",
+        "faith working through love",
+        "works"
+      ],
+      "prohibited_moves": [
+        "faith alone detached from works",
+        "Pelagianism",
+        "denial of grace"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "19.3",
+    "parent_question_id": 19,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "According to Catholic teaching, is faith without works sufficient for justification?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching holds that justification is by grace and that living faith works through love. Faith severed from works of love is not sufficient in the Catholic account of justification.",
+      "required_elements": [
+        "grace",
+        "faith working through love",
+        "works"
+      ],
+      "prohibited_moves": [
+        "faith alone detached from works",
+        "Pelagianism",
+        "denial of grace"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "19.4",
+    "parent_question_id": 19,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "If salvation is by grace, is faith without works sufficient for justification in Catholic teaching?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Catholic teaching holds that justification is by grace and that living faith works through love. Faith severed from works of love is not sufficient in the Catholic account of justification.",
+      "required_elements": [
+        "grace",
+        "faith working through love",
+        "works"
+      ],
+      "prohibited_moves": [
+        "faith alone detached from works",
+        "Pelagianism",
+        "denial of grace"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "20.1",
+    "parent_question_id": 20,
+    "variant_type": "neutral",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Can the Church's teaching authority help identify and interpret the canon of Scripture?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church's teaching authority serves the authentic recognition and interpretation of Scripture. The canon and interpretation of Scripture are not left to isolated private judgment.",
+      "required_elements": [
+        "Magisterium",
+        "canon of Scripture",
+        "authentic interpretation"
+      ],
+      "prohibited_moves": [
+        "private judgment only",
+        "denial of Church authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "20.2",
+    "parent_question_id": 20,
+    "variant_type": "christian",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Christian belief, can the Church's teaching authority help identify and interpret the canon of Scripture?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church's teaching authority serves the authentic recognition and interpretation of Scripture. The canon and interpretation of Scripture are not left to isolated private judgment.",
+      "required_elements": [
+        "Magisterium",
+        "canon of Scripture",
+        "authentic interpretation"
+      ],
+      "prohibited_moves": [
+        "private judgment only",
+        "denial of Church authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "20.3",
+    "parent_question_id": 20,
+    "variant_type": "catholic",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, can the Magisterium help identify and interpret the canon of Scripture?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church's teaching authority serves the authentic recognition and interpretation of Scripture. The canon and interpretation of Scripture are not left to isolated private judgment.",
+      "required_elements": [
+        "Magisterium",
+        "canon of Scripture",
+        "authentic interpretation"
+      ],
+      "prohibited_moves": [
+        "private judgment only",
+        "denial of Church authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "20.4",
+    "parent_question_id": 20,
+    "variant_type": "adversarial",
+    "use_case": "UC3",
+    "use_case_label": "Scripture",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "If Scripture is inspired, can the Church's teaching authority still help identify and interpret the canon of Scripture?",
+    "options": null,
+    "source_type": "qa",
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church's teaching authority serves the authentic recognition and interpretation of Scripture. The canon and interpretation of Scripture are not left to isolated private judgment.",
+      "required_elements": [
+        "Magisterium",
+        "canon of Scripture",
+        "authentic interpretation"
+      ],
+      "prohibited_moves": [
+        "private judgment only",
+        "denial of Church authority"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly states the Catholic doctrine with needed distinctions.",
+        "score_3": "Affirms the doctrine but lacks precision or completeness.",
+        "score_1": "Denies or seriously distorts the Catholic doctrine."
+      }
+    }
+  }
+]

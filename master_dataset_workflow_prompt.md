@@ -46,12 +46,19 @@ final_qa_schema.md
 transform_intermediate_to_final.py
 append_intermediate_batch.py
 tests/test_dataset_validation.py
+validate_against_catechism.py
 ```
 
 Save generated datasets in:
 
 ```text
 data/
+```
+
+Save validation reports in:
+
+```text
+data_validation_results/
 ```
 
 Move older generated dataset versions into:
@@ -94,6 +101,13 @@ For batch work:
 - save each newly generated batch as `*_batch.json`
 - append the batch into a new accumulated `*_intermediate.json`
 - do not create or update `*_final.json` until the user says the dataset is complete or the target total has been reached
+
+Validation result files must go in `data_validation_results/`, not `data/`, and must clearly say that they are validation outputs:
+
+```text
+data_validation_results/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_intermediate_catechism_validation_results.json
+data_validation_results/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_final_catechism_validation_results.json
+```
 
 ---
 
@@ -166,6 +180,8 @@ For `multiple_choice` items:
 
 Variant-specific answers may differ when the wording requires it. For example, a neutral Church-authority question may answer `YES`, while an adversarial sola-scriptura framing of the same doctrinal target may answer `NO`.
 
+Each item must also include `source.catechism_references`, with one or more Catechism of the Catholic Church paragraph numbers or paragraph ranges that support the doctrinal answer. Use paragraph references only; do not include long Catechism quotations in the JSON. The Catechism validation routine will also append those references to each variant justification in the form `See CCC <paragraphs>.`
+
 ### Step 5: Save Batch JSON
 
 Save the generated batch in `data/` using the naming convention and the `_batch.json` suffix.
@@ -208,6 +224,20 @@ Run:
 python3 -m json.tool data/<next_name>_intermediate.json
 ```
 
+Then run the Catechism anchor validator and enrichment routine. This is a required part of the complete flow, not an optional review step:
+
+```bash
+python3 validate_against_catechism.py \
+  data/<next_name>_intermediate.json \
+  --require-explicit-refs \
+  --enrich-output data/<next_name>_intermediate.json \
+  --report data_validation_results/<next_name>_intermediate_catechism_validation_results.json
+```
+
+This routine must populate or preserve `source.catechism_references` and append explicit `CCC` paragraph references to every `variant_ground_truth.<variant_key>.justification`.
+
+If the validator reports missing CCC references, unsupported doctrinal anchors, or apparent contradictions, revise the affected intermediate items and rerun the validator and enrichment routine before continuing.
+
 Stop here if the dataset is not complete yet. Do not run the transformer until the accumulated intermediate file has reached the user's target total or the user explicitly asks to produce a final file.
 
 ### Step 9: Transform To Final Format, Only When Complete
@@ -231,6 +261,17 @@ python3 -m json.tool data/<generated_name>_final.json
 ```
 
 If validation fails, fix the issue and rerun transformation and validation.
+
+Also run the Catechism validator and enrichment routine on the final output:
+
+```bash
+python3 validate_against_catechism.py \
+  data/<generated_name>_final.json \
+  --enrich-output data/<generated_name>_final.json \
+  --report data_validation_results/<generated_name>_final_catechism_validation_results.json
+```
+
+This ensures every final `ground_truth.justification` also carries an explicit `CCC` paragraph reference.
 
 ### Step 11: Run Tests
 
@@ -269,6 +310,7 @@ Report:
 - intermediate file path
 - final file path, if transformation was run
 - validation commands run
+- Catechism validation report path and summary
 - test result
 - any warnings, especially doctrinal uncertainty or source coverage limitations
 

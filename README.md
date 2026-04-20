@@ -75,7 +75,11 @@ The transformer expands each parent item into four final benchmark rows:
 
 `append_intermediate_batch.py`: Python script that validates a newly generated intermediate batch, rejects exact or near duplicates, and writes the next accumulated intermediate JSON file.
 
+`validate_against_catechism.py`: Python script that checks intermediate or final dataset rows against Catechism of the Catholic Church doctrine anchors. It can use explicit `source.catechism_references` when present, infer likely CCC anchors for older files, and enrich justifications with explicit `CCC` paragraph references.
+
 `data/`: current generated dataset files that should be committed.
+
+`data_validation_results/`: validation reports for generated datasets. These are audit outputs, not datasets.
 
 `archived_data/`: older generated dataset files. This folder is ignored by Git and should not be committed.
 
@@ -98,8 +102,10 @@ This workflow assumes you are running in an environment where the LLM agent can:
 
 - read the repository files, especially `master_dataset_workflow_prompt.md`, `prompt_catholic_benchmark_qa_generation.md`, `intermediate_qa_schema_v2.json`, and `final_qa_schema.md`
 - write new JSON files into `data/`
+- write validation reports into `data_validation_results/`
 - run shell commands such as `python3 -m json.tool`, `python3 append_intermediate_batch.py`, `python3 transform_intermediate_to_final.py`, and `python3 -m unittest discover -s tests`
 - access Catholic Answers source material from `catholic.com`, either through web access or through article text provided by the user
+- access or know the relevant Catechism of the Catholic Church paragraph references, preferably from the Vatican edition at `vatican.va/archive/ENG0015/_INDEX.HTM`
 - keep `archived_data/` local and ignored by Git
 
 If the LLM agent does not have web access, provide the Catholic Answers article text directly. If the agent cannot run shell commands, it can still generate intermediate JSON, but a human should run the transform and validation commands afterward.
@@ -144,6 +150,19 @@ Use:
 - `_final.json` for transformed benchmark data
 - `v1`, `v2`, etc. when regenerating on the same date or materially changing the dataset
 
+Validation result files go in `data_validation_results/` and should use this pattern:
+
+```text
+saicred_eval_qa_<sample_size>_sample_<yyyy-mm-dd>_v<version>_<stage>_<validator>_validation_results.json
+```
+
+Example:
+
+```text
+data_validation_results/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate_catechism_validation_results.json
+data_validation_results/saicred_eval_qa_100_sample_2026-04-19_v1_final_catechism_validation_results.json
+```
+
 For batch generation, `<sample_size>` should describe the item count in that file. For example, a 20-item batch can be saved as `*_20_sample_*_batch.json`, then appended to an existing 40-item intermediate file to produce a new `*_60_sample_*_intermediate.json`.
 
 ## Validate Intermediate Batch JSON
@@ -163,6 +182,7 @@ Important intermediate-format rules:
 - `multiple_choice` items use `answers.options` with `A`, `B`, `C`, and `D`
 - every variant has its own entry in `variant_ground_truth`
 - variant-specific binary answers may differ when the wording requires it
+- `source.catechism_references` should include supporting Catechism paragraph numbers or ranges
 
 For example, a neutral question may correctly answer `YES`, while an adversarial version of the same doctrinal target may correctly answer `NO`.
 
@@ -206,12 +226,36 @@ Then validate the final JSON:
 python3 -m json.tool data/saicred_eval_qa_20_sample_2026-04-19_v2_final.json
 ```
 
+## Validate Against The Catechism
+
+Run the Catechism validator and enrichment routine on intermediate files before transforming and on final files before committing:
+
+```bash
+python3 validate_against_catechism.py \
+  data/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate.json \
+  --enrich-output data/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate.json \
+  --report data_validation_results/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate_catechism_validation_results.json
+```
+
+For newly generated data, require explicit CCC paragraph references:
+
+```bash
+python3 validate_against_catechism.py \
+  data/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate.json \
+  --require-explicit-refs \
+  --enrich-output data/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate.json \
+  --report data_validation_results/saicred_eval_qa_100_sample_2026-04-19_v1_intermediate_catechism_validation_results.json
+```
+
+The validator checks whether each row maps to a known Catechism doctrine anchor, whether the answer explanation contains expected doctrinal terms, whether MCQ answer keys are structurally valid, and whether the ground truth appears to affirm common CCC-incompatible claims. When `--enrich-output` is used, it also appends references such as `See CCC 1374-1377.` to each justification. This is an automated consistency check, not a replacement for theological review.
+
 The transformer maps:
 
 - intermediate `yes_no` to final `binary`
 - intermediate `multiple_choice` to final `mcq`
 - one parent item to four final rows
 - `variant_ground_truth` into each row's final `ground_truth`
+- `source`, including `source.catechism_references`, into each final row
 
 ## Final Format
 
@@ -239,7 +283,7 @@ Run the tests before committing regenerated data:
 python3 -m unittest discover -s tests
 ```
 
-The tests check three things.
+The tests check five things.
 
 First, they validate structural rules:
 
@@ -259,7 +303,12 @@ Third, they validate batch append behavior:
 - valid new intermediate batches can be appended
 - duplicate intermediate items are rejected before accumulation
 
-Fourth, they validate the checked-in sample dataset against a curated doctrinal oracle:
+Fourth, they validate Catechism-anchor behavior:
+
+- generated rows can be matched to CCC doctrine anchors
+- obvious CCC-incompatible affirmations are flagged
+
+Fifth, they validate the checked-in sample dataset against a curated doctrinal oracle:
 
 - expected answer keys
 - expected topic domains

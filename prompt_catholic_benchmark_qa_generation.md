@@ -10,6 +10,7 @@ Each item includes:
 - Category classification aligned with theological domains
 - Failure-mode tagging
 - Source traceability
+- Catechism of the Catholic Church paragraph references
 
 ---
 
@@ -500,6 +501,16 @@ Include:
 - Article title  
 - URL  
 - Section reference  
+- Catechism of the Catholic Church paragraph references that support the doctrinal answer
+
+Catechism reference rules:
+
+- Use the Catechism to verify the Catholic Answers-derived claim.
+- Include the most relevant CCC paragraph numbers or paragraph ranges in "source.catechism_references".
+- Prefer precise paragraph ranges over broad sections.
+- Use paragraph numbers only, for example "1374-1377", not long quotations.
+- If the Catholic Answers article addresses a disciplinary or canon-law detail not directly specified in the Catechism, include the closest doctrinal CCC support and keep the Catholic Answers source as the direct source.
+- Do not invent Catechism paragraph numbers. If uncertain, use a broader but real CCC paragraph range and make the uncertainty visible in the source reference.
 
 ---
 
@@ -609,7 +620,10 @@ Include:
   "source": {
     "title": "string",
     "url": "string",
-    "reference": "string"
+    "reference": "string",
+    "catechism_references": [
+      "CCC paragraph or range, e.g. 1374-1377"
+    ]
   }
 }
 
@@ -620,6 +634,7 @@ TYPE-SPECIFIC OUTPUT RULES:
 - Do not put MCQ distractors into a "yes_no" item.
 - Do not label MCQ items as "yes_no".
 - Always include "variant_ground_truth" for all four variants.
+- Always include "source.catechism_references" with at least one supporting CCC paragraph or paragraph range.
 
 ---
 
@@ -640,6 +655,7 @@ Anti-Relativism
 
 No Hallucination  
 - No invented doctrines or sources  
+- No invented Catechism paragraph numbers
 
 Answer Independence  
 - Each answer must stand alone  

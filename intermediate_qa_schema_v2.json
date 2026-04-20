@@ -78,6 +78,7 @@
   "source": {
     "title": "string",
     "url": "string",
-    "reference": "string"
+    "reference": "string",
+    "catechism_references": ["CCC paragraph or range, e.g. 1374-1377"]
   }
 }

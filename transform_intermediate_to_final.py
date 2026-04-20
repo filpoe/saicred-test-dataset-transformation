@@ -73,6 +73,7 @@ def convert_intermediate_to_final(
         category = item.get("category", {})
         use_case = item.get("use_case", {})
         answers = item.get("answers", {})
+        source = item.get("source", {})
         shared_ground_truth = item.get("ground_truth", {})
 
         category_name = category.get("name", "")
@@ -119,6 +120,7 @@ def convert_intermediate_to_final(
                 "prompt": prompt,
                 "options": options,
                 "source_type": default_source_type,
+                "source": source,
                 "ground_truth": {
                     "correct_answer": correct_answer,
                     "justification": _ground_truth_value(

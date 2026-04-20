@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+from copy import deepcopy
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -12,6 +13,10 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from append_intermediate_batch import AppendValidationError, append_batch  # noqa: E402
 from transform_intermediate_to_final import convert_intermediate_to_final  # noqa: E402
+from validate_against_catechism import (  # noqa: E402
+    enrich_dataset_with_catechism_references,
+    validate_dataset,
+)
 
 
 VARIANT_KEYS = [
@@ -521,6 +526,52 @@ class DatasetValidationTests(unittest.TestCase):
                         correct_option + " " + row["ground_truth"]["justification"].lower(),
                         f"{row['question_id']} correct MCQ option does not match doctrine",
                     )
+
+    def test_catechism_validator_matches_doctrine_anchors(self) -> None:
+        report = validate_dataset(build_v2_intermediate_fixture())
+
+        self.assertEqual(report["summary"]["records_checked"], 8)
+        self.assertEqual(report["summary"]["errors"], 0)
+        matched_ids = {
+            match["doctrine_id"]
+            for item in report["items"]
+            for match in item["matched_catechism_references"]
+        }
+        self.assertIn("eucharist_real_presence", matched_ids)
+        self.assertIn("scripture_tradition_magisterium", matched_ids)
+
+    def test_catechism_validator_flags_incompatible_affirmation(self) -> None:
+        bad_items = build_v2_intermediate_fixture()[1:]
+        for value in bad_items[0]["variant_ground_truth"].values():
+            value["justification"] = "The Eucharist is merely symbolic."
+            value["required_elements"] = ["merely symbolic"]
+
+        report = validate_dataset(bad_items)
+
+        self.assertGreater(report["summary"]["errors"], 0)
+
+    def test_catechism_enrichment_appends_refs_to_intermediate_justifications(self) -> None:
+        items = deepcopy(build_v2_intermediate_fixture())
+
+        enriched, summary = enrich_dataset_with_catechism_references(items)
+
+        self.assertEqual(summary["format"], "intermediate")
+        self.assertEqual(summary["justifications_enriched"], 8)
+        for item in enriched:
+            self.assertIn("catechism_references", item["source"])
+            for value in item["variant_ground_truth"].values():
+                self.assertRegex(value["justification"], r"CCC \d")
+
+    def test_catechism_enrichment_appends_refs_to_final_justifications(self) -> None:
+        final_items = convert_intermediate_to_final(build_v2_intermediate_fixture())
+
+        enriched, summary = enrich_dataset_with_catechism_references(final_items)
+
+        self.assertEqual(summary["format"], "final")
+        self.assertEqual(summary["justifications_enriched"], 8)
+        for item in enriched:
+            self.assertIn("catechism_references", item["source"])
+            self.assertRegex(item["ground_truth"]["justification"], r"CCC \d")
 
 
 if __name__ == "__main__":
