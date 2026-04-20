@@ -1,332 +1,130 @@
-# Master Prompt: Generate And Transform A SAICRED Catholic QA Dataset
+# Master Prompt: Direct Dataset SAICRED Dataset Workflow
 
-Use this prompt when you want an LLM agent to execute the full dataset workflow in this repository.
-
----
+Use this prompt when an LLM agent should generate and validate a new SAICRED Catholic QA dataset.
 
 ## Role
 
 You are an expert Catholic benchmark dataset engineer and careful repository operator.
 
-Your job is to generate or extend a SAICRED Catholic QA benchmark dataset from Catholic Answers source material. The preferred workflow is batch generation: append validated intermediate batches until the target parent-item count is reached, then transform the completed intermediate dataset into the final benchmark JSON format.
+Generate dataset benchmark rows directly.
 
-You must preserve Catholic doctrine as taught by Sacred Scripture, Sacred Tradition, and the Magisterium. You must use Catholic Answers source material from `catholic.com`.
+Use Catholic Answers source material from `www.catholic.com`. Validate doctrine against the Catechism of the Catholic Church (`CCC`).
 
----
+## Ask The User First
 
-## First Ask The User
+Ask only:
 
-Before generating anything, ask the user for:
+1. How many new parent question groups should I generate?
+2. Should I check existing `data/*.json` files so the new questions do not overlap existing data?
+3. Should I append the new dataset to an existing cumulative dataset?
 
-1. What final total number of parent question-and-answer pairs should the dataset contain?
-2. How many new parent question-and-answer pairs should be generated in this batch?
-3. Which existing intermediate JSON file should be extended, if any?
-4. Which Catholic Answers source material should be used?
+Assume the source corpus is `www.catholic.com`.
 
-The source material can be:
-
-- one or more `catholic.com` URLs
-- pasted Catholic Answers article text
-- a short topic request, in which case you should ask for permission to find suitable Catholic Answers pages
-
-Do not proceed until the user provides the target count, batch size, and source material, or explicitly asks you to choose reasonable defaults.
-
-Recommended default: generate batches of 10-25 parent items. For a 100-pair dataset, prefer five batches of 20 over one large 100-item generation because duplicate control, source coverage, and doctrinal review are easier.
-
----
+Always run doctrinal auto-fix if validation finds issues.
 
 ## Files To Use
 
-Use these repository files:
+Use:
 
 ```text
-prompt_catholic_benchmark_qa_generation.md
-intermediate_qa_schema_v2.json
-final_qa_schema.md
-transform_intermediate_to_final.py
-append_intermediate_batch.py
+prompt_generate_dataset_from_catholic_com.md
+qa_schema_reference.json
+dataset_workflow.py
+validate_dataset_schema.py
+validate_dataset_redundancy.py
+validate_doctrine_and_logic.py
 tests/test_dataset_validation.py
-validate_against_catechism.py
 ```
 
-Save generated datasets in:
+Generated datasets go in:
 
 ```text
 data/
 ```
 
-Save validation reports in:
+Validation reports go in:
 
 ```text
 data_validation_results/
 ```
 
-Move older generated dataset versions into:
+Do not commit validation result JSON files. They are ignored by Git.
+
+## Generation Rules
+
+Generate dataset JSON rows directly.
+
+Each parent question group must have exactly four rows:
 
 ```text
-archived_data/
+N.1 neutral
+N.2 christian
+N.3 catholic
+N.4 adversarial
 ```
 
-Never commit `archived_data/`. It is intentionally ignored by Git.
+Each row must own its own correct answer and justification.
 
----
+This is mandatory for adversarial rows. If the adversarial wording reverses the proposition, its `ground_truth.correct_answer` must differ from the neutral answer when Catholic truth requires it.
 
-## Dataset Naming
+Use `qa_schema_reference.json` as the concrete format example.
 
-Use this naming pattern:
+## Validation Workflow
 
-```text
-data/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_intermediate.json
-data/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_batch.json
-data/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_final.json
-```
-
-Where:
-
-- `<N>` is the number of parent question-and-answer pairs in that file
-- `<yyyy-mm-dd>` is the current date
-- `<V>` is the next available version for that date and sample size
-
-Example:
-
-```text
-data/saicred_eval_qa_25_sample_2026-04-19_v1_intermediate.json
-data/saicred_eval_qa_25_sample_2026-04-19_v1_final.json
-```
-
-If a file with `v1` already exists for the same date and sample size, use `v2`, then `v3`, and so on.
-
-For batch work:
-
-- save each newly generated batch as `*_batch.json`
-- append the batch into a new accumulated `*_intermediate.json`
-- do not create or update `*_final.json` until the user says the dataset is complete or the target total has been reached
-
-Validation result files must go in `data_validation_results/`, not `data/`, and must clearly say that they are validation outputs:
-
-```text
-data_validation_results/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_intermediate_catechism_validation_results.json
-data_validation_results/saicred_eval_qa_<N>_sample_<yyyy-mm-dd>_v<V>_final_catechism_validation_results.json
-```
-
----
-
-## Workflow
-
-### Step 1: Read The Project Instructions
-
-Read:
-
-```text
-README.md
-prompt_catholic_benchmark_qa_generation.md
-intermediate_qa_schema_v2.json
-final_qa_schema.md
-```
-
-Understand the purpose of the intermediate and final formats before generating data.
-
-### Step 2: Gather Catholic Answers Source Material
-
-Use only Catholic Answers material from `catholic.com`.
-
-If the user gives URLs, use those pages.
-
-If the user gives article text, use that text.
-
-If the user asks you to choose sources, find Catholic Answers pages that cover the requested doctrinal topics. Prefer pages with clear doctrinal claims, apologetic contrasts, and source traceability.
-
-### Step 3: Inspect Existing Intermediate Data
-
-If extending an existing dataset, read the current intermediate JSON before generating new items. Build a short duplicate-avoidance brief from:
-
-- existing neutral, christian, catholic, and adversarial question text
-- existing doctrinal targets and required elements
-- existing source titles, URLs, and section references
-- existing categories and use cases
-
-The new batch must not repeat an existing doctrinal target, question stem, answer option set, or source-section claim unless the user explicitly asks for a deliberate duplicate for testing.
-
-### Step 4: Generate Intermediate Batch Items
-
-Using `prompt_catholic_benchmark_qa_generation.md`, generate exactly the number of parent question-and-answer pairs requested by the user.
-
-Each parent item must include four question variants:
-
-```text
-question_neutral
-question_christian
-question_catholic
-question_adversarial
-```
-
-Each item must be either:
-
-- `yes_no`
-- `multiple_choice`
-
-For `yes_no` items:
-
-- `answers.correct` must be `null`
-- `answers.incorrect` must be `[]`
-- each variant's `YES` or `NO` answer must be stored in `variant_ground_truth.<variant_key>.correct_answer`
-
-For `multiple_choice` items:
-
-- `answers.options` must contain `A`, `B`, `C`, and `D`
-- `answers.correct` must be the correct option letter
-- `answers.incorrect` must contain the three incorrect option letters
-- each variant's correct option letter must be stored in `variant_ground_truth.<variant_key>.correct_answer`
-
-Variant-specific answers may differ when the wording requires it. For example, a neutral Church-authority question may answer `YES`, while an adversarial sola-scriptura framing of the same doctrinal target may answer `NO`.
-
-Each item must also include `source.catechism_references`, with one or more Catechism of the Catholic Church paragraph numbers or paragraph ranges that support the doctrinal answer. Use paragraph references only; do not include long Catechism quotations in the JSON. The Catechism validation routine will also append those references to each variant justification in the form `See CCC <paragraphs>.`
-
-### Step 5: Save Batch JSON
-
-Save the generated batch in `data/` using the naming convention and the `_batch.json` suffix.
-
-The saved file must be valid JSON.
-
-### Step 6: Validate Batch JSON
-
-Run:
+After generating the draft dataset JSON, save it temporarily outside `data/` or with a draft name. Then run:
 
 ```bash
-python3 -m json.tool data/<generated_name>_batch.json
+python3 dataset_workflow.py \
+  --draft-dataset path/to/generated_draft_dataset.json \
+  --parent-groups <N>
 ```
 
-If validation fails, fix the JSON and run the validation again.
-
-Review the structure against `intermediate_qa_schema_v2.json`.
-
-### Step 7: Append Batch To Accumulated Intermediate JSON
-
-Use the append script to validate schema rules, check exact and near duplicates, and write the next accumulated intermediate file:
+If the user asked to check existing data, include:
 
 ```bash
-python3 append_intermediate_batch.py \
-  data/<current_name>_intermediate.json \
-  data/<generated_name>_batch.json \
-  data/<next_name>_intermediate.json \
-  --expected-total <new_total>
+--check-existing
 ```
 
-If this is the first batch and no existing intermediate file exists, save the batch directly as the first accumulated `*_intermediate.json`.
-
-If duplicate validation fails, revise or replace the duplicate batch items. Do not append a batch that fails duplicate validation.
-
-### Step 8: Validate Accumulated Intermediate JSON
-
-Run:
+If the user asked to append to a cumulative dataset, include:
 
 ```bash
-python3 -m json.tool data/<next_name>_intermediate.json
+--append-to data/<existing_cumulative>.json
 ```
 
-Then run the Catechism anchor validator and enrichment routine. This is a required part of the complete flow, not an optional review step:
+The workflow script must:
 
-```bash
-python3 validate_against_catechism.py \
-  data/<next_name>_intermediate.json \
-  --require-explicit-refs \
-  --enrich-output data/<next_name>_intermediate.json \
-  --report data_validation_results/<next_name>_intermediate_catechism_validation_results.json
-```
+- validate schema
+- check redundancy when requested
+- validate doctrine and logic
+- auto-fix CCC-reference enrichment when possible
+- write validation reports
+- save a new standalone dataset
+- save a new cumulative dataset if append was requested
 
-This routine must populate or preserve `source.catechism_references` and append explicit `CCC` paragraph references to every `variant_ground_truth.<variant_key>.justification`.
+If validation fails after auto-fix, stop and report the validation result path. Do not silently accept questionable data.
 
-If the validator reports missing CCC references, unsupported doctrinal anchors, or apparent contradictions, revise the affected intermediate items and rerun the validator and enrichment routine before continuing.
+## Redundancy Intent
 
-Stop here if the dataset is not complete yet. Do not run the transformer until the accumulated intermediate file has reached the user's target total or the user explicitly asks to produce a final file.
+When checking existing data, avoid more than exact duplicate text. Reject or revise:
 
-### Step 9: Transform To Final Format, Only When Complete
+- duplicate prompts
+- near-paraphrases of existing prompts
+- the same doctrinal target with superficial rewording
+- the same Catholic Answers section used for the same teaching
+- repeated MCQ option sets
+- repeated adversarial framing patterns
 
-Run:
-
-```bash
-python3 transform_intermediate_to_final.py \
-  data/<generated_name>_intermediate.json \
-  data/<generated_name>_final.json
-```
-
-The transformer should create one final row for each question variant. If the intermediate file contains `N` parent items, the final file should contain `N * 4` rows.
-
-### Step 10: Validate Final JSON
-
-Run:
-
-```bash
-python3 -m json.tool data/<generated_name>_final.json
-```
-
-If validation fails, fix the issue and rerun transformation and validation.
-
-Also run the Catechism validator and enrichment routine on the final output:
-
-```bash
-python3 validate_against_catechism.py \
-  data/<generated_name>_final.json \
-  --enrich-output data/<generated_name>_final.json \
-  --report data_validation_results/<generated_name>_final_catechism_validation_results.json
-```
-
-This ensures every final `ground_truth.justification` also carries an explicit `CCC` paragraph reference.
-
-### Step 11: Run Tests
-
-Run:
-
-```bash
-python3 -m unittest discover -s tests
-```
-
-If tests fail, inspect whether the failure is caused by:
-
-- malformed intermediate data
-- malformed final data
-- transformer behavior
-- the curated sample-dataset oracle in the tests
-
-Fix the relevant issue and rerun the tests.
-
-### Step 12: Archive Older Generated Data
-
-During batch generation, keep the latest accumulated intermediate file in `data/`. Once the final dataset is complete, keep the completed intermediate/final pair in `data/`.
-
-Move older generated dataset pairs into `archived_data/`, unless the user explicitly asks to keep them in `data/`.
-
-Do not move schema files, prompts, tests, or scripts into `archived_data/`. Intermediate batch files may be archived after they have been successfully appended.
-
-### Step 13: Final Report
+## Workflow Report
 
 Report:
 
-- number of new parent question-and-answer pairs generated in this batch
-- accumulated number of parent question-and-answer pairs
-- target number of parent question-and-answer pairs
-- number of final benchmark rows generated, if transformation was run
-- batch file path, if a batch file was created
-- intermediate file path
-- final file path, if transformation was run
-- validation commands run
-- Catechism validation report path and summary
-- test result
-- any warnings, especially doctrinal uncertainty or source coverage limitations
+- number of new parent question groups generated
+- standalone dataset path
+- cumulative dataset path, if created
+- schema validation result
+- redundancy validation result, if run
+- doctrinal-logic validation result
+- whether tests passed
+- any warnings requiring human review
 
-Do not claim the dataset is doctrinally perfect unless it has been manually reviewed. Say that it passed structural validation and the available automated tests.
-
----
-
-## Quality Rules
-
-- Use only Catholic Answers source material from `catholic.com`.
-- Preserve source attribution for every parent item.
-- Do not invent source titles, URLs, or references.
-- Before generating a batch, inspect the existing intermediate file and avoid duplicate or near-duplicate doctrinal targets.
-- Keep Catholic doctrine objective, not relativized as personal opinion.
-- Make adversarial variants plausible, not exaggerated.
-- Ensure adversarial variants preserve the doctrinal target even when the answer polarity changes.
-- Mix `yes_no` and `multiple_choice` items unless the user asks for only one type.
-- Prefer coverage across multiple doctrinal categories when the source material supports it.
-- Use clear, valid JSON only. Do not wrap generated JSON in Markdown fences when saving files.
+Do not claim the dataset is doctrinally perfect. Say it passed the available structural, redundancy, and doctrinal-logic checks.

@@ -1,16 +1,16 @@
-# SAICRED Final Evaluation Dataset
+# SAICRED Evaluation Dataset
 
 This folder contains generated SAICRED Catholic question-and-answer datasets.
 
-Final-format benchmark datasets use this filename pattern:
+Benchmark dataset files use this filename pattern:
 
 ```text
-*_final.json
+*.json
 ```
 
 ## Purpose
 
-Each `*_final.json` file is a reference benchmark for testing LLM answers to Catholic doctrine questions.
+Each `*.json` file is a reference benchmark for testing LLM answers to Catholic doctrine questions.
 
 It is designed to evaluate whether a model can answer accurately, consistently, and without being misled by framing changes. Each question includes ground truth answer data so model outputs can be compared against a known doctrinal reference.
 
@@ -41,9 +41,9 @@ Validation results are stored separately in `../data_validation_results/`. Those
 
 ## High-Level Schema
 
-Each final-format file is a JSON array. Each object in the array is one benchmark row.
+Each dataset file is a JSON array. Each object in the array is one benchmark row.
 
-Each final dataset starts from parent question-and-answer items. Each parent item is expanded into four variants, so a final file contains four rows for every parent item.
+Each dataset starts from parent question-and-answer items. Each parent item is expanded into four variants, so a dataset file contains four rows for every parent item.
 
 Each parent item has these four variant types:
 
@@ -88,7 +88,7 @@ Rows can have one of two formats:
 
 `options`: For `mcq` rows, an object containing answer choices `A`, `B`, `C`, and `D`. For `binary` rows, this is `null`.
 
-`source_type`: Source category used by the transformer. Current rows use `qa`.
+`source_type`: Source category used for generation. Current rows use `qa`.
 
 `source`: Source metadata for the item.
 

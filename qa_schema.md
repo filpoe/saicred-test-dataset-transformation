@@ -1,4 +1,4 @@
-JSON object representing the final format of the questions and answers for our AI benchmark:
+JSON object representing the question-and-answer rows for the SAICRED AI benchmark:
 
 [
   {

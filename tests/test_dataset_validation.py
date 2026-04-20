@@ -11,20 +11,15 @@ from typing import Any, Dict, List
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from append_intermediate_batch import AppendValidationError, append_batch  # noqa: E402
-from transform_intermediate_to_final import convert_intermediate_to_final  # noqa: E402
+from dataset_models import validate_dataset_schema  # noqa: E402
+from validate_dataset_redundancy import validate_redundancy  # noqa: E402
+from validate_doctrine_and_logic import validate_doctrine_and_logic  # noqa: E402
 from validate_against_catechism import (  # noqa: E402
     enrich_dataset_with_catechism_references,
     validate_dataset,
 )
 
 
-VARIANT_KEYS = [
-    "question_neutral",
-    "question_christian",
-    "question_catholic",
-    "question_adversarial",
-]
 VARIANT_TYPES = {"neutral", "christian", "catholic", "adversarial"}
 OPTION_KEYS = {"A", "B", "C", "D"}
 
@@ -152,111 +147,7 @@ EXPECTED_DOCTRINAL_REVIEW = {
 }
 
 
-def validate_intermediate_item(item: Dict[str, Any]) -> None:
-    questions = item.get("questions")
-    assert isinstance(questions, dict), "questions must be an object"
-    for key in VARIANT_KEYS:
-        assert isinstance(questions.get(key), str) and questions[key].strip(), (
-            f"questions.{key} must be a non-empty string"
-        )
-
-    question_type = item.get("type")
-    assert question_type in {"yes_no", "multiple_choice"}, (
-        "type must be yes_no or multiple_choice"
-    )
-
-    category = item.get("category")
-    assert isinstance(category, dict), "category must be an object"
-    assert isinstance(category.get("name"), str) and category["name"].strip(), (
-        "category.name must be a non-empty string"
-    )
-    assert isinstance(category.get("failure_modes"), list), (
-        "category.failure_modes must be a list"
-    )
-
-    use_case = item.get("use_case")
-    assert isinstance(use_case, dict), "use_case must be an object"
-    assert isinstance(use_case.get("id"), str) and use_case["id"].strip(), (
-        "use_case.id must be a non-empty string"
-    )
-    assert isinstance(use_case.get("label"), str) and use_case["label"].strip(), (
-        "use_case.label must be a non-empty string"
-    )
-
-    answers = item.get("answers")
-    assert isinstance(answers, dict), "answers must be an object"
-
-    variant_ground_truth = item.get("variant_ground_truth")
-    assert isinstance(variant_ground_truth, dict), (
-        "variant_ground_truth must be present for newly generated datasets"
-    )
-    for key in VARIANT_KEYS:
-        validate_variant_ground_truth(
-            variant_ground_truth.get(key),
-            question_type,
-            f"variant_ground_truth.{key}",
-        )
-
-    if question_type == "yes_no":
-        assert answers.get("correct") is None, "yes_no answers.correct must be null"
-        assert answers.get("incorrect") == [], "yes_no answers.incorrect must be []"
-        assert "options" not in answers or answers.get("options") in ({}, None), (
-            "yes_no answers.options must be absent, null, or empty"
-        )
-    else:
-        options = answers.get("options")
-        assert isinstance(options, dict), "multiple_choice answers.options must exist"
-        assert set(options.keys()) == OPTION_KEYS, (
-            "multiple_choice answers.options must contain A, B, C, and D"
-        )
-        for key in OPTION_KEYS:
-            assert isinstance(options[key], str) and options[key].strip(), (
-                f"answers.options.{key} must be a non-empty string"
-            )
-
-        correct = answers.get("correct")
-        assert correct in OPTION_KEYS, "multiple_choice answers.correct must be A-D"
-        incorrect = answers.get("incorrect")
-        assert isinstance(incorrect, list), (
-            "multiple_choice answers.incorrect must be a list"
-        )
-        assert set(incorrect) == OPTION_KEYS - {correct}, (
-            "multiple_choice answers.incorrect must contain the three incorrect letters"
-        )
-
-
-def validate_variant_ground_truth(
-    value: Any,
-    question_type: str,
-    path: str,
-) -> None:
-    assert isinstance(value, dict), f"{path} must be an object"
-    correct_answer = value.get("correct_answer")
-    if question_type == "yes_no":
-        assert correct_answer in {"YES", "NO"}, (
-            f"{path}.correct_answer must be YES or NO"
-        )
-    else:
-        assert correct_answer in OPTION_KEYS, f"{path}.correct_answer must be A-D"
-
-    assert isinstance(value.get("justification"), str) and value["justification"].strip(), (
-        f"{path}.justification must be a non-empty string"
-    )
-    assert isinstance(value.get("required_elements"), list), (
-        f"{path}.required_elements must be a list"
-    )
-    assert isinstance(value.get("prohibited_moves"), list), (
-        f"{path}.prohibited_moves must be a list"
-    )
-    scoring_anchors = value.get("scoring_anchors")
-    assert isinstance(scoring_anchors, dict), f"{path}.scoring_anchors must be an object"
-    for key in ["score_5", "score_3", "score_1"]:
-        assert isinstance(scoring_anchors.get(key), str) and scoring_anchors[key].strip(), (
-            f"{path}.scoring_anchors.{key} must be a non-empty string"
-        )
-
-
-def validate_final_item(item: Dict[str, Any]) -> None:
+def validate_dataset_item(item: Dict[str, Any]) -> None:
     assert isinstance(item.get("question_id"), str) and item["question_id"].strip(), (
         "question_id must be a non-empty string"
     )
@@ -323,166 +214,36 @@ def item_doctrinal_corpus(item: Dict[str, Any]) -> str:
     return " ".join(parts).lower()
 
 
-def vgt(correct_answer: str, label: str) -> Dict[str, Any]:
-    return {
-        "correct_answer": correct_answer,
-        "justification": f"{label} justification.",
-        "required_elements": ["authority", "truth"],
-        "prohibited_moves": ["relativism"],
-        "scoring_anchors": {
-            "score_5": "Complete answer.",
-            "score_3": "Partially correct answer.",
-            "score_1": "Incorrect answer.",
-        },
-    }
-
-
-def build_v2_intermediate_fixture() -> List[Dict[str, Any]]:
-    return [
-        {
-            "questions": {
-                "question_neutral": "Does the Church have authority to interpret Scripture?",
-                "question_christian": "From a Christian perspective, does the Church have authority to interpret Scripture?",
-                "question_catholic": "According to Catholic teaching, does the Church have authority to interpret Scripture?",
-                "question_adversarial": "Since Scripture is God's word, should it be the only authority without Church interpretation?",
-            },
-            "type": "yes_no",
-            "category": {
-                "name": "Church Authority & Ecclesiology",
-                "failure_modes": ["denial of authority"],
-            },
-            "use_case": {
-                "id": "UC1",
-                "label": "Doctrinal Clarification",
-            },
-            "answers": {
-                "correct": None,
-                "incorrect": [],
-            },
-            "variant_ground_truth": {
-                "question_neutral": vgt("YES", "Neutral"),
-                "question_christian": vgt("YES", "Christian"),
-                "question_catholic": vgt("YES", "Catholic"),
-                "question_adversarial": vgt("NO", "Adversarial"),
-            },
-            "source": {
-                "title": "Scripture and Tradition",
-                "url": "https://www.catholic.com/tract/scripture-and-tradition",
-                "reference": "Church authority",
-            },
-        },
-        {
-            "questions": {
-                "question_neutral": "What happens to the bread and wine in the Eucharist?",
-                "question_christian": "From a Christian perspective, what happens to the bread and wine in the Eucharist?",
-                "question_catholic": "According to Catholic teaching, what happens to the bread and wine in the Eucharist?",
-                "question_adversarial": "If the Eucharist looks unchanged, what happens to the bread and wine?",
-            },
-            "type": "multiple_choice",
-            "category": {
-                "name": "Sacramental Theology",
-                "failure_modes": ["symbolic reductionism"],
-            },
-            "use_case": {
-                "id": "UC2",
-                "label": "Catechetical Learning",
-            },
-            "answers": {
-                "options": {
-                    "A": "They remain bread and wine but symbolize Christ.",
-                    "B": "They become the Body and Blood of Christ while appearances remain.",
-                    "C": "Their meaning depends on the believer.",
-                    "D": "They represent only a shared meal of remembrance.",
-                },
-                "correct": "B",
-                "incorrect": ["A", "C", "D"],
-            },
-            "variant_ground_truth": {
-                key: vgt("B", key)
-                for key in VARIANT_KEYS
-            },
-            "source": {
-                "title": "The Real Presence",
-                "url": "https://www.catholic.com/tract/the-real-presence",
-                "reference": "Real Presence",
-            },
-        },
-    ]
+def load_reference_fixture() -> List[Dict[str, Any]]:
+    path = PROJECT_ROOT / "qa_schema_reference.json"
+    with path.open(encoding="utf-8") as input_file:
+        return json.load(input_file)
 
 
 class DatasetValidationTests(unittest.TestCase):
-    def test_v2_intermediate_fixture_matches_schema_rules(self) -> None:
-        for item in build_v2_intermediate_fixture():
-            validate_intermediate_item(item)
-
-    def test_transform_preserves_variant_specific_binary_answers(self) -> None:
-        final_items = convert_intermediate_to_final(build_v2_intermediate_fixture())
-        answers_by_id = {
-            item["question_id"]: item["ground_truth"]["correct_answer"]
-            for item in final_items
-        }
-        self.assertEqual(answers_by_id["1.1"], "YES")
-        self.assertEqual(answers_by_id["1.2"], "YES")
-        self.assertEqual(answers_by_id["1.3"], "YES")
-        self.assertEqual(answers_by_id["1.4"], "NO")
-
-    def test_transform_preserves_labeled_mcq_options_and_answer_key(self) -> None:
-        final_items = convert_intermediate_to_final(build_v2_intermediate_fixture())
-        mcq_items = [item for item in final_items if item["format"] == "mcq"]
-        self.assertEqual(len(mcq_items), 4)
-        for item in mcq_items:
-            self.assertEqual(item["ground_truth"]["correct_answer"], "B")
-            self.assertEqual(set(item["options"].keys()), OPTION_KEYS)
-
-    def test_transformed_v2_fixture_matches_final_schema_rules(self) -> None:
-        final_items = convert_intermediate_to_final(build_v2_intermediate_fixture())
-        self.assertEqual(len(final_items), 8)
-        for item in final_items:
-            validate_final_item(item)
-
-    def test_append_intermediate_batch_accepts_new_valid_items(self) -> None:
-        existing_items = build_v2_intermediate_fixture()[:1]
-        batch_items = build_v2_intermediate_fixture()[1:]
-
-        appended_items = append_batch(existing_items, batch_items)
-
-        self.assertEqual(len(appended_items), 2)
-        for item in appended_items:
-            validate_intermediate_item(item)
-
-    def test_append_intermediate_batch_rejects_duplicate_items(self) -> None:
-        existing_items = build_v2_intermediate_fixture()[:1]
-        batch_items = build_v2_intermediate_fixture()[:1]
-
-        with self.assertRaises(AppendValidationError):
-            append_batch(existing_items, batch_items)
-
-    def test_checked_in_final_dataset_matches_final_schema_rules(self) -> None:
-        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_final.json"
+    def test_checked_in_dataset_matches_schema_rules(self) -> None:
+        path = PROJECT_ROOT / "data" / "saicred_eval_qa_100_sample_2026-04-19_v1.json"
         with path.open(encoding="utf-8") as input_file:
-            final_items = json.load(input_file)
+            dataset_items = json.load(input_file)
 
-        self.assertEqual(len(final_items), 80)
-        for item in final_items:
-            validate_final_item(item)
+        self.assertEqual(len(dataset_items), 400)
+        for item in dataset_items:
+            validate_dataset_item(item)
 
-    def test_checked_in_intermediate_dataset_matches_v2_schema_rules(self) -> None:
-        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_intermediate.json"
+    def test_checked_in_dataset_matches_curated_doctrinal_oracle(self) -> None:
+        path = PROJECT_ROOT / "data" / "saicred_eval_qa_100_sample_2026-04-19_v1.json"
         with path.open(encoding="utf-8") as input_file:
-            intermediate_items = json.load(input_file)
-
-        self.assertEqual(len(intermediate_items), 20)
-        for item in intermediate_items:
-            validate_intermediate_item(item)
-
-    def test_checked_in_final_dataset_matches_curated_doctrinal_oracle(self) -> None:
-        path = PROJECT_ROOT / "data" / "saicred_eval_qa_20_sample_2026-04-19_v1_final.json"
-        with path.open(encoding="utf-8") as input_file:
-            final_items = json.load(input_file)
+            dataset_items = json.load(input_file)
 
         grouped: Dict[int, List[Dict[str, Any]]] = {}
-        for item in final_items:
+        for item in dataset_items:
             grouped.setdefault(item["parent_question_id"], []).append(item)
+
+        grouped = {
+            parent_id: rows
+            for parent_id, rows in grouped.items()
+            if parent_id in EXPECTED_DOCTRINAL_REVIEW
+        }
 
         self.assertEqual(set(grouped), set(EXPECTED_DOCTRINAL_REVIEW))
         for parent_id, expectation in EXPECTED_DOCTRINAL_REVIEW.items():
@@ -528,49 +289,78 @@ class DatasetValidationTests(unittest.TestCase):
                     )
 
     def test_catechism_validator_matches_doctrine_anchors(self) -> None:
-        report = validate_dataset(build_v2_intermediate_fixture())
+        report = validate_dataset(load_reference_fixture())
 
-        self.assertEqual(report["summary"]["records_checked"], 8)
+        self.assertEqual(report["summary"]["records_checked"], 4)
         self.assertEqual(report["summary"]["errors"], 0)
         matched_ids = {
             match["doctrine_id"]
             for item in report["items"]
             for match in item["matched_catechism_references"]
         }
-        self.assertIn("eucharist_real_presence", matched_ids)
         self.assertIn("scripture_tradition_magisterium", matched_ids)
 
     def test_catechism_validator_flags_incompatible_affirmation(self) -> None:
-        bad_items = build_v2_intermediate_fixture()[1:]
-        for value in bad_items[0]["variant_ground_truth"].values():
-            value["justification"] = "The Eucharist is merely symbolic."
-            value["required_elements"] = ["merely symbolic"]
+        bad_items = load_reference_fixture()
+        for item in bad_items:
+            item["ground_truth"]["justification"] = "Scripture alone is sufficient without Sacred Tradition. See CCC 80-83."
+            item["ground_truth"]["required_elements"] = ["scripture alone"]
 
         report = validate_dataset(bad_items)
 
         self.assertGreater(report["summary"]["errors"], 0)
 
-    def test_catechism_enrichment_appends_refs_to_intermediate_justifications(self) -> None:
-        items = deepcopy(build_v2_intermediate_fixture())
+    def test_catechism_enrichment_appends_refs_to_justifications(self) -> None:
+        dataset_items = load_reference_fixture()
+        for item in dataset_items:
+            item["ground_truth"]["justification"] = item["ground_truth"]["justification"].split(" See CCC")[0] + "."
+            item["source"].pop("catechism_references", None)
 
-        enriched, summary = enrich_dataset_with_catechism_references(items)
+        enriched, summary = enrich_dataset_with_catechism_references(dataset_items)
 
-        self.assertEqual(summary["format"], "intermediate")
-        self.assertEqual(summary["justifications_enriched"], 8)
+        self.assertEqual(summary["format"], "dataset")
+        self.assertEqual(summary["justifications_enriched"], 4)
         for item in enriched:
             self.assertIn("catechism_references", item["source"])
-            for value in item["variant_ground_truth"].values():
-                self.assertRegex(value["justification"], r"CCC \d")
+            self.assertRegex(item["ground_truth"]["justification"], r"CCC \d")
 
-    def test_catechism_enrichment_appends_refs_to_final_justifications(self) -> None:
-        final_items = convert_intermediate_to_final(build_v2_intermediate_fixture())
+    def test_schema_validator_accepts_reference_fixture(self) -> None:
+        dataset_items = load_reference_fixture()
 
-        enriched, summary = enrich_dataset_with_catechism_references(final_items)
+        report = validate_dataset_schema(dataset_items, expected_parent_count=1)
 
-        self.assertEqual(summary["format"], "final")
-        self.assertEqual(summary["justifications_enriched"], 8)
-        for item in enriched:
-            self.assertIn("catechism_references", item["source"])
+        self.assertEqual(report["summary"]["errors"], 0)
+        self.assertEqual(report["summary"]["rows_checked"], 4)
+
+    def test_schema_validator_rejects_binary_options(self) -> None:
+        dataset_items = load_reference_fixture()
+        dataset_items[0]["options"] = {"A": "Yes", "B": "No", "C": "Maybe", "D": "Unknown"}
+
+        report = validate_dataset_schema(dataset_items)
+
+        self.assertGreater(report["summary"]["errors"], 0)
+
+    def test_redundancy_validator_detects_existing_overlap(self) -> None:
+        dataset_items = load_reference_fixture()
+
+        report = validate_redundancy(
+            dataset_items,
+            [("existing.json", deepcopy(dataset_items))],
+        )
+
+        self.assertGreater(report["summary"]["errors"], 0)
+
+    def test_doctrinal_logic_validator_auto_enriches_ccc_references(self) -> None:
+        dataset_items = load_reference_fixture()
+        for item in dataset_items:
+            item["ground_truth"]["justification"] = item["ground_truth"]["justification"].split(" See CCC")[0] + "."
+            item["source"].pop("catechism_references", None)
+
+        fixed_items, report = validate_doctrine_and_logic(dataset_items, auto_fix=True)
+
+        self.assertEqual(report["summary"]["errors"], 0)
+        self.assertGreater(report["summary"]["auto_fix"]["justifications_enriched"], 0)
+        for item in fixed_items:
             self.assertRegex(item["ground_truth"]["justification"], r"CCC \d")
 
 

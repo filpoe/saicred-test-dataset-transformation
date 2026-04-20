@@ -11,13 +11,6 @@ from typing import Any, Dict, List, Optional, Sequence
 
 CCC_INDEX_URL = "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
 
-VARIANT_KEYS = {
-    "question_neutral": ("1", "neutral"),
-    "question_christian": ("2", "christian"),
-    "question_catholic": ("3", "catholic"),
-    "question_adversarial": ("4", "adversarial"),
-}
-
 OPTION_KEYS = {"A", "B", "C", "D"}
 
 
@@ -278,44 +271,13 @@ def extract_records(dataset: Any) -> List[Dict[str, Any]]:
     if not dataset:
         return []
 
-    if all(isinstance(item, dict) and "questions" in item for item in dataset):
-        return _extract_intermediate_records(dataset)
-
     if all(isinstance(item, dict) and "question_id" in item for item in dataset):
-        return _extract_final_records(dataset)
+        return _extract_dataset_records(dataset)
 
-    raise ValueError("Dataset must be consistently intermediate-format or final-format JSON")
-
-
-def _extract_intermediate_records(items: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    records: List[Dict[str, Any]] = []
-    for parent_index, item in enumerate(items, start=1):
-        questions = item.get("questions", {})
-        answers = item.get("answers", {})
-        variant_ground_truth = item.get("variant_ground_truth", {})
-        source = item.get("source", {})
-        item_refs = _extract_catechism_refs(item, source)
-
-        for variant_key, (suffix, variant_type) in VARIANT_KEYS.items():
-            ground_truth = variant_ground_truth.get(variant_key, {})
-            record = {
-                "record_id": f"{parent_index}.{suffix}",
-                "parent_question_id": parent_index,
-                "variant_type": variant_type,
-                "format": "binary" if item.get("type") == "yes_no" else "mcq",
-                "topic_domain": item.get("category", {}).get("name"),
-                "prompt": questions.get(variant_key, ""),
-                "options": answers.get("options") if item.get("type") == "multiple_choice" else None,
-                "correct_answer": ground_truth.get("correct_answer") or answers.get("correct"),
-                "ground_truth": ground_truth,
-                "source": source,
-                "catechism_references": item_refs,
-            }
-            records.append(record)
-    return records
+    raise ValueError("Dataset must be dataset JSON rows with question_id fields")
 
 
-def _extract_final_records(items: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def _extract_dataset_records(items: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
     records: List[Dict[str, Any]] = []
     for item in items:
         source = item.get("source", {})
@@ -384,60 +346,19 @@ def enrich_dataset_with_catechism_references(dataset: Any) -> tuple[Any, Dict[st
     if not dataset:
         return dataset, {"items_enriched": 0, "justifications_enriched": 0}
 
-    if all(isinstance(item, dict) and "questions" in item for item in dataset):
-        return _enrich_intermediate_dataset(dataset)
     if all(isinstance(item, dict) and "question_id" in item for item in dataset):
-        return _enrich_final_dataset(dataset)
-    raise ValueError("Dataset must be consistently intermediate-format or final-format JSON")
+        return _enrich_dataset(dataset)
+    raise ValueError("Dataset must be dataset JSON rows with question_id fields")
 
 
-def _enrich_intermediate_dataset(
+def _enrich_dataset(
     items: List[Dict[str, Any]],
 ) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
     justifications_enriched = 0
     items_enriched = 0
 
     for item in items:
-        records = _extract_intermediate_records([item])
-        refs = _record_group_catechism_refs(records)
-        if not refs:
-            continue
-
-        source = item.setdefault("source", {})
-        if isinstance(source, dict):
-            existing_refs = _extract_catechism_refs(item, source)
-            merged_refs = _merge_refs(existing_refs, refs)
-            if merged_refs != existing_refs:
-                source["catechism_references"] = merged_refs
-                items_enriched += 1
-
-        variant_ground_truth = item.get("variant_ground_truth", {})
-        if isinstance(variant_ground_truth, dict):
-            for variant_key in VARIANT_KEYS:
-                value = variant_ground_truth.get(variant_key)
-                if not isinstance(value, dict):
-                    continue
-                old = value.get("justification")
-                new = append_ccc_reference_to_justification(old, refs)
-                if new != old:
-                    value["justification"] = new
-                    justifications_enriched += 1
-
-    return items, {
-        "items_enriched": items_enriched,
-        "justifications_enriched": justifications_enriched,
-        "format": "intermediate",
-    }
-
-
-def _enrich_final_dataset(
-    items: List[Dict[str, Any]],
-) -> tuple[List[Dict[str, Any]], Dict[str, Any]]:
-    justifications_enriched = 0
-    items_enriched = 0
-
-    for item in items:
-        record = _extract_final_records([item])[0]
+        record = _extract_dataset_records([item])[0]
         refs = _record_group_catechism_refs([record])
         if not refs:
             continue
@@ -461,7 +382,7 @@ def _enrich_final_dataset(
     return items, {
         "items_enriched": items_enriched,
         "justifications_enriched": justifications_enriched,
-        "format": "final",
+        "format": "dataset",
     }
 
 
@@ -664,7 +585,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Validate SAICRED QA datasets against Catechism doctrine anchors."
     )
-    parser.add_argument("dataset", type=Path, help="Intermediate or final dataset JSON")
+    parser.add_argument("dataset", type=Path, help="Dataset JSON file")
     parser.add_argument(
         "--report",
         type=Path,

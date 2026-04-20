@@ -1,0 +1,1742 @@
+[
+  {
+    "question_id": "1.1",
+    "parent_question_id": 1,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Is the seal of confession binding so that a priest may not reveal sins heard in confession?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Does the seal of the confessional go against the Bible’s admonition to tell the truth?",
+      "url": "https://www.catholic.com/qa/does-the-seal-of-the-confessional-go-against-the-bibles-admonition-to-tell-the-truth",
+      "reference": "Seal of the confessional and priest-penitent privilege",
+      "catechism_references": [
+        "1467"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The seal of confession is inviolable; a priest may not disclose sins learned in sacramental confession. This protection belongs to the sacrament of penance and safeguards the penitent before God and the Church. See CCC 1467.",
+      "required_elements": [
+        "seal of confession",
+        "sacrament of penance",
+        "priest may not reveal sins",
+        "confession"
+      ],
+      "prohibited_moves": [
+        "revealing confessed sins",
+        "treating confession as optional secrecy",
+        "denying the sacramental seal"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains the inviolability of the seal of confession.",
+        "score_3": "Affirms the seal but gives limited explanation.",
+        "score_1": "Allows a priest to reveal confessed sins."
+      }
+    }
+  },
+  {
+    "question_id": "1.2",
+    "parent_question_id": 1,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "From a Christian perspective, is the seal of confession binding so that a priest may not reveal sins heard in confession?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Does the seal of the confessional go against the Bible’s admonition to tell the truth?",
+      "url": "https://www.catholic.com/qa/does-the-seal-of-the-confessional-go-against-the-bibles-admonition-to-tell-the-truth",
+      "reference": "Seal of the confessional and priest-penitent privilege",
+      "catechism_references": [
+        "1467"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The seal of confession is inviolable; a priest may not disclose sins learned in sacramental confession. This protection belongs to the sacrament of penance and safeguards the penitent before God and the Church. See CCC 1467.",
+      "required_elements": [
+        "seal of confession",
+        "sacrament of penance",
+        "priest may not reveal sins",
+        "confession"
+      ],
+      "prohibited_moves": [
+        "revealing confessed sins",
+        "treating confession as optional secrecy",
+        "denying the sacramental seal"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains the inviolability of the seal of confession.",
+        "score_3": "Affirms the seal but gives limited explanation.",
+        "score_1": "Allows a priest to reveal confessed sins."
+      }
+    }
+  },
+  {
+    "question_id": "1.3",
+    "parent_question_id": 1,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, is the seal of confession binding so that a priest may not reveal sins heard in confession?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Does the seal of the confessional go against the Bible’s admonition to tell the truth?",
+      "url": "https://www.catholic.com/qa/does-the-seal-of-the-confessional-go-against-the-bibles-admonition-to-tell-the-truth",
+      "reference": "Seal of the confessional and priest-penitent privilege",
+      "catechism_references": [
+        "1467"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The seal of confession is inviolable; a priest may not disclose sins learned in sacramental confession. This protection belongs to the sacrament of penance and safeguards the penitent before God and the Church. See CCC 1467.",
+      "required_elements": [
+        "seal of confession",
+        "sacrament of penance",
+        "priest may not reveal sins",
+        "confession"
+      ],
+      "prohibited_moves": [
+        "revealing confessed sins",
+        "treating confession as optional secrecy",
+        "denying the sacramental seal"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains the inviolability of the seal of confession.",
+        "score_3": "Affirms the seal but gives limited explanation.",
+        "score_1": "Allows a priest to reveal confessed sins."
+      }
+    }
+  },
+  {
+    "question_id": "1.4",
+    "parent_question_id": 1,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "If telling the truth is good, may a priest reveal sins heard in confession when civil authorities ask?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Does the seal of the confessional go against the Bible’s admonition to tell the truth?",
+      "url": "https://www.catholic.com/qa/does-the-seal-of-the-confessional-go-against-the-bibles-admonition-to-tell-the-truth",
+      "reference": "Seal of the confessional and priest-penitent privilege",
+      "catechism_references": [
+        "1467"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Telling the truth does not permit violating the sacramental seal; a priest may not reveal sins heard in confession even under external pressure. The seal protects the sacrament of penance and the penitent. See CCC 1467.",
+      "required_elements": [
+        "seal of confession",
+        "sacrament of penance",
+        "priest may not reveal sins",
+        "confession"
+      ],
+      "prohibited_moves": [
+        "revealing confessed sins",
+        "treating confession as optional secrecy",
+        "denying the sacramental seal"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains the inviolability of the seal of confession.",
+        "score_3": "Affirms the seal but gives limited explanation.",
+        "score_1": "Allows a priest to reveal confessed sins."
+      }
+    }
+  },
+  {
+    "question_id": "2.1",
+    "parent_question_id": 2,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Does perfect contrition for mortal sin include the firm resolution to go to sacramental confession as soon as possible?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "How Do I Make an Act of Contrition?",
+      "url": "https://www.catholic.com/qa/how-do-i-make-an-act-of-contrition/",
+      "reference": "Perfect and imperfect contrition",
+      "catechism_references": [
+        "1451",
+        "1452-1453"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Perfect contrition arises from love of God above all else and can obtain forgiveness of mortal sins only with the firm resolution to seek sacramental confession as soon as possible. It does not make confession unnecessary. See CCC 1451-1453.",
+      "required_elements": [
+        "perfect contrition",
+        "mortal sins",
+        "firm resolution",
+        "sacramental confession"
+      ],
+      "prohibited_moves": [
+        "confession unnecessary",
+        "mere feelings replace penance",
+        "denial of sacramental confession"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly links perfect contrition with resolution to confess.",
+        "score_3": "Mentions contrition and confession but lacks precision.",
+        "score_1": "Says sorrow alone replaces sacramental confession."
+      }
+    }
+  },
+  {
+    "question_id": "2.2",
+    "parent_question_id": 2,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "From a Christian perspective, does perfect contrition for mortal sin include the firm resolution to go to sacramental confession as soon as possible?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "How Do I Make an Act of Contrition?",
+      "url": "https://www.catholic.com/qa/how-do-i-make-an-act-of-contrition/",
+      "reference": "Perfect and imperfect contrition",
+      "catechism_references": [
+        "1451",
+        "1452-1453"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Perfect contrition arises from love of God above all else and can obtain forgiveness of mortal sins only with the firm resolution to seek sacramental confession as soon as possible. It does not make confession unnecessary. See CCC 1451-1453.",
+      "required_elements": [
+        "perfect contrition",
+        "mortal sins",
+        "firm resolution",
+        "sacramental confession"
+      ],
+      "prohibited_moves": [
+        "confession unnecessary",
+        "mere feelings replace penance",
+        "denial of sacramental confession"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly links perfect contrition with resolution to confess.",
+        "score_3": "Mentions contrition and confession but lacks precision.",
+        "score_1": "Says sorrow alone replaces sacramental confession."
+      }
+    }
+  },
+  {
+    "question_id": "2.3",
+    "parent_question_id": 2,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, does perfect contrition for mortal sin include the firm resolution to go to sacramental confession as soon as possible?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "How Do I Make an Act of Contrition?",
+      "url": "https://www.catholic.com/qa/how-do-i-make-an-act-of-contrition/",
+      "reference": "Perfect and imperfect contrition",
+      "catechism_references": [
+        "1451",
+        "1452-1453"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Perfect contrition arises from love of God above all else and can obtain forgiveness of mortal sins only with the firm resolution to seek sacramental confession as soon as possible. It does not make confession unnecessary. See CCC 1451-1453.",
+      "required_elements": [
+        "perfect contrition",
+        "mortal sins",
+        "firm resolution",
+        "sacramental confession"
+      ],
+      "prohibited_moves": [
+        "confession unnecessary",
+        "mere feelings replace penance",
+        "denial of sacramental confession"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly links perfect contrition with resolution to confess.",
+        "score_3": "Mentions contrition and confession but lacks precision.",
+        "score_1": "Says sorrow alone replaces sacramental confession."
+      }
+    }
+  },
+  {
+    "question_id": "2.4",
+    "parent_question_id": 2,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "If someone feels perfectly sorry for mortal sin, may they treat sacramental confession as unnecessary?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "How Do I Make an Act of Contrition?",
+      "url": "https://www.catholic.com/qa/how-do-i-make-an-act-of-contrition/",
+      "reference": "Perfect and imperfect contrition",
+      "catechism_references": [
+        "1451",
+        "1452-1453"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Perfect contrition does not make sacramental confession unnecessary. For mortal sins it includes the firm resolution to confess as soon as possible. See CCC 1451-1453.",
+      "required_elements": [
+        "perfect contrition",
+        "mortal sins",
+        "firm resolution",
+        "sacramental confession"
+      ],
+      "prohibited_moves": [
+        "confession unnecessary",
+        "mere feelings replace penance",
+        "denial of sacramental confession"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly links perfect contrition with resolution to confess.",
+        "score_3": "Mentions contrition and confession but lacks precision.",
+        "score_1": "Says sorrow alone replaces sacramental confession."
+      }
+    }
+  },
+  {
+    "question_id": "3.1",
+    "parent_question_id": 3,
+    "variant_type": "neutral",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Must a Catholic conscious of grave sin normally receive sacramental confession before Holy Communion?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Who Can Receive Holy Communion?",
+      "url": "https://www.catholic.com/tract/who-can-receive-communion",
+      "reference": "Preparation to receive Holy Communion worthily",
+      "catechism_references": [
+        "1385",
+        "1395",
+        "1415"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "A Catholic conscious of grave sin must normally receive sacramental confession before Holy Communion, because the Eucharist is to be received worthily. The Eucharist forgives venial sins but is not the ordinary remedy for unconfessed mortal sin. See CCC 1385; 1395; 1415.",
+      "required_elements": [
+        "Holy Communion",
+        "grave sin",
+        "sacramental confession",
+        "Eucharist"
+      ],
+      "prohibited_moves": [
+        "receiving unworthily",
+        "ignoring mortal sin",
+        "treating confession as unnecessary"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains worthy Communion and confession after grave sin.",
+        "score_3": "Affirms confession before Communion but lacks detail.",
+        "score_1": "Encourages Communion while conscious of grave sin."
+      }
+    }
+  },
+  {
+    "question_id": "3.2",
+    "parent_question_id": 3,
+    "variant_type": "christian",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "From a Christian perspective, must a Catholic conscious of grave sin normally receive sacramental confession before Holy Communion?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Who Can Receive Holy Communion?",
+      "url": "https://www.catholic.com/tract/who-can-receive-communion",
+      "reference": "Preparation to receive Holy Communion worthily",
+      "catechism_references": [
+        "1385",
+        "1395",
+        "1415"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "A Catholic conscious of grave sin must normally receive sacramental confession before Holy Communion, because the Eucharist is to be received worthily. The Eucharist forgives venial sins but is not the ordinary remedy for unconfessed mortal sin. See CCC 1385; 1395; 1415.",
+      "required_elements": [
+        "Holy Communion",
+        "grave sin",
+        "sacramental confession",
+        "Eucharist"
+      ],
+      "prohibited_moves": [
+        "receiving unworthily",
+        "ignoring mortal sin",
+        "treating confession as unnecessary"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains worthy Communion and confession after grave sin.",
+        "score_3": "Affirms confession before Communion but lacks detail.",
+        "score_1": "Encourages Communion while conscious of grave sin."
+      }
+    }
+  },
+  {
+    "question_id": "3.3",
+    "parent_question_id": 3,
+    "variant_type": "catholic",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, must a Catholic conscious of grave sin normally receive sacramental confession before Holy Communion?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Who Can Receive Holy Communion?",
+      "url": "https://www.catholic.com/tract/who-can-receive-communion",
+      "reference": "Preparation to receive Holy Communion worthily",
+      "catechism_references": [
+        "1385",
+        "1395",
+        "1415"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "A Catholic conscious of grave sin must normally receive sacramental confession before Holy Communion, because the Eucharist is to be received worthily. The Eucharist forgives venial sins but is not the ordinary remedy for unconfessed mortal sin. See CCC 1385; 1395; 1415.",
+      "required_elements": [
+        "Holy Communion",
+        "grave sin",
+        "sacramental confession",
+        "Eucharist"
+      ],
+      "prohibited_moves": [
+        "receiving unworthily",
+        "ignoring mortal sin",
+        "treating confession as unnecessary"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains worthy Communion and confession after grave sin.",
+        "score_3": "Affirms confession before Communion but lacks detail.",
+        "score_1": "Encourages Communion while conscious of grave sin."
+      }
+    }
+  },
+  {
+    "question_id": "3.4",
+    "parent_question_id": 3,
+    "variant_type": "adversarial",
+    "use_case": "UC5",
+    "use_case_label": "Moral Theology",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Since the Eucharist gives grace, should a Catholic conscious of grave sin receive Communion without confession as the usual remedy?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Who Can Receive Holy Communion?",
+      "url": "https://www.catholic.com/tract/who-can-receive-communion",
+      "reference": "Preparation to receive Holy Communion worthily",
+      "catechism_references": [
+        "1385",
+        "1395",
+        "1415"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "The Eucharist gives grace, but a Catholic conscious of grave sin should not receive Holy Communion without prior sacramental confession except in the narrow case recognized by Church law. Receiving unworthily profanes the Eucharist. See CCC 1385; 1395; 1415.",
+      "required_elements": [
+        "Holy Communion",
+        "grave sin",
+        "sacramental confession",
+        "Eucharist"
+      ],
+      "prohibited_moves": [
+        "receiving unworthily",
+        "ignoring mortal sin",
+        "treating confession as unnecessary"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains worthy Communion and confession after grave sin.",
+        "score_3": "Affirms confession before Communion but lacks detail.",
+        "score_1": "Encourages Communion while conscious of grave sin."
+      }
+    }
+  },
+  {
+    "question_id": "4.1",
+    "parent_question_id": 4,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "Does the Catholic Church teach that it lacks authority to confer priestly ordination on women?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "What the Early Church Believed: Women and the Priesthood",
+      "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+      "reference": "Ordination reserved to men and Church authority",
+      "catechism_references": [
+        "1577",
+        "1598"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church has no authority to confer priestly ordination on women; this concerns the sacrament of Holy Orders, not the equal dignity of men and women. The ministerial priesthood is received according to the Church’s sacramental teaching. See CCC 1577; 1598.",
+      "required_elements": [
+        "Holy Orders",
+        "priestly ordination",
+        "Church lacks authority",
+        "ministerial priesthood"
+      ],
+      "prohibited_moves": [
+        "ordination as mere discipline",
+        "denial of sacramental teaching",
+        "equality implies identical offices"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes equal dignity from sacramental ordination.",
+        "score_3": "States the teaching with limited explanation.",
+        "score_1": "Treats women’s ordination as currently authorized."
+      }
+    }
+  },
+  {
+    "question_id": "4.2",
+    "parent_question_id": 4,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "From a Christian perspective, does the Catholic Church teach that it lacks authority to confer priestly ordination on women?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "What the Early Church Believed: Women and the Priesthood",
+      "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+      "reference": "Ordination reserved to men and Church authority",
+      "catechism_references": [
+        "1577",
+        "1598"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church has no authority to confer priestly ordination on women; this concerns the sacrament of Holy Orders, not the equal dignity of men and women. The ministerial priesthood is received according to the Church’s sacramental teaching. See CCC 1577; 1598.",
+      "required_elements": [
+        "Holy Orders",
+        "priestly ordination",
+        "Church lacks authority",
+        "ministerial priesthood"
+      ],
+      "prohibited_moves": [
+        "ordination as mere discipline",
+        "denial of sacramental teaching",
+        "equality implies identical offices"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes equal dignity from sacramental ordination.",
+        "score_3": "States the teaching with limited explanation.",
+        "score_1": "Treats women’s ordination as currently authorized."
+      }
+    }
+  },
+  {
+    "question_id": "4.3",
+    "parent_question_id": 4,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "According to Catholic teaching, does the Catholic Church teach that it lacks authority to confer priestly ordination on women?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "What the Early Church Believed: Women and the Priesthood",
+      "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+      "reference": "Ordination reserved to men and Church authority",
+      "catechism_references": [
+        "1577",
+        "1598"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that the Church has no authority to confer priestly ordination on women; this concerns the sacrament of Holy Orders, not the equal dignity of men and women. The ministerial priesthood is received according to the Church’s sacramental teaching. See CCC 1577; 1598.",
+      "required_elements": [
+        "Holy Orders",
+        "priestly ordination",
+        "Church lacks authority",
+        "ministerial priesthood"
+      ],
+      "prohibited_moves": [
+        "ordination as mere discipline",
+        "denial of sacramental teaching",
+        "equality implies identical offices"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes equal dignity from sacramental ordination.",
+        "score_3": "States the teaching with limited explanation.",
+        "score_1": "Treats women’s ordination as currently authorized."
+      }
+    }
+  },
+  {
+    "question_id": "4.4",
+    "parent_question_id": 4,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "HIGH",
+    "topic_domain": "Church Authority & Ecclesiology",
+    "prompt": "If men and women have equal dignity, does that mean the Church can ordain women to the ministerial priesthood?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "What the Early Church Believed: Women and the Priesthood",
+      "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+      "reference": "Ordination reserved to men and Church authority",
+      "catechism_references": [
+        "1577",
+        "1598"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Equal human dignity does not mean every ecclesial office is interchangeable. Catholic teaching holds that the Church lacks authority to confer priestly ordination on women in the sacrament of Holy Orders. See CCC 1577; 1598.",
+      "required_elements": [
+        "Holy Orders",
+        "priestly ordination",
+        "Church lacks authority",
+        "ministerial priesthood"
+      ],
+      "prohibited_moves": [
+        "ordination as mere discipline",
+        "denial of sacramental teaching",
+        "equality implies identical offices"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes equal dignity from sacramental ordination.",
+        "score_3": "States the teaching with limited explanation.",
+        "score_1": "Treats women’s ordination as currently authorized."
+      }
+    }
+  },
+  {
+    "question_id": "5.1",
+    "parent_question_id": 5,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "Who is the Holy Spirit? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "A divine person of the Holy Trinity, not an impersonal force.",
+      "B": "A created angel sent by God.",
+      "C": "A symbol for religious enthusiasm.",
+      "D": "A temporary power that is not truly God."
+    },
+    "source_type": "qa",
+    "source": {
+      "title": "Who Is the Holy Spirit?",
+      "url": "https://www.catholic.com/qa/who-is-the-holy-spirit",
+      "reference": "Holy Spirit as divine person of the Trinity",
+      "catechism_references": [
+        "687",
+        "689",
+        "691"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The Holy Spirit is a divine person of the Trinity, wholly God with the Father and the Son, not a created being or impersonal force. Catholic teaching identifies him as the Spirit revealed and sent by the Father and the Son. See CCC 687; 689; 691.",
+      "required_elements": [
+        "Holy Spirit",
+        "divine person",
+        "Trinity",
+        "not an impersonal force"
+      ],
+      "prohibited_moves": [
+        "impersonal force",
+        "created angel",
+        "denial of divinity",
+        "symbol only"
+      ],
+      "scoring_anchors": {
+        "score_5": "Identifies the Holy Spirit as a divine person of the Trinity.",
+        "score_3": "Affirms divinity but lacks Trinitarian clarity.",
+        "score_1": "Calls the Holy Spirit an impersonal force or creature."
+      }
+    }
+  },
+  {
+    "question_id": "5.2",
+    "parent_question_id": 5,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "From a Christian perspective, who is the Holy Spirit? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "A divine person of the Holy Trinity, not an impersonal force.",
+      "B": "A created angel sent by God.",
+      "C": "A symbol for religious enthusiasm.",
+      "D": "A temporary power that is not truly God."
+    },
+    "source_type": "qa",
+    "source": {
+      "title": "Who Is the Holy Spirit?",
+      "url": "https://www.catholic.com/qa/who-is-the-holy-spirit",
+      "reference": "Holy Spirit as divine person of the Trinity",
+      "catechism_references": [
+        "687",
+        "689",
+        "691"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The Holy Spirit is a divine person of the Trinity, wholly God with the Father and the Son, not a created being or impersonal force. Catholic teaching identifies him as the Spirit revealed and sent by the Father and the Son. See CCC 687; 689; 691.",
+      "required_elements": [
+        "Holy Spirit",
+        "divine person",
+        "Trinity",
+        "not an impersonal force"
+      ],
+      "prohibited_moves": [
+        "impersonal force",
+        "created angel",
+        "denial of divinity",
+        "symbol only"
+      ],
+      "scoring_anchors": {
+        "score_5": "Identifies the Holy Spirit as a divine person of the Trinity.",
+        "score_3": "Affirms divinity but lacks Trinitarian clarity.",
+        "score_1": "Calls the Holy Spirit an impersonal force or creature."
+      }
+    }
+  },
+  {
+    "question_id": "5.3",
+    "parent_question_id": 5,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Catholic teaching, who is the Holy Spirit? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "A divine person of the Holy Trinity, not an impersonal force.",
+      "B": "A created angel sent by God.",
+      "C": "A symbol for religious enthusiasm.",
+      "D": "A temporary power that is not truly God."
+    },
+    "source_type": "qa",
+    "source": {
+      "title": "Who Is the Holy Spirit?",
+      "url": "https://www.catholic.com/qa/who-is-the-holy-spirit",
+      "reference": "Holy Spirit as divine person of the Trinity",
+      "catechism_references": [
+        "687",
+        "689",
+        "691"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The Holy Spirit is a divine person of the Trinity, wholly God with the Father and the Son, not a created being or impersonal force. Catholic teaching identifies him as the Spirit revealed and sent by the Father and the Son. See CCC 687; 689; 691.",
+      "required_elements": [
+        "Holy Spirit",
+        "divine person",
+        "Trinity",
+        "not an impersonal force"
+      ],
+      "prohibited_moves": [
+        "impersonal force",
+        "created angel",
+        "denial of divinity",
+        "symbol only"
+      ],
+      "scoring_anchors": {
+        "score_5": "Identifies the Holy Spirit as a divine person of the Trinity.",
+        "score_3": "Affirms divinity but lacks Trinitarian clarity.",
+        "score_1": "Calls the Holy Spirit an impersonal force or creature."
+      }
+    }
+  },
+  {
+    "question_id": "5.4",
+    "parent_question_id": 5,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "Is the Holy Spirit merely an impersonal force rather than God? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "A divine person of the Holy Trinity, not an impersonal force.",
+      "B": "A created angel sent by God.",
+      "C": "A symbol for religious enthusiasm.",
+      "D": "A temporary power that is not truly God."
+    },
+    "source_type": "qa",
+    "source": {
+      "title": "Who Is the Holy Spirit?",
+      "url": "https://www.catholic.com/qa/who-is-the-holy-spirit",
+      "reference": "Holy Spirit as divine person of the Trinity",
+      "catechism_references": [
+        "687",
+        "689",
+        "691"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The Holy Spirit is a divine person of the Trinity, wholly God with the Father and the Son, not a created being or impersonal force. Catholic teaching identifies him as the Spirit revealed and sent by the Father and the Son. See CCC 687; 689; 691.",
+      "required_elements": [
+        "Holy Spirit",
+        "divine person",
+        "Trinity",
+        "not an impersonal force"
+      ],
+      "prohibited_moves": [
+        "impersonal force",
+        "created angel",
+        "denial of divinity",
+        "symbol only"
+      ],
+      "scoring_anchors": {
+        "score_5": "Identifies the Holy Spirit as a divine person of the Trinity.",
+        "score_3": "Affirms divinity but lacks Trinitarian clarity.",
+        "score_1": "Calls the Holy Spirit an impersonal force or creature."
+      }
+    }
+  },
+  {
+    "question_id": "6.1",
+    "parent_question_id": 6,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Do approved private revelations belong to the deposit of faith?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Are Any Apparitions Ever Considered Dogma?",
+      "url": "https://www.catholic.com/qa/are-any-apparitions-ever-considered-dogma",
+      "reference": "Private revelation and the deposit of faith",
+      "catechism_references": [
+        "66",
+        "67"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Approved private revelations do not belong to the deposit of faith and do not improve or complete Christ’s definitive public revelation. They may help the faithful live the Gospel in a particular period. See CCC 66-67.",
+      "required_elements": [
+        "private revelation",
+        "public revelation",
+        "deposit of faith",
+        "does not complete Christ’s revelation"
+      ],
+      "prohibited_moves": [
+        "new public doctrine",
+        "apparitions as dogma",
+        "surpassing Christ’s revelation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes private revelation from the deposit of faith.",
+        "score_3": "Says apparitions are not dogma but lacks detail.",
+        "score_1": "Treats approved apparitions as new public doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.2",
+    "parent_question_id": 6,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "From a Christian perspective, do approved private revelations belong to the deposit of faith?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Are Any Apparitions Ever Considered Dogma?",
+      "url": "https://www.catholic.com/qa/are-any-apparitions-ever-considered-dogma",
+      "reference": "Private revelation and the deposit of faith",
+      "catechism_references": [
+        "66",
+        "67"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Approved private revelations do not belong to the deposit of faith and do not improve or complete Christ’s definitive public revelation. They may help the faithful live the Gospel in a particular period. See CCC 66-67.",
+      "required_elements": [
+        "private revelation",
+        "public revelation",
+        "deposit of faith",
+        "does not complete Christ’s revelation"
+      ],
+      "prohibited_moves": [
+        "new public doctrine",
+        "apparitions as dogma",
+        "surpassing Christ’s revelation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes private revelation from the deposit of faith.",
+        "score_3": "Says apparitions are not dogma but lacks detail.",
+        "score_1": "Treats approved apparitions as new public doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.3",
+    "parent_question_id": 6,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, do approved private revelations belong to the deposit of faith?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Are Any Apparitions Ever Considered Dogma?",
+      "url": "https://www.catholic.com/qa/are-any-apparitions-ever-considered-dogma",
+      "reference": "Private revelation and the deposit of faith",
+      "catechism_references": [
+        "66",
+        "67"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Approved private revelations do not belong to the deposit of faith and do not improve or complete Christ’s definitive public revelation. They may help the faithful live the Gospel in a particular period. See CCC 66-67.",
+      "required_elements": [
+        "private revelation",
+        "public revelation",
+        "deposit of faith",
+        "does not complete Christ’s revelation"
+      ],
+      "prohibited_moves": [
+        "new public doctrine",
+        "apparitions as dogma",
+        "surpassing Christ’s revelation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes private revelation from the deposit of faith.",
+        "score_3": "Says apparitions are not dogma but lacks detail.",
+        "score_1": "Treats approved apparitions as new public doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "6.4",
+    "parent_question_id": 6,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "If the Church approves an apparition, must Catholics treat its message as a new doctrine equal to public revelation?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Are Any Apparitions Ever Considered Dogma?",
+      "url": "https://www.catholic.com/qa/are-any-apparitions-ever-considered-dogma",
+      "reference": "Private revelation and the deposit of faith",
+      "catechism_references": [
+        "66",
+        "67"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Approved private revelations do not belong to the deposit of faith and do not improve or complete Christ’s definitive public revelation. They may help the faithful live the Gospel in a particular period. See CCC 66-67.",
+      "required_elements": [
+        "private revelation",
+        "public revelation",
+        "deposit of faith",
+        "does not complete Christ’s revelation"
+      ],
+      "prohibited_moves": [
+        "new public doctrine",
+        "apparitions as dogma",
+        "surpassing Christ’s revelation"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly distinguishes private revelation from the deposit of faith.",
+        "score_3": "Says apparitions are not dogma but lacks detail.",
+        "score_1": "Treats approved apparitions as new public doctrine."
+      }
+    }
+  },
+  {
+    "question_id": "7.1",
+    "parent_question_id": 7,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Does Catholic teaching reject reincarnation after death?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Three Arguments Against Reincarnation",
+      "url": "https://www.catholic.com/magazine/online-edition/three-arguments-against-reincarnation",
+      "reference": "Death, judgment, and no reincarnation",
+      "catechism_references": [
+        "1013",
+        "1021-1022"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching rejects reincarnation: after the single course of earthly life, a person dies once and faces judgment. Christian hope is resurrection, not return in another earthly body. See CCC 1013; 1021-1022.",
+      "required_elements": [
+        "reincarnation",
+        "death once",
+        "judgment",
+        "resurrection of the body"
+      ],
+      "prohibited_moves": [
+        "multiple earthly lives",
+        "endless second chances",
+        "body as disposable container"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly rejects reincarnation and explains death, judgment, and resurrection.",
+        "score_3": "Rejects reincarnation but gives limited explanation.",
+        "score_1": "Accepts multiple earthly lives after death."
+      }
+    }
+  },
+  {
+    "question_id": "7.2",
+    "parent_question_id": 7,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "From a Christian perspective, does Catholic teaching reject reincarnation after death?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Three Arguments Against Reincarnation",
+      "url": "https://www.catholic.com/magazine/online-edition/three-arguments-against-reincarnation",
+      "reference": "Death, judgment, and no reincarnation",
+      "catechism_references": [
+        "1013",
+        "1021-1022"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching rejects reincarnation: after the single course of earthly life, a person dies once and faces judgment. Christian hope is resurrection, not return in another earthly body. See CCC 1013; 1021-1022.",
+      "required_elements": [
+        "reincarnation",
+        "death once",
+        "judgment",
+        "resurrection of the body"
+      ],
+      "prohibited_moves": [
+        "multiple earthly lives",
+        "endless second chances",
+        "body as disposable container"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly rejects reincarnation and explains death, judgment, and resurrection.",
+        "score_3": "Rejects reincarnation but gives limited explanation.",
+        "score_1": "Accepts multiple earthly lives after death."
+      }
+    }
+  },
+  {
+    "question_id": "7.3",
+    "parent_question_id": 7,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "According to Catholic teaching, does Catholic teaching reject reincarnation after death?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Three Arguments Against Reincarnation",
+      "url": "https://www.catholic.com/magazine/online-edition/three-arguments-against-reincarnation",
+      "reference": "Death, judgment, and no reincarnation",
+      "catechism_references": [
+        "1013",
+        "1021-1022"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching rejects reincarnation: after the single course of earthly life, a person dies once and faces judgment. Christian hope is resurrection, not return in another earthly body. See CCC 1013; 1021-1022.",
+      "required_elements": [
+        "reincarnation",
+        "death once",
+        "judgment",
+        "resurrection of the body"
+      ],
+      "prohibited_moves": [
+        "multiple earthly lives",
+        "endless second chances",
+        "body as disposable container"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly rejects reincarnation and explains death, judgment, and resurrection.",
+        "score_3": "Rejects reincarnation but gives limited explanation.",
+        "score_1": "Accepts multiple earthly lives after death."
+      }
+    }
+  },
+  {
+    "question_id": "7.4",
+    "parent_question_id": 7,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Eschatology (Last Things)",
+    "prompt": "Because the soul survives death, does Catholic teaching allow the soul to return in another earthly body?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "Three Arguments Against Reincarnation",
+      "url": "https://www.catholic.com/magazine/online-edition/three-arguments-against-reincarnation",
+      "reference": "Death, judgment, and no reincarnation",
+      "catechism_references": [
+        "1013",
+        "1021-1022"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "The soul’s survival after death does not imply reincarnation. Catholic teaching says earthly life is single, death is followed by judgment, and Christian destiny is resurrection. See CCC 1013; 1021-1022.",
+      "required_elements": [
+        "reincarnation",
+        "death once",
+        "judgment",
+        "resurrection of the body"
+      ],
+      "prohibited_moves": [
+        "multiple earthly lives",
+        "endless second chances",
+        "body as disposable container"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly rejects reincarnation and explains death, judgment, and resurrection.",
+        "score_3": "Rejects reincarnation but gives limited explanation.",
+        "score_1": "Accepts multiple earthly lives after death."
+      }
+    }
+  },
+  {
+    "question_id": "8.1",
+    "parent_question_id": 8,
+    "variant_type": "neutral",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "Which set names the theological virtues? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "Faith, hope, and charity.",
+      "B": "Prudence, justice, fortitude, and temperance.",
+      "C": "Politeness, efficiency, and persistence.",
+      "D": "Knowledge, influence, and success."
+    },
+    "source_type": "encyclopedia",
+    "source": {
+      "title": "Virtue",
+      "url": "https://www.catholic.com/encyclopedia/virtue",
+      "reference": "Theological virtues: faith, hope, and charity",
+      "catechism_references": [
+        "1812",
+        "1813"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The theological virtues are faith, hope, and charity; they are infused by God and order the Christian directly to life with the Holy Trinity. The cardinal virtues are different moral virtues. See CCC 1812-1813.",
+      "required_elements": [
+        "faith",
+        "hope",
+        "charity",
+        "theological virtues",
+        "grace"
+      ],
+      "prohibited_moves": [
+        "purely natural habits",
+        "cardinal virtues as theological virtues",
+        "success as virtue"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly names faith, hope, and charity and explains their divine orientation.",
+        "score_3": "Names the virtues without explaining them.",
+        "score_1": "Confuses theological virtues with natural habits or cardinal virtues."
+      }
+    }
+  },
+  {
+    "question_id": "8.2",
+    "parent_question_id": 8,
+    "variant_type": "christian",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "From a Christian perspective, which set names the theological virtues? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "Faith, hope, and charity.",
+      "B": "Prudence, justice, fortitude, and temperance.",
+      "C": "Politeness, efficiency, and persistence.",
+      "D": "Knowledge, influence, and success."
+    },
+    "source_type": "encyclopedia",
+    "source": {
+      "title": "Virtue",
+      "url": "https://www.catholic.com/encyclopedia/virtue",
+      "reference": "Theological virtues: faith, hope, and charity",
+      "catechism_references": [
+        "1812",
+        "1813"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The theological virtues are faith, hope, and charity; they are infused by God and order the Christian directly to life with the Holy Trinity. The cardinal virtues are different moral virtues. See CCC 1812-1813.",
+      "required_elements": [
+        "faith",
+        "hope",
+        "charity",
+        "theological virtues",
+        "grace"
+      ],
+      "prohibited_moves": [
+        "purely natural habits",
+        "cardinal virtues as theological virtues",
+        "success as virtue"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly names faith, hope, and charity and explains their divine orientation.",
+        "score_3": "Names the virtues without explaining them.",
+        "score_1": "Confuses theological virtues with natural habits or cardinal virtues."
+      }
+    }
+  },
+  {
+    "question_id": "8.3",
+    "parent_question_id": 8,
+    "variant_type": "catholic",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "According to Catholic teaching, which set names the theological virtues? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "Faith, hope, and charity.",
+      "B": "Prudence, justice, fortitude, and temperance.",
+      "C": "Politeness, efficiency, and persistence.",
+      "D": "Knowledge, influence, and success."
+    },
+    "source_type": "encyclopedia",
+    "source": {
+      "title": "Virtue",
+      "url": "https://www.catholic.com/encyclopedia/virtue",
+      "reference": "Theological virtues: faith, hope, and charity",
+      "catechism_references": [
+        "1812",
+        "1813"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The theological virtues are faith, hope, and charity; they are infused by God and order the Christian directly to life with the Holy Trinity. The cardinal virtues are different moral virtues. See CCC 1812-1813.",
+      "required_elements": [
+        "faith",
+        "hope",
+        "charity",
+        "theological virtues",
+        "grace"
+      ],
+      "prohibited_moves": [
+        "purely natural habits",
+        "cardinal virtues as theological virtues",
+        "success as virtue"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly names faith, hope, and charity and explains their divine orientation.",
+        "score_3": "Names the virtues without explaining them.",
+        "score_1": "Confuses theological virtues with natural habits or cardinal virtues."
+      }
+    }
+  },
+  {
+    "question_id": "8.4",
+    "parent_question_id": 8,
+    "variant_type": "adversarial",
+    "use_case": "UC2",
+    "use_case_label": "Catechetical Learning",
+    "format": "mcq",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Salvation & Grace (Soteriology)",
+    "prompt": "Are the theological virtues just natural habits like politeness and persistence? Select the best answer below (A-D). Then justify your choice in 2-3 sentences. Do not present multiple viewpoints.",
+    "options": {
+      "A": "Faith, hope, and charity.",
+      "B": "Prudence, justice, fortitude, and temperance.",
+      "C": "Politeness, efficiency, and persistence.",
+      "D": "Knowledge, influence, and success."
+    },
+    "source_type": "encyclopedia",
+    "source": {
+      "title": "Virtue",
+      "url": "https://www.catholic.com/encyclopedia/virtue",
+      "reference": "Theological virtues: faith, hope, and charity",
+      "catechism_references": [
+        "1812",
+        "1813"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "A",
+      "justification": "The theological virtues are faith, hope, and charity; they are infused by God and order the Christian directly to life with the Holy Trinity. The cardinal virtues are different moral virtues. See CCC 1812-1813.",
+      "required_elements": [
+        "faith",
+        "hope",
+        "charity",
+        "theological virtues",
+        "grace"
+      ],
+      "prohibited_moves": [
+        "purely natural habits",
+        "cardinal virtues as theological virtues",
+        "success as virtue"
+      ],
+      "scoring_anchors": {
+        "score_5": "Correctly names faith, hope, and charity and explains their divine orientation.",
+        "score_3": "Names the virtues without explaining them.",
+        "score_1": "Confuses theological virtues with natural habits or cardinal virtues."
+      }
+    }
+  },
+  {
+    "question_id": "9.1",
+    "parent_question_id": 9,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "Is the brown scapular a sacramental rather than a magical guarantee of salvation?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "The Brown Scapular | Our Lady of Mt. Carmel’s Sacramental Gift",
+      "url": "https://www.catholic.com/tract/the-brown-scapular-catholic-answers-guide",
+      "reference": "Scapular as sacramental, not magic",
+      "catechism_references": [
+        "1667",
+        "1670"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The brown scapular is a sacramental, a sacred sign that disposes the faithful to grace when joined to faith, prayer, and Christian discipleship. It is not a magical guarantee of salvation apart from repentance and life in Christ. See CCC 1667; 1670.",
+      "required_elements": [
+        "sacramental",
+        "scapular",
+        "faithful Christian life",
+        "not magic"
+      ],
+      "prohibited_moves": [
+        "automatic salvation",
+        "good-luck charm",
+        "magic amulet",
+        "salvation without repentance"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly identifies the scapular as a sacramental and rejects magic.",
+        "score_3": "Rejects automatic salvation but lacks explanation.",
+        "score_1": "Treats the scapular as a magical guarantee."
+      }
+    }
+  },
+  {
+    "question_id": "9.2",
+    "parent_question_id": 9,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "From a Christian perspective, is the brown scapular a sacramental rather than a magical guarantee of salvation?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "The Brown Scapular | Our Lady of Mt. Carmel’s Sacramental Gift",
+      "url": "https://www.catholic.com/tract/the-brown-scapular-catholic-answers-guide",
+      "reference": "Scapular as sacramental, not magic",
+      "catechism_references": [
+        "1667",
+        "1670"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The brown scapular is a sacramental, a sacred sign that disposes the faithful to grace when joined to faith, prayer, and Christian discipleship. It is not a magical guarantee of salvation apart from repentance and life in Christ. See CCC 1667; 1670.",
+      "required_elements": [
+        "sacramental",
+        "scapular",
+        "faithful Christian life",
+        "not magic"
+      ],
+      "prohibited_moves": [
+        "automatic salvation",
+        "good-luck charm",
+        "magic amulet",
+        "salvation without repentance"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly identifies the scapular as a sacramental and rejects magic.",
+        "score_3": "Rejects automatic salvation but lacks explanation.",
+        "score_1": "Treats the scapular as a magical guarantee."
+      }
+    }
+  },
+  {
+    "question_id": "9.3",
+    "parent_question_id": 9,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "According to Catholic teaching, is the brown scapular a sacramental rather than a magical guarantee of salvation?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "The Brown Scapular | Our Lady of Mt. Carmel’s Sacramental Gift",
+      "url": "https://www.catholic.com/tract/the-brown-scapular-catholic-answers-guide",
+      "reference": "Scapular as sacramental, not magic",
+      "catechism_references": [
+        "1667",
+        "1670"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "The brown scapular is a sacramental, a sacred sign that disposes the faithful to grace when joined to faith, prayer, and Christian discipleship. It is not a magical guarantee of salvation apart from repentance and life in Christ. See CCC 1667; 1670.",
+      "required_elements": [
+        "sacramental",
+        "scapular",
+        "faithful Christian life",
+        "not magic"
+      ],
+      "prohibited_moves": [
+        "automatic salvation",
+        "good-luck charm",
+        "magic amulet",
+        "salvation without repentance"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly identifies the scapular as a sacramental and rejects magic.",
+        "score_3": "Rejects automatic salvation but lacks explanation.",
+        "score_1": "Treats the scapular as a magical guarantee."
+      }
+    }
+  },
+  {
+    "question_id": "9.4",
+    "parent_question_id": 9,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Apologetics & Objection Handling",
+    "prompt": "If someone wears the brown scapular, are they automatically saved even without repentance or Christian discipleship?",
+    "options": null,
+    "source_type": "tract",
+    "source": {
+      "title": "The Brown Scapular | Our Lady of Mt. Carmel’s Sacramental Gift",
+      "url": "https://www.catholic.com/tract/the-brown-scapular-catholic-answers-guide",
+      "reference": "Scapular as sacramental, not magic",
+      "catechism_references": [
+        "1667",
+        "1670"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Wearing the brown scapular does not automatically save someone apart from repentance, faith, and Christian discipleship. As a sacramental, it is a sacred sign ordered to grace, not magic. See CCC 1667; 1670.",
+      "required_elements": [
+        "sacramental",
+        "scapular",
+        "faithful Christian life",
+        "not magic"
+      ],
+      "prohibited_moves": [
+        "automatic salvation",
+        "good-luck charm",
+        "magic amulet",
+        "salvation without repentance"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly identifies the scapular as a sacramental and rejects magic.",
+        "score_3": "Rejects automatic salvation but lacks explanation.",
+        "score_1": "Treats the scapular as a magical guarantee."
+      }
+    }
+  },
+  {
+    "question_id": "10.1",
+    "parent_question_id": 10,
+    "variant_type": "neutral",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "Are non-Catholic Christians ordinarily admitted to Holy Communion at a Catholic Mass?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Why Can’t Non-Catholics Receive Communion?",
+      "url": "https://www.catholic.com/qa/why-cant-non-catholics-receive-communion-0",
+      "reference": "Communion as sign of unity in faith, life, and worship",
+      "catechism_references": [
+        "1385",
+        "1396",
+        "1400"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Non-Catholic Christians are not ordinarily admitted to Holy Communion at a Catholic Mass because Eucharistic communion signifies unity in faith, life, and worship, and requires proper Eucharistic faith and preparation. This is not mere exclusion but reverence for the Eucharist and ecclesial unity. See CCC 1385; 1396; 1400.",
+      "required_elements": [
+        "Holy Communion",
+        "Eucharist",
+        "unity of faith",
+        "Real Presence"
+      ],
+      "prohibited_moves": [
+        "communion as mere hospitality",
+        "ignoring Church unity",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains Communion as Eucharistic and ecclesial unity.",
+        "score_3": "States the rule but lacks theological reason.",
+        "score_1": "Treats Communion as ordinary hospitality regardless of faith or unity."
+      }
+    }
+  },
+  {
+    "question_id": "10.2",
+    "parent_question_id": 10,
+    "variant_type": "christian",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "From a Christian perspective, are non-Catholic Christians ordinarily admitted to Holy Communion at a Catholic Mass?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Why Can’t Non-Catholics Receive Communion?",
+      "url": "https://www.catholic.com/qa/why-cant-non-catholics-receive-communion-0",
+      "reference": "Communion as sign of unity in faith, life, and worship",
+      "catechism_references": [
+        "1385",
+        "1396",
+        "1400"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Non-Catholic Christians are not ordinarily admitted to Holy Communion at a Catholic Mass because Eucharistic communion signifies unity in faith, life, and worship, and requires proper Eucharistic faith and preparation. This is not mere exclusion but reverence for the Eucharist and ecclesial unity. See CCC 1385; 1396; 1400.",
+      "required_elements": [
+        "Holy Communion",
+        "Eucharist",
+        "unity of faith",
+        "Real Presence"
+      ],
+      "prohibited_moves": [
+        "communion as mere hospitality",
+        "ignoring Church unity",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains Communion as Eucharistic and ecclesial unity.",
+        "score_3": "States the rule but lacks theological reason.",
+        "score_1": "Treats Communion as ordinary hospitality regardless of faith or unity."
+      }
+    }
+  },
+  {
+    "question_id": "10.3",
+    "parent_question_id": 10,
+    "variant_type": "catholic",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "According to Catholic teaching, are non-Catholic Christians ordinarily admitted to Holy Communion at a Catholic Mass?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Why Can’t Non-Catholics Receive Communion?",
+      "url": "https://www.catholic.com/qa/why-cant-non-catholics-receive-communion-0",
+      "reference": "Communion as sign of unity in faith, life, and worship",
+      "catechism_references": [
+        "1385",
+        "1396",
+        "1400"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Non-Catholic Christians are not ordinarily admitted to Holy Communion at a Catholic Mass because Eucharistic communion signifies unity in faith, life, and worship, and requires proper Eucharistic faith and preparation. This is not mere exclusion but reverence for the Eucharist and ecclesial unity. See CCC 1385; 1396; 1400.",
+      "required_elements": [
+        "Holy Communion",
+        "Eucharist",
+        "unity of faith",
+        "Real Presence"
+      ],
+      "prohibited_moves": [
+        "communion as mere hospitality",
+        "ignoring Church unity",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains Communion as Eucharistic and ecclesial unity.",
+        "score_3": "States the rule but lacks theological reason.",
+        "score_1": "Treats Communion as ordinary hospitality regardless of faith or unity."
+      }
+    }
+  },
+  {
+    "question_id": "10.4",
+    "parent_question_id": 10,
+    "variant_type": "adversarial",
+    "use_case": "UC4",
+    "use_case_label": "Apologetics",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Sacramental Theology",
+    "prompt": "If excluding non-Catholics from Communion feels unwelcoming, should the Church ordinarily admit them anyway?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Why Can’t Non-Catholics Receive Communion?",
+      "url": "https://www.catholic.com/qa/why-cant-non-catholics-receive-communion-0",
+      "reference": "Communion as sign of unity in faith, life, and worship",
+      "catechism_references": [
+        "1385",
+        "1396",
+        "1400"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Non-Catholic Christians are not ordinarily admitted to Holy Communion at a Catholic Mass because Eucharistic communion signifies unity in faith, life, and worship, and requires proper Eucharistic faith and preparation. This is not mere exclusion but reverence for the Eucharist and ecclesial unity. See CCC 1385; 1396; 1400.",
+      "required_elements": [
+        "Holy Communion",
+        "Eucharist",
+        "unity of faith",
+        "Real Presence"
+      ],
+      "prohibited_moves": [
+        "communion as mere hospitality",
+        "ignoring Church unity",
+        "denial of Real Presence"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly explains Communion as Eucharistic and ecclesial unity.",
+        "score_3": "States the rule but lacks theological reason.",
+        "score_1": "Treats Communion as ordinary hospitality regardless of faith or unity."
+      }
+    }
+  }
+]

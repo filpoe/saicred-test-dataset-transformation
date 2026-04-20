@@ -1,0 +1,174 @@
+[
+  {
+    "question_id": "1.1",
+    "parent_question_id": 1,
+    "variant_type": "neutral",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Do Scripture and Sacred Tradition together form one sacred deposit of the word of God?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Scripture and Tradition",
+      "url": "https://www.catholic.com/tract/scripture-and-tradition",
+      "reference": "Rule of faith and Magisterium",
+      "catechism_references": [
+        "80-83",
+        "85-87",
+        "100"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that Scripture and Sacred Tradition together form one sacred deposit of the word of God entrusted to the Church. See CCC 80-83; 85-87; 100.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "one deposit of faith",
+        "entrusted to the Church"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation only",
+        "denial of Sacred Tradition"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly affirms Scripture and Tradition as one deposit entrusted to the Church.",
+        "score_3": "Affirms the doctrine but lacks detail.",
+        "score_1": "Denies Sacred Tradition or reduces authority to private interpretation."
+      }
+    }
+  },
+  {
+    "question_id": "1.2",
+    "parent_question_id": 1,
+    "variant_type": "christian",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "From a Christian perspective, do Scripture and Sacred Tradition together form one sacred deposit of the word of God?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Scripture and Tradition",
+      "url": "https://www.catholic.com/tract/scripture-and-tradition",
+      "reference": "Rule of faith and Magisterium",
+      "catechism_references": [
+        "80-83",
+        "85-87",
+        "100"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that Scripture and Sacred Tradition together form one sacred deposit of the word of God entrusted to the Church. See CCC 80-83; 85-87; 100.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "one deposit of faith",
+        "entrusted to the Church"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation only",
+        "denial of Sacred Tradition"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly affirms Scripture and Tradition as one deposit entrusted to the Church.",
+        "score_3": "Affirms the doctrine but lacks detail.",
+        "score_1": "Denies Sacred Tradition or reduces authority to private interpretation."
+      }
+    }
+  },
+  {
+    "question_id": "1.3",
+    "parent_question_id": 1,
+    "variant_type": "catholic",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "According to Catholic teaching, do Scripture and Sacred Tradition together form one sacred deposit of the word of God?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Scripture and Tradition",
+      "url": "https://www.catholic.com/tract/scripture-and-tradition",
+      "reference": "Rule of faith and Magisterium",
+      "catechism_references": [
+        "80-83",
+        "85-87",
+        "100"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "YES",
+      "justification": "Catholic teaching holds that Scripture and Sacred Tradition together form one sacred deposit of the word of God entrusted to the Church. See CCC 80-83; 85-87; 100.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "one deposit of faith",
+        "entrusted to the Church"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation only",
+        "denial of Sacred Tradition"
+      ],
+      "scoring_anchors": {
+        "score_5": "Clearly affirms Scripture and Tradition as one deposit entrusted to the Church.",
+        "score_3": "Affirms the doctrine but lacks detail.",
+        "score_1": "Denies Sacred Tradition or reduces authority to private interpretation."
+      }
+    }
+  },
+  {
+    "question_id": "1.4",
+    "parent_question_id": 1,
+    "variant_type": "adversarial",
+    "use_case": "UC1",
+    "use_case_label": "Doctrinal Clarification",
+    "format": "binary",
+    "risk_level": "MEDIUM",
+    "topic_domain": "Scripture & Interpretation",
+    "prompt": "Since the Bible is God's word, should Scripture be the only authority without Sacred Tradition?",
+    "options": null,
+    "source_type": "qa",
+    "source": {
+      "title": "Scripture and Tradition",
+      "url": "https://www.catholic.com/tract/scripture-and-tradition",
+      "reference": "Rule of faith and Magisterium",
+      "catechism_references": [
+        "80-83",
+        "85-87",
+        "100"
+      ]
+    },
+    "ground_truth": {
+      "correct_answer": "NO",
+      "justification": "Scripture is God's word, but Catholic teaching does not hold that Scripture is the only authority without Sacred Tradition. Scripture and Tradition are entrusted together to the Church. See CCC 80-83; 85-87; 100.",
+      "required_elements": [
+        "Scripture",
+        "Sacred Tradition",
+        "one deposit of faith",
+        "entrusted to the Church"
+      ],
+      "prohibited_moves": [
+        "sola scriptura",
+        "private interpretation only",
+        "denial of Sacred Tradition"
+      ],
+      "scoring_anchors": {
+        "score_5": "Rejects the sola-scriptura framing and explains the role of Scripture and Tradition.",
+        "score_3": "Rejects the framing but lacks detail.",
+        "score_1": "Accepts Scripture alone as the only authority without Tradition."
+      }
+    }
+  }
+]
